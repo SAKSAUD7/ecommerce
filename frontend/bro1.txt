@@ -1,0 +1,3833 @@
+# MASTER CONTINUATION PROMPT
+# DENOURA — PREMIUM GLOBAL ECOMMERCE + DROPSHIPPING PLATFORM
+# STOREFRONT + ADMIN CMS + BACKEND + DATABASE + COMPLETE SYSTEM INTEGRATION
+
+IMPORTANT:
+THIS IS AN EXISTING PROJECT THAT IS ALREADY SIGNIFICANTLY BUILT.
+
+DO NOT START THE PROJECT FROM SCRATCH.
+DO NOT THROW AWAY EXISTING WORK.
+DO NOT REPLACE WORKING SYSTEMS JUST TO MATCH A DESIGN REFERENCE.
+
+You must first understand the existing codebase, architecture, components, database, backend APIs, admin portal, storefront, existing CMS, product system, order system and all existing functionality.
+
+The objective is to take what already exists and bring it to a much higher level.
+
+============================================================
+1. READ THE PROJECT CONTEXT FIRST
+============================================================
+
+Before doing anything, read:
+
+ECOMMERCE_DROPSHIPPING_MASTER_CONTEXT.md
+
+This is the permanent project context and source of truth.
+
+Do not ask me to repeat requirements already contained in that file.
+
+Then inspect the ACTUAL existing repository.
+
+Understand:
+
+- Frontend architecture
+- Backend architecture
+- Database
+- Existing API structure
+- Existing components
+- Existing design system
+- Existing admin portal
+- Existing CMS
+- Existing product system
+- Existing catalog
+- Existing checkout
+- Existing cart
+- Existing orders
+- Existing customer system
+- Existing authentication
+- Existing authorization
+- Existing analytics
+- Existing supplier/dropshipping functionality
+- Existing integrations
+- Existing media system
+- Existing homepage
+- Existing product pages
+- Existing collection pages
+- Existing responsive behavior
+
+============================================================
+2. VERY IMPORTANT — AUDIT BEFORE MODIFYING
+============================================================
+
+Before changing the UI or architecture, inspect what has already been built.
+
+Create a mental map of the current system.
+
+For every existing feature determine:
+
+1. Is the UI implemented?
+2. Is the backend implemented?
+3. Is the database implemented?
+4. Is the API implemented?
+5. Is frontend connected to API?
+6. Is admin connected to backend?
+7. Is storefront connected to backend?
+8. Is the feature dynamic?
+9. Is validation implemented?
+10. Is authorization implemented?
+11. Is loading state implemented?
+12. Is empty state implemented?
+13. Is error handling implemented?
+14. Is it responsive?
+15. Is it performant?
+16. Is it actually working end-to-end?
+
+DO NOT assume a feature is complete because it looks complete visually.
+
+If something already works:
+KEEP IT.
+
+If something partially works:
+FINISH IT.
+
+If something is broken:
+FIX IT.
+
+If something is poorly architected:
+IMPROVE IT CAREFULLY.
+
+If something is missing:
+IMPLEMENT IT.
+
+============================================================
+3. USE THE PROVIDED IMAGE AS DESIGN REFERENCE
+============================================================
+
+I have provided a visual reference image showing the direction I want.
+
+Use that image as a DESIGN REFERENCE.
+
+DO NOT COPY IT PIXEL-FOR-PIXEL.
+
+DO NOT copy branding, exact layout, proprietary assets or exact implementation.
+
+Instead understand the design language:
+
+- Premium luxury
+- High-end fashion
+- Editorial
+- Sophisticated
+- Spatial
+- Cinematic
+- Modern
+- Minimal but rich
+- Dark luxury
+- Elegant gold/champagne accents
+- Premium product presentation
+- Large imagery
+- Strong typography
+- Generous spacing
+- Sophisticated interactions
+- Layered depth
+- Premium product cards
+- Editorial storytelling
+- Strong visual hierarchy
+
+The provided reference shows the GENERAL DIRECTION.
+
+Our existing Denoura website must be BETTER than the reference.
+
+============================================================
+4. DO NOT DESTROY THE EXISTING DENOURA DESIGN
+============================================================
+
+The current website already contains work.
+
+Do NOT blindly replace it.
+
+Instead:
+
+CURRENT WEBSITE
++
+CURRENT COMPONENTS
++
+CURRENT DATA
++
+CURRENT API
++
+CURRENT CMS
++
+CURRENT BRAND
++
+NEW PREMIUM DESIGN DIRECTION
+=
+IMPROVED FINAL WEBSITE
+
+Preserve good existing functionality.
+
+Improve weak areas.
+
+Refactor only where necessary.
+
+============================================================
+5. MAIN OBJECTIVE
+============================================================
+
+Turn the existing Denoura storefront into a world-class luxury ecommerce experience.
+
+The website should feel like a serious global luxury fashion/accessories brand.
+
+It should NOT feel like:
+
+- A generic Shopify template
+- A basic React ecommerce demo
+- A simple product grid
+- A landing page
+- A static marketing website
+
+It must be a complete ecommerce storefront.
+
+Customers should be able to:
+
+DISCOVER
+→ SEARCH
+→ EXPLORE
+→ FILTER
+→ VIEW PRODUCT
+→ SELECT VARIANT
+→ WISHLIST
+→ ADD TO CART
+→ CHECKOUT
+→ PAY
+→ RECEIVE ORDER
+→ TRACK ORDER
+→ RETURN
+→ REVIEW
+
+And the Admin Portal should control the appropriate parts of this experience.
+
+============================================================
+6. CRITICAL ARCHITECTURE
+============================================================
+
+The entire project must behave as ONE connected system.
+
+ADMIN PORTAL
+↓
+BACKEND
+↓
+DATABASE
+↓
+API
+↓
+STOREFRONT
+
+And:
+
+STOREFRONT
+↓
+API
+↓
+BACKEND
+↓
+DATABASE
+↓
+ADMIN PORTAL
+
+No isolated fake frontend systems.
+
+No hardcoded production products.
+
+No hardcoded production prices.
+
+No hardcoded production inventory.
+
+No fake orders.
+
+No fake analytics.
+
+No duplicated business logic.
+
+============================================================
+7. ADMIN → STOREFRONT CONNECTION
+============================================================
+
+This is one of the most important requirements.
+
+Anything that is supposed to be controlled by the Admin Portal must actually affect the storefront.
+
+Example:
+
+Admin creates product
+↓
+Database
+↓
+API
+↓
+Storefront
+↓
+Product appears
+
+Admin changes price
+↓
+Backend
+↓
+Storefront displays new price
+
+Admin changes image
+↓
+Storefront displays new image
+
+Admin changes inventory
+↓
+Storefront displays availability
+
+Admin unpublishes product
+↓
+Product disappears from storefront
+
+Admin creates collection
+↓
+Collection appears on storefront
+
+Admin creates banner
+↓
+Banner appears on storefront
+
+Admin changes navigation
+↓
+Storefront navigation updates
+
+Admin changes homepage section
+↓
+Homepage updates
+
+Admin changes featured products
+↓
+Featured products update
+
+This must be REAL.
+
+============================================================
+8. BUILD A PROPER STOREFRONT CMS
+============================================================
+
+The Admin Portal must contain a proper CMS for the MAIN WEBSITE.
+
+This should NOT just be a "Homepage text settings" page.
+
+Create a structured visual/content management system.
+
+Recommended CMS structure:
+
+CMS
+├── Homepage
+├── Pages
+├── Sections
+├── Hero Sections
+├── Promotional Banners
+├── Featured Products
+├── Featured Collections
+├── Product Carousels
+├── Category Sections
+├── Editorial Sections
+├── Brand Story
+├── Testimonials
+├── Reviews
+├── Trust/Benefits
+├── FAQ
+├── Newsletter
+├── Navigation
+├── Footer
+├── Announcement Bar
+├── Popups
+├── Blog
+├── Media Library
+├── SEO
+└── Theme Settings
+
+============================================================
+9. HOMEPAGE CMS
+============================================================
+
+The homepage must become modular.
+
+Admin should be able to create/reorder/enable/disable sections.
+
+Example:
+
+Homepage
+│
+├── Announcement Bar
+├── Header
+├── Hero
+├── Featured Collection
+├── New Arrivals
+├── Shop by Category
+├── Editorial Banner
+├── Product Carousel
+├── Luxury Spotlight
+├── Best Sellers
+├── Collection Showcase
+├── Brand Story
+├── Benefits
+├── Testimonials
+├── Reviews
+├── Social/Instagram
+├── Newsletter
+└── Footer
+
+The admin should control:
+
+- Visibility
+- Order
+- Content
+- Images
+- Products
+- Collections
+- Links
+- CTA
+- Background
+- Alignment
+- Layout
+- Desktop/mobile media
+- Scheduling where appropriate
+
+============================================================
+10. HERO SECTION — MAJOR REBUILD
+============================================================
+
+The current hero is NOT the final direction.
+
+The current hero feels too flat and text-heavy.
+
+DO NOT make the hero primarily a giant text block over one background image.
+
+I want a SPATIAL LUXURY HERO.
+
+The hero should feature MULTIPLE LUXURY BAGS.
+
+Think:
+
+- 3D product presentation
+- Floating bags
+- Layered bags
+- Different scales
+- Depth
+- Foreground/midground/background
+- Premium lighting
+- Cinematic composition
+- Floating objects
+- Subtle motion
+- Elegant shadows
+- Spatial arrangement
+- Luxury editorial art direction
+
+Potential composition:
+
+              BAG
+          floating in depth
+
+    BAG                    BAG
+
+              MAIN BAG
+
+       BAG            BAG
+
+with additional:
+
+- Floating rings
+- Subtle geometric elements
+- Light particles
+- Premium pedestals
+- Shadows
+- Depth layers
+- Glass/acrylic surfaces where appropriate
+
+But keep it tasteful.
+
+============================================================
+11. 3D HERO TECHNICAL DIRECTION
+============================================================
+
+Where technically appropriate, use:
+
+- Three.js
+- React Three Fiber
+- Drei
+- CSS 3D
+- WebGL
+- Optimized 3D models
+
+ONLY where performance remains excellent.
+
+If real 3D models are available:
+use them.
+
+If not:
+build a convincing spatial composition using optimized transparent product renders/images.
+
+Do NOT introduce a heavy 3D engine if it makes the website slow.
+
+The hero must remain performant.
+
+Use:
+
+- Lazy loading
+- Progressive loading
+- Optimized models
+- Optimized textures
+- Appropriate model compression
+- Mobile fallback
+- Desktop enhanced experience
+
+On mobile, provide a lighter composition if necessary.
+
+============================================================
+12. HERO CONTENT
+============================================================
+
+Move excessive text away from the center of the visual composition.
+
+The hero should contain:
+
+Small eyebrow
++
+Elegant headline
++
+Short supporting statement
++
+Primary CTA
++
+Secondary CTA
+
+But keep the text compact.
+
+The PRODUCT VISUALS should be the star.
+
+Example structure:
+
+EYEBROW
+NEW SEASON / SIGNATURE COLLECTION
+
+HEADLINE
+CRAFTED FOR THE
+MODERN ICON
+
+DESCRIPTION
+A short premium statement.
+
+BUTTON:
+EXPLORE COLLECTION
+
+SECONDARY:
+SHOP BAGS
+
+Do not use huge paragraphs.
+
+Do not cover the bags with text.
+
+============================================================
+13. HERO ADMIN CMS
+============================================================
+
+The Admin Portal must allow hero management.
+
+Hero fields should support:
+
+- Eyebrow
+- Heading
+- Description
+- Primary CTA
+- Primary URL
+- Secondary CTA
+- Secondary URL
+- Desktop background
+- Mobile background
+- Product references
+- Multiple floating products
+- Product positions
+- Product scale
+- Product depth
+- Product rotation
+- Animation settings
+- Overlay
+- Theme
+- Visibility
+- Start date
+- End date
+
+Where practical, allow admin to select actual products from the catalog instead of uploading duplicate product assets.
+
+============================================================
+14. PRODUCT-DRIVEN HERO
+============================================================
+
+If an admin selects:
+
+Bag A
+Bag B
+Bag C
+Bag D
+Bag E
+
+the hero should render those products dynamically.
+
+If the product changes:
+
+Admin
+→ selects new product
+→ Save
+→ storefront updates
+
+No hardcoded product IDs inside the UI.
+
+============================================================
+15. HOMEPAGE — ADD MUCH MORE DEPTH
+============================================================
+
+The homepage should not end after Hero + Products.
+
+Build a complete premium ecommerce storytelling experience.
+
+Recommended sections:
+
+1. Announcement Bar
+2. Luxury Hero
+3. Featured Collection
+4. New Arrivals Carousel
+5. Shop by Category
+6. Editorial Image + Text
+7. Product Spotlight
+8. Best Sellers Carousel
+9. Collection Showcase
+10. Brand Story
+11. Craftsmanship Section
+12. Materials / Quality Section
+13. Promotional Banner
+14. Featured Product Grid
+15. Testimonials
+16. Customer Reviews
+17. Trust / Benefits
+18. Social Proof
+19. Instagram/Social Feed if integrated
+20. Newsletter
+21. FAQ
+22. Footer
+
+Do not simply add sections for quantity.
+
+Every section should have a purpose.
+
+============================================================
+16. PRODUCT CAROUSELS
+============================================================
+
+Implement reusable product carousel components.
+
+Types:
+
+- New Arrivals
+- Best Sellers
+- Featured
+- Trending
+- Recommended
+- Recently Viewed
+- Most Loved
+- Limited Edition
+- Sale
+- Staff Picks
+- Related Products
+
+Admin should be able to select:
+
+- Manual products
+- Collection
+- Category
+- Dynamic rule
+
+Example:
+
+Admin:
+
+Section:
+"New Arrivals"
+
+Source:
+Collection = New Arrivals
+
+Limit:
+8
+
+Sort:
+Newest
+
+The storefront automatically renders the correct products.
+
+============================================================
+17. PRODUCT CARD IMPROVEMENT
+============================================================
+
+Create premium product cards.
+
+Support:
+
+- Primary image
+- Secondary hover image
+- Product name
+- Price
+- Compare-at price
+- Discount
+- Rating
+- Review count
+- Wishlist
+- Quick add
+- Quick view
+- Badge
+- New
+- Best Seller
+- Limited Edition
+- Sale
+- Stock indicator
+
+Use elegant interactions.
+
+Example:
+
+Image
+↓
+Hover
+↓
+Second image / subtle image transition
+↓
+Wishlist appears
+↓
+Quick Add
+
+Do not clutter the card.
+
+============================================================
+18. COLLECTION SHOWCASE
+============================================================
+
+Add large editorial collection cards.
+
+Example:
+
+AURELIA
+Collection
+
+MONOGRAM
+Collection
+
+PRESTIGE
+Collection
+
+LIMITED EDITION
+
+Each can use:
+
+- Large imagery
+- Product imagery
+- Lifestyle imagery
+- CTA
+- Hover animation
+- Subtle parallax
+
+Admin controls:
+
+- Collection
+- Image
+- Title
+- Description
+- CTA
+- URL
+- Position
+- Visibility
+
+============================================================
+19. SHOP BY CATEGORY
+============================================================
+
+Build premium category cards.
+
+Possible categories:
+
+- Tote Bags
+- Shoulder Bags
+- Crossbody Bags
+- Top Handle
+- Clutches
+- Mini Bags
+- Travel
+- Accessories
+
+These must be dynamic from the backend/category system.
+
+Do NOT hardcode category names if the category system already exists.
+
+============================================================
+20. EDITORIAL SECTIONS
+============================================================
+
+Introduce fashion/editorial storytelling.
+
+Examples:
+
+"THE ART OF CRAFTSMANSHIP"
+
+Large image
++
+Short story
++
+CTA
+
+"DESIGNED FOR EVERY MOMENT"
+
+Image
++
+Text
++
+Product/collection CTA
+
+"THE DETAILS MATTER"
+
+Close-up product photography
++
+Material information
+
+These sections should make the website feel like a luxury brand rather than a simple ecommerce catalog.
+
+============================================================
+21. TRUST / BENEFITS SECTION
+============================================================
+
+Create a premium trust section.
+
+Possible items:
+
+- Worldwide Shipping
+- Secure Payments
+- Easy Returns
+- Quality Guaranteed
+- Customer Support
+- Crafted with Care
+- Sustainable Materials where factually applicable
+
+Only use claims supported by the actual business.
+
+============================================================
+22. TESTIMONIALS / REVIEWS
+============================================================
+
+Create elegant review components.
+
+Support:
+
+- Customer name
+- Rating
+- Review
+- Product
+- Verified purchase
+- Image if available
+
+Admin moderation must control reviews.
+
+Do not create fake reviews.
+
+============================================================
+23. NEWSLETTER
+============================================================
+
+Create a premium newsletter section.
+
+Support:
+
+- Email
+- Consent
+- Marketing preferences
+- Success state
+- Error state
+- Backend integration
+
+Connect to the existing marketing/email infrastructure.
+
+============================================================
+24. FOOTER
+============================================================
+
+Create a sophisticated multi-column footer.
+
+Sections:
+
+SHOP
+- New In
+- Bags
+- Collections
+- Accessories
+- Sale
+
+CUSTOMER CARE
+- Contact
+- FAQ
+- Shipping
+- Returns
+- Order Tracking
+
+ABOUT
+- Story
+- Craftsmanship
+- Sustainability
+- Careers
+- Press
+
+LEGAL
+- Privacy
+- Terms
+- Refund Policy
+- Shipping Policy
+
+FOLLOW
+- Instagram
+- Facebook
+- TikTok
+- Pinterest
+- YouTube
+where actually configured.
+
+Footer must be CMS/admin controlled.
+
+============================================================
+25. HEADER / NAVIGATION
+============================================================
+
+Improve the header significantly.
+
+Support:
+
+- Announcement bar
+- Logo
+- Main navigation
+- Mega menu where appropriate
+- Search
+- Account
+- Wishlist
+- Cart
+- Currency
+- Mobile menu
+
+Use subtle sticky behavior.
+
+Header should transition elegantly:
+
+At top:
+transparent/overlay where appropriate
+
+On scroll:
+premium solid/stable header
+
+Do not make navigation visually heavy.
+
+============================================================
+26. SEARCH EXPERIENCE
+============================================================
+
+Create a premium search experience.
+
+Search overlay/drawer should support:
+
+- Search input
+- Popular searches
+- Recent searches
+- Product suggestions
+- Categories
+- Collections
+- Search results
+- No results
+- Recommended products
+
+Use real backend search.
+
+============================================================
+27. COLLECTION / CATEGORY PAGES
+============================================================
+
+Upgrade all listing pages.
+
+Include:
+
+- Editorial collection header
+- Collection image
+- Description
+- Breadcrumbs
+- Filters
+- Sorting
+- Product count
+- Product grid
+- Pagination/infinite scroll
+- Mobile filter drawer
+
+Make it visually premium.
+
+============================================================
+28. PRODUCT DETAIL PAGE
+============================================================
+
+Make the PDP exceptional.
+
+Layout:
+
+LEFT:
+Large product gallery
+
+RIGHT:
+Brand
+Product name
+Rating
+Price
+Discount
+Short description
+Variants
+Quantity
+Add to Cart
+Buy Now
+Wishlist
+Shipping information
+Returns
+
+Below:
+
+- Product story
+- Details
+- Materials
+- Craftsmanship
+- Shipping
+- Returns
+- Reviews
+- FAQ
+- Related products
+- Recommended products
+
+Use large premium imagery.
+
+============================================================
+29. PRODUCT ADMIN — IMPROVE THE PRODUCT EDITOR
+============================================================
+
+The Admin Product editor must support the homepage/CMS features.
+
+Add/ensure:
+
+GENERAL
+- Title
+- Description
+- Short description
+- Brand
+- Category
+- Collections
+- Tags
+
+MEDIA
+- Images
+- Videos
+- 3D model
+- AR asset where applicable
+- Alt text
+- Media ordering
+
+PRICING
+- Price
+- Compare-at price
+- Cost
+- Margin
+- Tax
+
+INVENTORY
+- SKU
+- Barcode
+- Stock
+- Locations
+- Supplier
+- Supplier SKU
+
+VARIANTS
+- Options
+- Variant images
+- Variant pricing
+- Variant inventory
+
+SHIPPING
+- Weight
+- Dimensions
+- Shipping class
+- Country of origin
+- HS code
+
+SEO
+- SEO title
+- Meta description
+- Slug
+- Canonical
+- Social image
+
+DISPLAY
+- Featured product
+- New arrival
+- Best seller
+- Trending
+- Limited edition
+- Homepage eligible
+
+RELATED
+- Related products
+- Recommended products
+- Frequently bought together
+
+PUBLISHING
+- Draft
+- Active
+- Scheduled
+- Archived
+- Sales channels
+- Markets
+
+============================================================
+30. PRODUCT FEATURE FLAGS
+============================================================
+
+Products should support configurable merchandising flags:
+
+- Featured
+- New Arrival
+- Best Seller
+- Trending
+- Limited Edition
+- Staff Pick
+- Luxury Collection
+- Homepage Featured
+- Recommended
+- Sale
+
+These flags should be usable by CMS sections.
+
+Example:
+
+Admin marks Product X:
+
+Featured = TRUE
+
+Homepage Featured section automatically includes Product X.
+
+============================================================
+31. CMS SECTION TYPES
+============================================================
+
+Create reusable CMS section types.
+
+At minimum:
+
+- Hero
+- Product Carousel
+- Product Grid
+- Collection Carousel
+- Collection Grid
+- Category Grid
+- Editorial Split
+- Full Width Image
+- Video Banner
+- Product Spotlight
+- Promo Banner
+- Rich Text
+- Testimonials
+- Reviews
+- Trust Benefits
+- FAQ
+- Newsletter
+- Social Feed
+- Countdown
+- Brand Story
+
+Each section should have a schema appropriate to its type.
+
+============================================================
+32. CMS SECTION BUILDER
+============================================================
+
+Admin should be able to:
+
+ADD SECTION
+↓
+SELECT SECTION TYPE
+↓
+CONFIGURE CONTENT
+↓
+SELECT PRODUCTS/COLLECTIONS
+↓
+UPLOAD MEDIA
+↓
+CONFIGURE LAYOUT
+↓
+PREVIEW
+↓
+PUBLISH
+
+Support section ordering.
+
+Use drag-and-drop if it fits the current architecture.
+
+============================================================
+33. CMS RESPONSIVE SETTINGS
+============================================================
+
+Where useful, support:
+
+Desktop configuration
+Tablet configuration
+Mobile configuration
+
+Examples:
+
+- Columns
+- Image positioning
+- Text alignment
+- Spacing
+- Visibility
+- Media
+
+Do not make the admin CMS unnecessarily complicated.
+
+Keep it usable.
+
+============================================================
+34. LIVE PREVIEW
+============================================================
+
+Where practical, add preview functionality.
+
+Admin changes:
+
+Hero
+↓
+Preview
+↓
+See storefront result
+↓
+Publish
+
+Do not force admins to guess what the final page looks like.
+
+============================================================
+35. STORE NAVIGATION CMS
+============================================================
+
+Admin should control:
+
+- Main navigation
+- Mega menus
+- Categories
+- Collections
+- Footer navigation
+- Mobile navigation
+
+Support:
+
+- Label
+- URL
+- Type
+- Product
+- Collection
+- Category
+- External URL
+- Children
+- Order
+- Visibility
+
+============================================================
+36. PROMOTIONAL SYSTEM
+============================================================
+
+Homepage should support promotional campaigns.
+
+Examples:
+
+- Seasonal collection
+- New season
+- Limited edition
+- Sale
+- Worldwide shipping
+- Special launch
+
+Admin can schedule:
+
+Start
+End
+Visibility
+
+The storefront automatically respects the schedule.
+
+============================================================
+37. DYNAMIC DATA FLOW
+============================================================
+
+Verify every major data flow.
+
+PRODUCT:
+
+Admin
+→ API
+→ Database
+→ Storefront
+
+COLLECTION:
+
+Admin
+→ API
+→ Database
+→ Storefront
+
+CMS:
+
+Admin
+→ API
+→ Database
+→ Storefront
+
+INVENTORY:
+
+Supplier/Admin
+→ Backend
+→ Database
+→ Storefront
+
+ORDER:
+
+Storefront
+→ Backend
+→ Database
+→ Admin
+
+PAYMENT:
+
+Checkout
+→ Payment provider
+→ Backend
+→ Order
+→ Admin
+
+FULFILLMENT:
+
+Order
+→ Supplier
+→ Backend
+→ Tracking
+→ Customer
+
+ANALYTICS:
+
+Storefront
+→ Events
+→ Backend/Analytics
+→ Admin Dashboard
+
+============================================================
+38. CACHE / REVALIDATION
+============================================================
+
+Because the storefront must reflect Admin changes:
+
+Implement the correct freshness strategy.
+
+When admin changes:
+
+- Product
+- Price
+- Collection
+- CMS
+- Homepage
+- Navigation
+- Banner
+- Inventory
+
+ensure the storefront gets the updated information.
+
+Use the architecture already present.
+
+Possible mechanisms:
+
+- Cache invalidation
+- Revalidation
+- Server-side fetch
+- API cache
+- Webhooks/events
+- ISR/revalidation
+- Query invalidation
+
+Do NOT simply disable all caching.
+
+The website must be BOTH:
+
+FAST
+AND
+FRESH.
+
+============================================================
+39. FRONTEND PERFORMANCE
+============================================================
+
+The new UI must NOT make the website slower.
+
+Especially the spatial hero.
+
+Use:
+
+- Lazy loading
+- Optimized images
+- WebP/AVIF
+- Responsive image sizes
+- Compressed 3D assets
+- Lazy 3D loading
+- Mobile fallback
+- Code splitting
+- Dynamic imports
+- Route-level loading
+- Efficient API calls
+- Request caching
+- Query caching
+- Prefetching where useful
+
+Hero must not block the entire page from rendering.
+
+============================================================
+40. 3D MOBILE FALLBACK
+============================================================
+
+Desktop:
+
+Full spatial hero.
+
+Mobile:
+
+Use an optimized composition.
+
+If full 3D hurts performance:
+
+Use:
+
+- 2.5D
+- Transparent product renders
+- Reduced objects
+- Static premium composition
+- Lightweight animation
+
+Never sacrifice mobile performance simply to force 3D.
+
+============================================================
+41. MICRO INTERACTIONS
+============================================================
+
+Add tasteful interactions:
+
+- Product hover
+- Image transitions
+- Button hover
+- Magnetic CTA where appropriate
+- Smooth scrolling
+- Page transitions where appropriate
+- Cart animation
+- Wishlist feedback
+- Image zoom
+- Scroll reveal
+- Parallax
+- Subtle cursor interactions
+
+Do not overdo animations.
+
+Luxury means restraint.
+
+============================================================
+42. PAGE TRANSITIONS
+============================================================
+
+Where compatible with the existing stack, use subtle page transitions.
+
+Do not introduce transitions that delay navigation.
+
+Navigation must feel immediate.
+
+============================================================
+43. LOADING STATES
+============================================================
+
+Every dynamic section should have appropriate loading states.
+
+Use:
+
+- Skeletons
+- Progressive media loading
+- Placeholder states
+
+Avoid large blank areas.
+
+============================================================
+44. ERROR STATES
+============================================================
+
+Every dynamic section needs meaningful error handling.
+
+Example:
+
+Product API fails:
+
+Show graceful fallback.
+
+Do not crash the homepage.
+
+============================================================
+45. EMPTY STATES
+============================================================
+
+Examples:
+
+No products
+No search results
+Empty collection
+Empty wishlist
+Empty cart
+No orders
+No reviews
+
+Create premium empty states.
+
+============================================================
+46. ACCESSIBILITY
+============================================================
+
+Maintain:
+
+- Keyboard navigation
+- Focus states
+- Semantic HTML
+- Accessible buttons
+- Accessible forms
+- Alt text
+- Reduced motion support
+- Screen reader compatibility
+
+For animations:
+
+Respect:
+
+prefers-reduced-motion
+
+============================================================
+47. SEO
+============================================================
+
+Every important storefront page must have dynamic SEO.
+
+Products:
+
+- Title
+- Description
+- Canonical
+- Structured data
+
+Collections:
+
+- SEO title
+- Description
+- Canonical
+
+CMS pages:
+
+- SEO title
+- Meta description
+- OG image
+
+Ensure sitemap and robots are correctly generated.
+
+============================================================
+48. ANALYTICS CONNECTION
+============================================================
+
+Track real storefront behavior.
+
+At minimum:
+
+- Page viewed
+- Product viewed
+- Search
+- Category viewed
+- Collection viewed
+- Add to cart
+- Remove from cart
+- Wishlist
+- Checkout started
+- Shipping selected
+- Payment started
+- Payment completed
+- Purchase
+- Review
+- Newsletter signup
+
+Admin analytics must consume these real events.
+
+============================================================
+49. DO NOT USE FAKE DATA
+============================================================
+
+Search the codebase for:
+
+- Mock products
+- Dummy products
+- Hardcoded prices
+- Fake reviews
+- Fake orders
+- Fake analytics
+- Static inventory
+- Temporary arrays
+- Placeholder API responses
+
+Remove/replace production-facing fake data.
+
+Development seed data is acceptable only if clearly isolated.
+
+============================================================
+50. DESIGN SYSTEM
+============================================================
+
+Create a unified premium design system based on the existing project.
+
+Do not introduce random styles page-by-page.
+
+Standardize:
+
+- Typography
+- Colors
+- Spacing
+- Radius
+- Shadows
+- Buttons
+- Cards
+- Product cards
+- Inputs
+- Modals
+- Drawers
+- Badges
+- Tabs
+- Navigation
+- Sections
+- Containers
+- Breakpoints
+- Animations
+
+The whole website must feel like ONE brand.
+
+============================================================
+51. RESPONSIVE AUDIT
+============================================================
+
+Test:
+
+320px
+375px
+390px
+430px
+768px
+1024px
+1280px
+1440px
+1920px+
+
+Fix:
+
+- Overflow
+- Grid
+- Navigation
+- Hero
+- Product cards
+- Carousels
+- Typography
+- Images
+- Checkout
+- Modals
+- Sticky elements
+
+============================================================
+52. ADMIN PORTAL — CMS EXPERIENCE
+============================================================
+
+The Admin CMS must itself be premium and easy to use.
+
+Create a clear structure:
+
+CONTENT
+├── Homepage
+├── Pages
+├── Sections
+├── Banners
+├── Collections
+├── Navigation
+├── Testimonials
+├── FAQs
+├── Blog
+├── Media
+└── SEO
+
+MERCHANDISING
+├── Featured Products
+├── New Arrivals
+├── Best Sellers
+├── Trending
+├── Limited Edition
+└── Recommendations
+
+Do not hide important functionality in confusing menus.
+
+============================================================
+53. ADMIN HOMEPAGE BUILDER
+============================================================
+
+The admin should be able to visually understand the homepage structure.
+
+Example:
+
+Homepage
+
+[Announcement Bar]
+[Hero]
+[Featured Collection]
+[New Arrivals]
+[Categories]
+[Editorial]
+[Best Sellers]
+[Collections]
+[Brand Story]
+[Reviews]
+[Newsletter]
+
+Each section:
+
+- Edit
+- Duplicate
+- Hide
+- Delete
+- Reorder
+- Preview
+
+============================================================
+54. PRODUCT MANAGEMENT + MERCHANDISING
+============================================================
+
+Admin product management must include merchandising controls.
+
+For each product:
+
+Featured?
+New Arrival?
+Best Seller?
+Trending?
+Limited Edition?
+Homepage?
+Collection priority?
+Sort priority?
+
+This is important because the storefront CMS depends on these values.
+
+============================================================
+55. ADMIN MEDIA LIBRARY
+============================================================
+
+If the project does not already have a strong media system, improve it.
+
+Support:
+
+- Product images
+- Hero images
+- Editorial images
+- Videos
+- 3D assets
+- Mobile images
+- Desktop images
+
+Metadata:
+
+- Filename
+- Alt text
+- Type
+- Dimensions
+- Size
+- Upload date
+- Usage/reference
+
+Do not create duplicate uploads unnecessarily.
+
+============================================================
+56. PRODUCT CAROUSEL ADMIN CONFIGURATION
+============================================================
+
+Admin can create:
+
+NEW ARRIVALS CAROUSEL
+
+Source:
+Collection
+
+Collection:
+New Arrivals
+
+Products:
+Dynamic
+
+Limit:
+8
+
+Sort:
+Newest
+
+Or:
+
+FEATURED PRODUCTS
+
+Source:
+Manual
+
+Products:
+Product A
+Product B
+Product C
+
+Or:
+
+BEST SELLERS
+
+Source:
+Analytics/order data
+
+This should connect to the existing product/catalog architecture.
+
+============================================================
+57. FEATURED COLLECTION SYSTEM
+============================================================
+
+Admin should be able to select:
+
+- Collection
+- Hero image
+- Title
+- Description
+- CTA
+- Position
+- Visibility
+
+The storefront renders the collection dynamically.
+
+============================================================
+58. HOMEPAGE PERSONALIZATION — ARCHITECTURE READY
+============================================================
+
+Do not necessarily implement advanced personalization now unless already supported.
+
+But structure the CMS so future features can support:
+
+- Country
+- Market
+- Customer segment
+- Device
+- Campaign
+- Season
+
+without requiring a complete rewrite.
+
+============================================================
+59. GLOBALIZATION
+============================================================
+
+The storefront must support the existing global commerce requirements.
+
+Ensure UI can support:
+
+- Multiple currencies
+- Multiple languages
+- Different markets
+- Country-specific availability
+- International shipping
+
+Do not hardcode:
+
+USD only
+India only
+One currency
+One address format
+
+============================================================
+60. CART / CHECKOUT / ORDER END-TO-END
+============================================================
+
+After the UI improvements, DO NOT forget functionality.
+
+Actually test:
+
+Product
+→ Add to Cart
+→ Cart
+→ Checkout
+→ Address
+→ Shipping
+→ Payment
+→ Order
+→ Admin
+→ Inventory
+→ Supplier
+→ Fulfillment
+→ Tracking
+→ Customer Account
+
+All must work.
+
+============================================================
+61. ADMIN ORDER → STOREFRONT
+============================================================
+
+Test:
+
+Admin changes order status
+
+↓
+
+Customer account reflects it.
+
+Admin adds tracking
+
+↓
+
+Customer sees tracking.
+
+Admin refunds
+
+↓
+
+Customer sees refund.
+
+Admin cancels
+
+↓
+
+Customer sees cancellation.
+
+============================================================
+62. INVENTORY
+============================================================
+
+Test:
+
+Admin inventory = 10
+
+Customer buys 2
+
+Inventory = 8
+
+Admin = 8
+
+Storefront = 8
+
+Supplier sync changes inventory
+
+↓
+
+Backend updates
+
+↓
+
+Storefront updates appropriately.
+
+No inconsistent stock.
+
+============================================================
+63. SECURITY
+============================================================
+
+Do not weaken security while improving UI.
+
+Verify:
+
+- Authentication
+- Authorization
+- RBAC
+- Tenant isolation
+- API permissions
+- Secure uploads
+- Payment security
+- Webhook validation
+- Rate limiting
+- Secret handling
+
+============================================================
+64. PERFORMANCE AUDIT
+============================================================
+
+After implementing the new UI:
+
+Measure and improve:
+
+- LCP
+- INP
+- CLS
+- TTFB
+- JS bundle size
+- Image size
+- API latency
+- Database query performance
+
+The luxury UI must remain FAST.
+
+============================================================
+65. CODE QUALITY
+============================================================
+
+Use the existing project architecture.
+
+Avoid:
+
+- Duplicate components
+- Duplicate API calls
+- Giant components
+- Hardcoded business logic
+- Business logic inside presentation components
+- Unnecessary dependencies
+- Random styling systems
+- Unused code
+
+Extract reusable components where appropriate.
+
+============================================================
+66. DO NOT BREAK EXISTING FEATURES
+============================================================
+
+Before modifying:
+
+- Checkout
+- Cart
+- Orders
+- Authentication
+- Admin
+- Product management
+- Supplier systems
+
+understand their current implementation.
+
+After modification, regression test them.
+
+============================================================
+67. FINAL FULL PAGE AUDIT
+============================================================
+
+Inspect every storefront page.
+
+At minimum:
+
+- Home
+- Shop
+- Category
+- Collection
+- Product
+- Search
+- Cart
+- Checkout
+- Order confirmation
+- Account
+- Orders
+- Order detail
+- Wishlist
+- About
+- Contact
+- FAQ
+- Shipping
+- Returns
+- Privacy
+- Terms
+- Blog
+- Blog post
+- Order tracking
+
+Improve every page that feels unfinished.
+
+============================================================
+68. FINAL ADMIN AUDIT
+============================================================
+
+Inspect:
+
+- Dashboard
+- Products
+- Product editor
+- Categories
+- Collections
+- Inventory
+- Orders
+- Customers
+- Suppliers
+- Dropshipping
+- CMS
+- Homepage builder
+- Media
+- Discounts
+- Marketing
+- Shipping
+- Payments
+- Analytics
+- Reports
+- Settings
+- Users
+- Roles
+- Audit logs
+
+Everything should feel part of the same platform.
+
+============================================================
+69. TEST THE IMAGE REFERENCE AGAINST OUR PROJECT
+============================================================
+
+Use the provided design reference to ask:
+
+Does our homepage have:
+
+- Strong hero?
+- Multiple luxury products?
+- Spatial composition?
+- Premium product presentation?
+- Editorial storytelling?
+- Product carousels?
+- Collection cards?
+- Category cards?
+- Best sellers?
+- New arrivals?
+- Trust section?
+- Reviews?
+- Newsletter?
+- Strong footer?
+
+But do NOT blindly copy the reference.
+
+Our implementation should be more sophisticated and more integrated with the actual ecommerce system.
+
+============================================================
+70. IMPORTANT — THE WEBSITE SHOULD NOT LOOK EMPTY
+============================================================
+
+Use strong composition.
+
+Do not create:
+
+- Large empty dark spaces
+- Huge text occupying the whole screen
+- One product floating alone
+- Generic hero background
+- Repetitive product grids
+
+Create visual rhythm:
+
+HERO
+↓
+BREATHING SPACE
+↓
+PRODUCT CAROUSEL
+↓
+EDITORIAL
+↓
+CATEGORY CARDS
+↓
+COLLECTION
+↓
+PRODUCTS
+↓
+BRAND STORY
+↓
+TRUST
+↓
+REVIEWS
+↓
+NEWSLETTER
+
+============================================================
+71. LUXURY VISUAL RHYTHM
+============================================================
+
+Alternate between:
+
+- Dark sections
+- Light sections
+- Large imagery
+- Product grids
+- Editorial layouts
+- Full-width banners
+- Carousels
+- Minimal typography sections
+
+Do not make the entire website one dark block.
+
+The reference image uses contrast.
+
+Use contrast intelligently.
+
+============================================================
+72. PRODUCT IMAGE QUALITY
+============================================================
+
+Where product images are available:
+
+Use them prominently.
+
+Do not bury products under excessive UI.
+
+Products should remain the hero of an ecommerce website.
+
+============================================================
+73. CONVERSION OPTIMIZATION
+============================================================
+
+Every major page should have clear next actions.
+
+Examples:
+
+Hero:
+Explore Collection
+
+Product:
+Add to Cart
+
+Collection:
+Shop Collection
+
+Editorial:
+Discover Story
+
+Newsletter:
+Join the Community
+
+Avoid excessive CTAs.
+
+============================================================
+74. MOBILE EXPERIENCE
+============================================================
+
+Mobile must feel intentionally designed.
+
+Especially:
+
+- Hero
+- Product carousel
+- Navigation
+- Filters
+- Product gallery
+- Cart
+- Checkout
+
+Do not simply stack desktop components.
+
+============================================================
+75. FINAL END-TO-END TEST
+============================================================
+
+Perform a real complete test:
+
+ADMIN:
+
+Create product
+↓
+Add images
+↓
+Set price
+↓
+Set inventory
+↓
+Assign category
+↓
+Assign collection
+↓
+Mark Featured
+↓
+Publish
+
+STOREFRONT:
+
+Open homepage
+↓
+Product appears in featured section
+↓
+Open product
+↓
+Add to cart
+↓
+Checkout
+↓
+Payment
+↓
+Order created
+
+ADMIN:
+
+Open order
+↓
+Order exists
+↓
+Inventory updated
+↓
+Supplier workflow begins
+↓
+Fulfillment
+↓
+Tracking
+
+CUSTOMER:
+
+Open account
+↓
+Order exists
+↓
+Tracking exists
+↓
+Status updates
+
+ANALYTICS:
+
+View
+↓
+Add to Cart
+↓
+Checkout
+↓
+Purchase
+
+must appear in appropriate analytics.
+
+============================================================
+76. UPDATE MASTER CONTEXT
+============================================================
+
+After implementation update:
+
+ECOMMERCE_DROPSHIPPING_MASTER_CONTEXT.md
+
+Record:
+
+- Completed
+- Partial
+- Broken
+- Missing
+- Bugs
+- Architecture changes
+- New components
+- New API endpoints
+- CMS features
+- Tests
+- Performance improvements
+- Next tasks
+
+============================================================
+77. IMPORTANT EXECUTION RULE
+============================================================
+
+DO NOT simply tell me:
+
+"Done."
+
+Do not give me a theoretical list.
+
+Actually inspect the project.
+
+Actually modify the code.
+
+Actually connect systems.
+
+Actually test.
+
+Actually fix issues.
+
+Actually improve the UI.
+
+============================================================
+78. PRIORITY ORDER FOR THIS TASK
+============================================================
+
+PRIORITY 1
+
+Understand current codebase.
+
+PRIORITY 2
+
+Audit existing storefront.
+
+PRIORITY 3
+
+Audit Admin CMS.
+
+PRIORITY 4
+
+Fix Admin ↔ Backend ↔ Storefront connections.
+
+PRIORITY 5
+
+Build/improve dynamic homepage CMS.
+
+PRIORITY 6
+
+Rebuild/improve luxury spatial hero.
+
+PRIORITY 7
+
+Improve homepage sections.
+
+PRIORITY 8
+
+Improve product cards/carousels/collections/categories.
+
+PRIORITY 9
+
+Improve PDP.
+
+PRIORITY 10
+
+Improve cart/checkout/order connections.
+
+PRIORITY 11
+
+Improve navigation/search/footer.
+
+PRIORITY 12
+
+Improve responsive/mobile.
+
+PRIORITY 13
+
+Optimize performance.
+
+PRIORITY 14
+
+Run end-to-end testing.
+
+PRIORITY 15
+
+Update master context.
+
+============================================================
+79. FINAL QUALITY BAR
+============================================================
+
+The final Denoura website should feel like:
+
+A REAL GLOBAL LUXURY ECOMMERCE BRAND
+
+not:
+
+A developer demo.
+
+not:
+
+A generic Shopify clone.
+
+not:
+
+A static landing page.
+
+not:
+
+A template.
+
+It should have:
+
+PREMIUM VISUAL DESIGN
++
+SPATIAL HERO
++
+MULTIPLE LUXURY BAGS
++
+PRODUCT-DRIVEN EXPERIENCES
++
+EDITORIAL STORYTELLING
++
+PRODUCT CAROUSELS
++
+COLLECTION SHOWCASES
++
+CATEGORY CARDS
++
+BEST SELLERS
++
+NEW ARRIVALS
++
+FEATURED PRODUCTS
++
+REVIEWS
++
+TRUST
++
+CMS
++
+DYNAMIC PRODUCTS
++
+REAL CART
++
+REAL CHECKOUT
++
+REAL ORDERS
++
+REAL INVENTORY
++
+REAL PAYMENTS
++
+REAL SHIPPING
++
+REAL SUPPLIER/DROPSHIPPING
++
+REAL ANALYTICS
++
+ADMIN CONTROL
++
+BACKEND INTEGRATION
++
+FAST PERFORMANCE
++
+MOBILE RESPONSIVENESS
++
+SEO
++
+SECURITY
+
+============================================================
+80. FINAL COMMAND
+============================================================
+
+NOW CONTINUE WORKING ON THE EXISTING PROJECT.
+
+FIRST:
+
+READ THE MASTER CONTEXT.
+
+SECOND:
+
+INSPECT THE ENTIRE EXISTING CODEBASE.
+
+THIRD:
+
+UNDERSTAND WHAT HAS ALREADY BEEN BUILT.
+
+FOURTH:
+
+DO NOT REBUILD GOOD EXISTING WORK.
+
+FIFTH:
+
+IDENTIFY THE GAPS.
+
+SIXTH:
+
+IMPLEMENT THE IMPROVEMENTS.
+
+SEVENTH:
+
+CONNECT EVERYTHING END-TO-END.
+
+EIGHTH:
+
+MAKE THE STOREFRONT BEAUTIFUL.
+
+NINTH:
+
+MAKE THE ADMIN CMS POWERFUL.
+
+TENTH:
+
+MAKE THE SPATIAL LUXURY HERO AMAZING.
+
+ELEVENTH:
+
+MAKE THE HOMEPAGE FEEL COMPLETE.
+
+TWELFTH:
+
+MAKE PRODUCTS, COLLECTIONS, CATEGORIES AND CONTENT FULLY DYNAMIC.
+
+THIRTEENTH:
+
+MAKE CART, CHECKOUT, ORDERS, INVENTORY, PAYMENTS, SHIPPING AND DROPSHIPPING ACTUALLY WORK TOGETHER.
+
+FOURTEENTH:
+
+MAKE EVERYTHING FAST.
+
+FIFTEENTH:
+
+TEST EVERYTHING.
+
+SIXTEENTH:
+
+UPDATE THE MASTER CONTEXT.
+
+DO NOT STOP AT VISUAL CHANGES.
+
+DO NOT STOP AT FRONTEND.
+
+DO NOT STOP AT ADMIN.
+
+DO NOT STOP AT BACKEND.
+
+MAKE THE ENTIRE SYSTEM WORK TOGETHER.
+
+BUILD IT AS ONE COMPLETE PRODUCT.
+
+MAKE IT EXCEPTIONAL. 
+Yes. At this stage, I would **not give Antigravity another giant feature list only**. Your project is already large, so the biggest risk now is that the AI keeps adding screens while some existing systems are only partially connected.
+
+I would give it a series of **specialized audit prompts** after the master prompt. These will make it behave more like a senior engineering/product team.
+
+## 1. 🔥 MOST IMPORTANT — FULL SYSTEM AUDIT PROMPT
+
+Send this next:
+
+```text
+# FULL SYSTEM AUDIT — DO NOT BUILD BLINDLY
+
+You have already read:
+
+ECOMMERCE_DROPSHIPPING_MASTER_CONTEXT.md
+
+Now stop adding random new features temporarily.
+
+Perform a complete technical and functional audit of the EXISTING project.
+
+Your objective is to discover everything that is:
+
+- Missing
+- Partially implemented
+- Broken
+- Disconnected
+- Hardcoded
+- Mocked
+- Duplicated
+- Slow
+- Poorly designed
+- Not responsive
+- Not secure
+- Not tested
+- Not connected between frontend/backend/admin
+- Visually unfinished
+
+DO NOT assume something works because the UI exists.
+
+For every major feature trace the complete flow:
+
+UI
+→ API
+→ Backend
+→ Database
+→ Business Logic
+→ Response
+→ UI
+
+Also trace:
+
+ADMIN
+→ API
+→ DATABASE
+→ STOREFRONT
+
+and:
+
+STOREFRONT
+→ API
+→ DATABASE
+→ ADMIN
+
+Create an internal audit matrix:
+
+SYSTEM | FRONTEND | BACKEND | DATABASE | API | ADMIN | STOREFRONT | TESTED | STATUS | ISSUES
+
+Audit at minimum:
+
+Authentication
+Authorization
+Users
+Roles
+Products
+Variants
+Categories
+Collections
+Inventory
+Suppliers
+Dropshipping
+Product Import
+Product Sync
+Price Sync
+Inventory Sync
+Customers
+Cart
+Checkout
+Payments
+Orders
+Refunds
+Returns
+Shipping
+Fulfillment
+Tracking
+Discounts
+Marketing
+CMS
+Homepage
+Navigation
+Search
+SEO
+Analytics
+Reports
+Profitability
+Notifications
+Media
+Settings
+Integrations
+Webhooks
+Audit Logs
+Security
+Performance
+
+Then inspect the actual source code and database.
+
+Do not merely produce a report.
+
+After identifying issues, FIX them systematically.
+
+Priority:
+
+1. Critical broken functionality
+2. Security/data integrity
+3. Admin ↔ backend ↔ storefront connections
+4. Checkout/orders/payments
+5. Inventory/fulfillment
+6. CMS/dynamic storefront
+7. Performance
+8. UX
+9. Visual polish
+
+After each completed group:
+
+- Test it
+- Fix regressions
+- Update ECOMMERCE_DROPSHIPPING_MASTER_CONTEXT.md
+
+Do not ask me what to fix next unless a genuine business decision is required.
+
+Use the existing architecture wherever possible.
+
+Do not rebuild working systems.
+```
+
+---
+
+# 2. 🧠 "ACT LIKE A CTO" PROMPT
+
+This is useful because AI coding agents often optimize for "make the requested screen" rather than the whole product.
+
+```text
+# CTO / PRINCIPAL ENGINEER MODE
+
+From this point forward, do not behave like a UI-only coding assistant.
+
+Behave like the Principal Engineer and CTO responsible for delivering this entire ecommerce platform.
+
+Before implementing anything, ask internally:
+
+1. Does this already exist?
+2. Is there an existing component/service/API that should be reused?
+3. Does this require a database change?
+4. Does the Admin Portal need to control it?
+5. Does the storefront need to consume it?
+6. Does analytics need to track it?
+7. Does RBAC apply?
+8. Does this affect orders, inventory, payments or financial data?
+9. Does caching need invalidation?
+10. What happens if this fails?
+11. What happens on mobile?
+12. What happens with large amounts of data?
+13. What happens with multiple tenants/stores/markets?
+14. What happens if the API is unavailable?
+15. What happens if the user refreshes?
+16. What happens if the user performs the action twice?
+
+Do not optimize only for the happy path.
+
+Build production-quality systems.
+
+Whenever you discover architectural debt, record it in the master context instead of silently ignoring it.
+
+Whenever you discover a broken dependency, fix it before building features that depend on it.
+
+The objective is not maximum number of screens.
+
+The objective is a coherent, reliable, scalable ecommerce platform.
+```
+
+---
+
+# 3. 🎨 VISUAL QA PROMPT
+
+This one I strongly recommend because you specifically want the frontend to become **amazing**.
+
+```text
+# VISUAL QA + PREMIUM UX AUDIT
+
+Perform a complete visual and UX audit of the main storefront.
+
+Do not inspect only the homepage.
+
+Open and inspect every major page in the browser.
+
+Evaluate the actual rendered website, not only the source code.
+
+Audit:
+
+- Header
+- Announcement bar
+- Navigation
+- Mega menu
+- Hero
+- Product cards
+- Product grids
+- Carousels
+- Collection pages
+- Category pages
+- Product detail
+- Search
+- Cart
+- Checkout
+- Account
+- Orders
+- Wishlist
+- Footer
+- CMS pages
+- About
+- Contact
+- FAQ
+- Blog
+- Policies
+
+For every page check:
+
+- Visual hierarchy
+- Typography
+- Spacing
+- Alignment
+- Image quality
+- Component consistency
+- Responsiveness
+- Interaction quality
+- Animation
+- Loading state
+- Empty state
+- Error state
+- Accessibility
+- Conversion clarity
+
+Ask:
+
+"Would this look like a premium global luxury ecommerce company?"
+
+If the answer is no, improve it.
+
+Use the supplied luxury fashion reference as visual inspiration, but do not clone it.
+
+The visual language should feel:
+
+- Luxury
+- Editorial
+- Fashion
+- Premium
+- Sophisticated
+- Modern
+- Spatial
+- Cinematic
+- Minimal
+- High-end
+
+Do not add visual effects just because they look technically impressive.
+
+Every animation must have a UX purpose.
+
+After visual improvements, verify that functionality was not broken.
+```
+
+---
+
+# 4. 👜 PRODUCT EXPERIENCE PROMPT
+
+For a luxury bag store, product presentation is extremely important.
+
+```text
+# PRODUCT EXPERIENCE — LUXURY COMMERCE AUDIT
+
+Completely redesign/improve the product discovery and product experience while preserving existing functionality.
+
+Audit:
+
+Product cards
+Product grids
+Product carousels
+Quick view
+Product detail page
+Image gallery
+Variants
+Wishlist
+Add to cart
+Buy now
+Recommendations
+Reviews
+Related products
+Recently viewed
+Frequently bought together
+
+Make the product itself the visual hero.
+
+Product cards should feel premium and editorial.
+
+Implement appropriate:
+
+- Image hover transitions
+- Secondary image
+- Subtle zoom
+- Wishlist
+- Quick add
+- Product badges
+- Pricing hierarchy
+- Reviews
+- Variant previews
+- Stock indicators
+
+Product detail page should feel like a luxury fashion product page.
+
+Use large photography.
+
+Include appropriate sections:
+
+- Product story
+- Details
+- Materials
+- Dimensions
+- Craftsmanship
+- Shipping
+- Returns
+- Reviews
+- FAQ
+- Related products
+- Recommendations
+
+Everything must be dynamic from the backend.
+
+Do not invent product claims or fake reviews.
+
+Ensure product data is controlled through the Admin Portal.
+```
+
+---
+
+# 5. 🧩 CMS PROMPT — VERY IMPORTANT
+
+I would give Antigravity this separately because your CMS is going to be the heart of the relationship between Admin and storefront.
+
+```text
+# BUILD A REAL STOREFRONT CMS
+
+Audit the existing Admin Portal and implement a proper storefront CMS.
+
+The CMS should control the main website without requiring code changes.
+
+Build a modular page/section architecture.
+
+Support:
+
+Homepage
+Pages
+Hero
+Product sections
+Collection sections
+Category sections
+Editorial sections
+Promotional banners
+Testimonials
+Reviews
+FAQ
+Newsletter
+Navigation
+Footer
+Blog
+SEO
+Media
+
+Each section should have:
+
+- Type
+- Content
+- Media
+- Products
+- Collections
+- Categories
+- CTA
+- Link
+- Visibility
+- Sort/order
+- Desktop settings
+- Mobile settings
+- Publishing status
+- Schedule where appropriate
+
+Admin workflow:
+
+CREATE
+→ CONFIGURE
+→ PREVIEW
+→ PUBLISH
+→ STOREFRONT
+
+Implement a clean content model rather than hardcoding individual homepage sections.
+
+The frontend should render CMS sections dynamically.
+
+Do not create a giant hardcoded homepage component containing every section.
+
+Create reusable section components and a CMS-driven rendering system.
+
+Example:
+
+section.type = "PRODUCT_CAROUSEL"
+
+↓
+
+frontend resolves the correct component
+
+↓
+
+component receives CMS configuration
+
+↓
+
+products are fetched dynamically
+
+↓
+
+section renders
+
+This architecture must be extensible so new section types can be added later without rewriting the entire homepage.
+```
+
+---
+
+# 6. ⚡ PERFORMANCE PROMPT
+
+This is particularly important because you want the spatial 3D hero.
+
+```text
+# PERFORMANCE ENGINEERING AUDIT
+
+The website must be visually impressive WITHOUT becoming slow.
+
+Perform a full performance audit.
+
+Measure:
+
+- Initial page load
+- LCP
+- INP
+- CLS
+- TTFB
+- JavaScript bundle size
+- CSS size
+- Image sizes
+- API request count
+- API latency
+- Database queries
+- Rendering performance
+
+Pay special attention to:
+
+- Hero
+- 3D models
+- Product images
+- Carousels
+- Fonts
+- Animations
+- Large product grids
+- Admin tables
+- Analytics dashboards
+
+Optimize:
+
+- Images
+- WebP/AVIF
+- Responsive images
+- Lazy loading
+- Dynamic imports
+- Code splitting
+- Server rendering where appropriate
+- Caching
+- Query caching
+- API batching
+- Database indexes
+- Pagination
+- Virtualized lists
+
+The 3D hero must not block the initial page render.
+
+Use a lightweight mobile fallback.
+
+Do not solve performance by removing the premium design.
+
+Solve it architecturally.
+```
+
+---
+
+# 7. 🛒 REAL CUSTOMER JOURNEY TEST
+
+This is one of the most valuable prompts.
+
+```text
+# REAL CUSTOMER JOURNEY — END TO END
+
+Use the browser and test the website exactly like a real customer.
+
+Do not just inspect code.
+
+Perform:
+
+Homepage
+→ Search
+→ Product
+→ Select variant
+→ Add to cart
+→ Open cart
+→ Update quantity
+→ Checkout
+→ Enter customer information
+→ Address
+→ Shipping
+→ Discount
+→ Payment
+→ Order confirmation
+→ Customer account
+→ Order detail
+→ Tracking
+
+Record every problem.
+
+Test:
+
+- Refresh
+- Back button
+- Multiple tabs
+- Mobile viewport
+- Empty cart
+- Invalid coupon
+- Out-of-stock product
+- Payment failure
+- Invalid address
+- Product price change
+- Inventory change
+
+Fix every issue you find.
+
+Then test the same order from the Admin Portal.
+
+Verify:
+
+Order appears
+Inventory updates
+Payment updates
+Customer appears
+Supplier workflow appears where applicable
+Analytics updates
+Order status changes reach customer
+
+Do not report success until the complete flow actually works.
+```
+
+---
+
+# 8. 📦 DROPSHIPPING TEST PROMPT
+
+Your project is different from a normal ecommerce site because of dropshipping.
+
+```text
+# DROPSHIPPING END-TO-END AUDIT
+
+Audit the entire dropshipping lifecycle.
+
+Test:
+
+Product
+→ Supplier
+→ Supplier price
+→ Supplier inventory
+→ Storefront
+→ Customer order
+→ Supplier routing
+→ Supplier order
+→ Fulfillment
+→ Tracking
+→ Delivery
+→ Return
+→ Refund
+
+Verify:
+
+Supplier product mapping
+Supplier SKU
+Product SKU
+Variant mapping
+Supplier cost
+Selling price
+Margin
+Inventory
+Shipping
+Supplier selection
+Fallback supplier
+Order splitting
+Tracking
+Supplier status
+
+Test failure scenarios:
+
+Supplier out of stock
+Supplier API unavailable
+Supplier rejects order
+Supplier price changes
+Supplier inventory changes
+Supplier shipping unavailable
+Supplier misses SLA
+
+The system should gracefully handle these cases.
+
+Do not build a fake supplier workflow.
+
+Use the existing backend architecture and database.
+
+If something is missing, implement it and update the master context.
+```
+
+---
+
+# 9. 💰 PROFITABILITY PROMPT
+
+This will become extremely valuable once you actually sell products.
+
+```text
+# TRUE PROFITABILITY AUDIT
+
+Audit the entire financial calculation architecture.
+
+Do not define profit simply as:
+
+Selling Price - Supplier Cost.
+
+Build/verify a proper profitability model.
+
+Potential costs:
+
+- Supplier cost
+- Supplier shipping
+- Customer shipping subsidy
+- Payment processing fee
+- Discounts
+- Refunds
+- Returns
+- Chargebacks
+- Advertising cost
+- Tax
+- Duties
+- Other variable costs
+
+Support:
+
+Order profitability
+Product profitability
+Variant profitability
+Supplier profitability
+Collection profitability
+Country profitability
+Marketing channel profitability
+Campaign profitability
+
+Ensure all dashboards use the same canonical calculations.
+
+Avoid different parts of the application calculating profit differently.
+
+Create one reliable financial calculation layer.
+```
+
+---
+
+# 10. 📊 ANALYTICS INTEGRITY PROMPT
+
+Very important. Many ecommerce dashboards look impressive but the numbers are fake or inconsistent.
+
+```text
+# ANALYTICS DATA INTEGRITY AUDIT
+
+Audit the analytics system from the event source to the dashboard.
+
+Trace:
+
+Customer action
+→ Analytics event
+→ Backend
+→ Database/event store
+→ Aggregation
+→ API
+→ Admin dashboard
+
+Verify:
+
+Product views
+Add to cart
+Checkout
+Purchase
+Revenue
+Orders
+Customers
+Conversion
+AOV
+Refunds
+Returns
+Profit
+Marketing
+Supplier metrics
+
+Check that the same order produces consistent numbers across:
+
+Dashboard
+Sales analytics
+Product analytics
+Customer analytics
+Finance
+Profitability
+Reports
+
+Detect:
+
+- Duplicate events
+- Missing events
+- Incorrect revenue
+- Double counting
+- Incorrect refunds
+- Incorrect date ranges
+- Timezone problems
+- Currency problems
+- Attribution problems
+
+Fix the underlying data architecture rather than patching dashboard numbers.
+```
+
+---
+
+# 11. 🔐 SECURITY AUDIT PROMPT
+
+Do this before production.
+
+```text
+# PRODUCTION SECURITY AUDIT
+
+Perform a security audit of the entire platform.
+
+Inspect:
+
+Authentication
+Authorization
+RBAC
+Multi-tenancy
+API permissions
+Admin permissions
+Customer permissions
+Supplier permissions
+Database access
+File uploads
+Payments
+Webhooks
+Sessions
+Cookies
+CORS
+CSRF
+XSS
+SQL injection
+Rate limiting
+Secrets
+Environment variables
+API keys
+Logs
+Error messages
+Audit logs
+
+Attempt to identify:
+
+- Unauthorized API access
+- Tenant data leakage
+- Privilege escalation
+- IDOR
+- Exposed secrets
+- Unsafe file uploads
+- Unvalidated input
+- Missing authorization checks
+- Unsafe webhook processing
+- Sensitive information in logs
+
+Do not weaken existing security.
+
+Fix vulnerabilities found.
+
+Document important security decisions in the master context.
+```
+
+---
+
+# 12. 📱 MOBILE UX PROMPT
+
+```text
+# MOBILE-FIRST STOREFRONT AUDIT
+
+Audit the entire storefront specifically on mobile.
+
+Do not simply shrink desktop layouts.
+
+Check:
+
+Header
+Navigation
+Hero
+3D hero fallback
+Product cards
+Carousels
+Filters
+Product page
+Gallery
+Cart
+Checkout
+Forms
+Account
+Orders
+Tracking
+
+Make mobile feel intentionally designed.
+
+Ensure:
+
+- Touch-friendly controls
+- Swipeable carousels
+- Proper image cropping
+- No horizontal overflow
+- Fast loading
+- Proper sticky elements
+- Accessible buttons
+- Easy checkout
+- Easy navigation
+
+The mobile version should feel like a premium mobile commerce application.
+```
+
+---
+
+# 13. 🧪 REGRESSION TEST PROMPT
+
+Once Antigravity has changed a lot of code, send this:
+
+```text
+# REGRESSION TEST EVERYTHING
+
+You have made substantial changes.
+
+Now assume that something may have broken.
+
+Run a regression audit.
+
+Test all previously working functionality.
+
+Especially:
+
+Authentication
+Admin login
+Product creation
+Product editing
+Product publishing
+Collections
+Inventory
+Customer registration
+Cart
+Checkout
+Payment
+Orders
+Refunds
+Returns
+Shipping
+Supplier
+CMS
+Homepage
+Search
+Wishlist
+Analytics
+
+Also inspect:
+
+Console errors
+Network errors
+Backend errors
+Database errors
+Failed requests
+Broken routes
+Broken images
+Broken links
+Hydration errors
+TypeScript errors
+
+Fix regressions rather than simply reporting them.
+
+Do not finish until the new UI and old business functionality coexist correctly.
+```
+
+---
+
+# 14. 🚀 FINAL "AUTONOMOUS BUILD LOOP"
+
+This is probably the **single best prompt to keep using** with Antigravity.
+
+```text
+# CONTINUOUS AUTONOMOUS DEVELOPMENT LOOP
+
+Continue working on the project autonomously.
+
+Always follow this loop:
+
+1. Read ECOMMERCE_DROPSHIPPING_MASTER_CONTEXT.md
+2. Inspect current project state
+3. Identify the highest-value incomplete system
+4. Inspect its dependencies
+5. Implement the feature
+6. Connect frontend/backend/database/admin
+7. Test it
+8. Test edge cases
+9. Fix issues
+10. Improve UX
+11. Check performance
+12. Update the master context
+13. Move to the next incomplete system
+
+Do not stop after creating UI.
+
+Do not stop after creating an API.
+
+Do not stop after creating a database model.
+
+A feature is complete only when it works end-to-end.
+
+Prioritize:
+
+P0:
+Security
+Data integrity
+Authentication
+Authorization
+Payments
+Orders
+
+P1:
+Admin ↔ Backend ↔ Storefront integration
+
+P2:
+Products
+Inventory
+Cart
+Checkout
+Fulfillment
+
+P3:
+CMS
+Homepage
+Product discovery
+Search
+
+P4:
+Dropshipping automation
+
+P5:
+Analytics
+Profitability
+Reports
+
+P6:
+Premium UI/UX
+
+P7:
+Advanced optimization
+
+Continue until the project reaches production quality.
+
+Never ask me to repeat the project requirements.
+```
+
+---
+
+# My biggest recommendations for your project
+
+Based on everything you've been building, I would specifically make these **non-negotiable architectural decisions**:
+
+### 1. Make the CMS the brain of the storefront
+
+Don't build:
+
+> Admin has products + separate hardcoded homepage.
+
+Build:
+
+> **Admin CMS → configuration → backend → dynamic storefront renderer**
+
+That will make your website dramatically easier to manage.
+
+---
+
+### 2. Make products the central entity
+
+Your products should connect to:
+
+**Product → Category → Collection → Supplier → Inventory → Pricing → Media → CMS → Cart → Order → Fulfillment → Analytics**
+
+That's the core of your platform.
+
+---
+
+### 3. Build a proper merchandising system
+
+This is something I'd add beyond a basic Shopify-like implementation.
+
+For each product:
+
+* Featured
+* New
+* Trending
+* Best seller
+* Limited edition
+* Homepage
+* Collection priority
+* Recommendation priority
+* Search priority
+
+Then your CMS can dynamically build sections around those properties.
+
+---
+
+### 4. Don't make the 3D hero dependent on actual 3D models
+
+This is important.
+
+If you don't currently have high-quality `.glb/.gltf` bag models, **don't let Antigravity spend days trying to manufacture a complex 3D pipeline just for the hero**.
+
+A beautiful **2.5D spatial composition using transparent product renders** can actually look more luxurious and load much faster.
+
+Later you can add real 3D.
+
+---
+
+### 5. Add "visual merchandising"
+
+This is a powerful feature for your Admin Portal.
+
+Something like:
+
+**Admin → Storefront → Homepage → New Arrivals**
+
+and:
+
+```text
+Section: New Arrivals
+
+Source:
+○ Manual Products
+○ Collection
+○ Category
+○ Product Rule
+
+Products:
+[ Bag A ]
+[ Bag B ]
+[ Bag C ]
+
+Layout:
+○ Carousel
+○ Grid
+○ Editorial
+
+Products per row:
+4
+
+Mobile:
+2
+
+Show:
+✓ Price
+✓ Wishlist
+✓ Rating
+
+Animation:
+Subtle
+
+[Preview] [Save Draft] [Publish]
+```
+
+That makes your platform feel much more like a **real commerce operating system**, rather than a website with an admin panel.
+
+---
+
+### 6. Add a storefront preview system
+
+Eventually:
+
+**Admin → Edit Homepage → Preview → Publish**
+
+This is extremely valuable.
+
+You can even later have:
+
+**Draft storefront** and **Live storefront**.
+
+---
+
+### 7. Add a "site health" page to Admin
+
+I'd add:
+
+**Admin → System → Store Health**
+
+Showing:
+
+* API status
+* Database status
+* Payment status
+* Supplier status
+* Shipping status
+* Email status
+* Failed jobs
+* Failed webhooks
+* Failed payments
+* Low inventory
+* Broken integrations
+* Slow API endpoints
+* Error rate
+
+That will be extremely useful once this becomes a real business.
+
+---
+
+### 8. Add "business alerts"
+
+For example:
+
+> ⚠️ Product Aurelia Mini Bag margin dropped below 20%.
+
+> ⚠️ Supplier XYZ inventory dropped to 3.
+
+> ⚠️ 7 orders have been waiting for fulfillment >24h.
+
+> ⚠️ Payment failures increased 32% today.
+
+> ⚠️ Return rate for Product X exceeded threshold.
+
+This is where your platform can eventually become much more powerful than a normal ecommerce dashboard.
+
+---
+
+### 9. Don't let Antigravity keep making the codebase bigger unnecessarily
+
+This is probably your **biggest risk now**.
+
+You already have a substantial project.
+
+Tell it:
+
+> **Before creating a new component, service, API, model, hook, utility or page, search the existing codebase for an equivalent implementation and reuse/refactor it where appropriate.**
+
+Otherwise AI agents can gradually create:
+
+```text
+ProductCard.tsx
+ProductCardNew.tsx
+ProductCardV2.tsx
+PremiumProductCard.tsx
+LuxuryProductCard.tsx
+FeaturedProductCard.tsx
+```
+
+instead of one proper reusable architecture.
+
+---
+
+### 10. Your ultimate target architecture
+
+I would aim for this:
+
+```text
+                    ┌──────────────────────┐
+                    │     ADMIN PORTAL     │
+                    │                      │
+                    │ Products             │
+                    │ CMS                  │
+                    │ Orders               │
+                    │ Customers            │
+                    │ Suppliers            │
+                    │ Inventory            │
+                    │ Marketing            │
+                    │ Analytics            │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │     API / BACKEND    │
+                    │                      │
+                    │ Business Logic       │
+                    │ Auth / RBAC          │
+                    │ Commerce             │
+                    │ Payments             │
+                    │ Orders               │
+                    │ Fulfillment           │
+                    │ Analytics             │
+                    │ Automation            │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │      DATABASE        │
+                    │                      │
+                    │ Products             │
+                    │ Customers            │
+                    │ Orders               │
+                    │ Inventory             │
+                    │ Suppliers            │
+                    │ CMS                  │
+                    │ Events               │
+                    └──────────┬───────────┘
+                               │
+              ┌────────────────┴────────────────┐
+              ▼                                 ▼
+    ┌─────────────────────┐          ┌─────────────────────┐
+    │     STOREFRONT      │          │ DROPSHIPPING        │
+    │                     │          │                     │
+    │ Homepage            │          │ Suppliers           │
+    │ Search              │          │ Product Sync        │
+    │ Products            │          │ Inventory Sync      │
+    │ Collections         │          │ Order Routing       │
+    │ Cart                │          │ Fulfillment         │
+    │ Checkout            │          │ Tracking            │
+    │ Account             │          │ Returns             │
+    └─────────────────────┘          └─────────────────────┘
+```
+
+And ultimately:
+
+**Admin controls the business.
+Backend controls the truth.
+Database stores the truth.
+Storefront presents the business.
+Dropshipping executes fulfillment.
+Analytics explains the business.**
+
+That's the architecture I'd keep pushing Antigravity toward.

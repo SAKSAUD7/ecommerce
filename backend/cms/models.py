@@ -30,9 +30,12 @@ class LookbookItem(models.Model):
 class HeroSlider(models.Model):
     title = models.CharField(max_length=150)
     subtitle = models.CharField(max_length=250, blank=True, null=True)
-    cta_text = models.CharField(max_length=50, default="Shop Collection")
+    cta_text = models.CharField(max_length=50, default="Explore Collection")
     cta_link = models.CharField(max_length=200, default="/shop")
-    image_url = models.URLField(max_length=500)
+    secondary_cta_text = models.CharField(max_length=50, default="View Lookbook", blank=True, null=True)
+    secondary_cta_link = models.CharField(max_length=200, default="/lookbook", blank=True, null=True)
+    enable_3d_effect = models.BooleanField(default=True)
+    image_url = models.URLField(max_length=500, blank=True, null=True)
     is_active = models.BooleanField(default=True)
     order = models.IntegerField(default=0)
 

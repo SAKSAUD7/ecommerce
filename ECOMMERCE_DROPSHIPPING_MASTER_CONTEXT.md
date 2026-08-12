@@ -7,35 +7,35 @@
 
 ---
 
-## 📈 Overall Platform Completion: 100% (Verified Connected System)
+## 📈 Overall Platform Completion: 100% (Complete Connected System)
 
-### Master Connected Architecture Blueprint
+### Master Connected System Architecture
 
 ```text
-ADMIN PORTAL (/admin)
-      ↓ (API / Auth / CSRF / REST)
+ADMIN PORTAL (/admin & /admin/cms)
+      ↓ (API / Auth / REST / Live CMS Configurator)
 BACKEND / API / DATABASE (Django 8005 + SQLite DB)
-      ↓ (Dynamic Products, Pricing, Banners, CMS, Collections)
+      ↓ (Dynamic Products, Pricing, Banners, CMS Sliders, Collections)
 MAIN STOREFRONT (/ & /shop)
-      ↓ (Customer Interactions, Search, Filters, Reviews)
+      ↓ (Customer Interactions, Search, Filters, Reviews, Wishlist, Lookbook)
 CUSTOMER & CART (/cart & /shop/[slug])
-      ↓ (Zustand Store + Variant Stock Check)
+      ↓ (Zustand Store + Free Shipping Progress Bar)
 CHECKOUT (/checkout)
       ↓ (256-Bit SSL Encrypted Payment + Coupon Validation)
 PAYMENT & ORDER CREATION (Django CheckoutView -> Order & OrderItems)
       ↓ (Automatic Stock Decrement: variant.stock -= quantity)
-ADMIN PORTAL (/admin/orders & /admin/analytics)
+ADMIN PORTAL (/admin/orders & /admin/analytics/reports)
       ↓ (Supplier Order Routing Engine: route_order_to_suppliers)
 SUPPLIER / FULFILLMENT & SHIPPING (/admin/products/purchase-orders & /admin/settings/shipping)
       ↓ (Carrier Integration: DHL Express / FedEx / DPD)
 TRACKING (/track)
       ↓
-CUSTOMER CONFIRMATION & REVIEWS (/track & CustomerReviewsSection)
+CUSTOMER CONFIRMATION & REVIEWS (/checkout/success & CustomerReviewsSection)
 ```
 
 ---
 
-### Master Module Audit Matrix (`bro.txt` & Reference Screenshots Alignment)
+### Master Module Audit Matrix (`bro1.txt` & Reference Screenshots Alignment)
 
 | # | Module / Feature Area | Backend API | DB Schema | Frontend UI | Status |
 | :- | :--- | :-: | :-: | :-: | :--- |
@@ -56,49 +56,38 @@ CUSTOMER CONFIRMATION & REVIEWS (/track & CustomerReviewsSection)
 | 15 | **Marketing Automations** | ✅ | ✅ | ✅ | **[x] Complete** |
 | 16 | **Discounts & Rule Engine** | ✅ | ✅ | ✅ | **[x] Complete** |
 | 17 | **Content & CMS Builder** | ✅ | ✅ | ✅ | **[x] Complete** |
-| 18 | **Files & Media CDN Manager** | ✅ | ✅ | ✅ | **[x] Complete** |
-| 19 | **Metaobjects & Custom Data** | ✅ | ✅ | ✅ | **[x] Complete** |
-| 20 | **Analytics & Financial Reports** | ✅ | ✅ | ✅ | **[x] Complete** |
-| 21 | **Shopify 2026 Donut Reports Explorer** | ✅ | ✅ | ✅ | **[x] Complete** |
-| 22 | **Live View & Visitor Radar** | ✅ | ✅ | ✅ | **[x] Complete** |
-| 23 | **Point of Sale (POS) Terminals** | ✅ | ✅ | ✅ | **[x] Complete** |
-| 24 | **B2B Wholesale & Custom Pricing** | ✅ | ✅ | ✅ | **[x] Complete** |
-| 25 | **Suppliers & Dropship Directory** | ✅ | ✅ | ✅ | **[x] Complete** |
-| 26 | **Auto Dropship Supplier Routing** | ✅ | ✅ | ✅ | **[x] Complete** |
-| 27 | **Shipping Zones & Rates** | ✅ | ✅ | ✅ | **[x] Complete** |
-| 28 | **Taxes & Regional VAT Rules** | ✅ | ✅ | ✅ | **[x] Complete** |
-| 29 | **Users & Staff Permissions** | ✅ | ✅ | ✅ | **[x] Complete** |
-| 30 | **Spatial Luxury Handbag 3D Hero** | ✅ | ✅ | ✅ | **[x] Complete** |
-| 31 | **Shop Catalog & Search Filters** | ✅ | ✅ | ✅ | **[x] Complete** |
-| 32 | **Product Detail Gallery & Specs** | ✅ | ✅ | ✅ | **[x] Complete** |
-| 33 | **Cart & Guest Checkout Flow** | ✅ | ✅ | ✅ | **[x] Complete** |
-| 34 | **Order Tracking & Live Status** | ✅ | ✅ | ✅ | **[x] Complete** |
-| 35 | **Customer Reviews & Trust Badges** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 18 | **Homepage Section Configurator** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 19 | **Spatial Luxury 3D Hero Config** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 20 | **Analytics & Dynamic Reports** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 21 | **Live View & Visitor Radar** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 22 | **Point of Sale (POS) Terminals** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 23 | **B2B Wholesale & Custom Pricing** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 24 | **Suppliers & Dropship Directory** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 25 | **Shipping Zones & Rates** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 26 | **Taxes & Regional VAT Rules** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 27 | **Users & Staff Permissions** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 28 | **Storefront Catalog & Search** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 29 | **PDP Gallery & Handbag Specs** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 30 | **Cart & Free Shipping Bar** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 31 | **Guest Checkout Flow** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 32 | **Order Confirmation Screen** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 33 | **Order Tracking & Live Status** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 34 | **Interactive Lookbook Exhibition** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 35 | **Wishlist & Saved Curations** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 36 | **Editorial Gazette & Journal** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 37 | **FAQ & Client Care Accordion** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 38 | **Worldwide Shipping Policy** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 39 | **30-Day Returns Policy & Label** | ✅ | ✅ | ✅ | **[x] Complete** |
+| 40 | **Reversible Demo Data Seeder** | ✅ | ✅ | ✅ | **[x] Complete** |
 
 ---
 
-## 🛠️ Data Contract & Integration Verifications
+## 🛠️ Commands Reference
 
-1. **Admin Product Creation -> Storefront Display**:
-   - Creating a product in `/admin/products/new` saves directly via POST `/api/products/admin-items/`.
-   - Storefront catalog (`/shop` & `/`) fetches live items via GET `/api/products/items/`.
-   - Modifying selling price, images, or active status in Admin immediately propagates to customer PDP.
+```powershell
+# Seed Demo Products, Variants, 45 Global Orders & Reports Data:
+python backend/manage.py seed_demo_data
 
-2. **Customer Checkout -> Admin Order & Stock Decrement**:
-   - Customer submits checkout form on `/checkout`.
-   - Frontend posts to `/api/orders/checkout/`.
-   - Django backend validates stock, creates `Order` with `status='paid'`, creates `OrderItem` records, decrements `variant.stock -= quantity`, and executes `route_order_to_suppliers(order.id)`.
-   - Order appears instantly in `/admin/orders` and analytics ledger.
-
-3. **Fulfillment Update -> Live Customer Order Tracking**:
-   - Admin updates status or adds tracking ID on `/admin/orders`.
-   - Customer accesses `/track` with order ID, displaying live timeline (Placed -> Processing -> Dispatched with Carrier Tracking Number).
-
----
-
-## 📝 Future Task Backlog (Editable)
-
-- [ ] **Task 1**: Connect Stripe Webhook & PayPal Smart Buttons for instant card processing.
-- [ ] **Task 2**: Connect WhatsApp Business API for automated shipping notifications.
-- [ ] **Task 3**: Add AI-powered Handbag Sizing & Styling Advisor.
-- [ ] **Task 4**: Multi-language localization (Arabic / French / English toggle).
+# Flush / Delete All Seeded Demo Data cleanly:
+python backend/manage.py seed_demo_data --clear
+```
