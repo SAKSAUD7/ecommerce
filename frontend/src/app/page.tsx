@@ -4,11 +4,14 @@ import React, { useEffect, useState } from "react"
 import Link from "next/link"
 import SpatialNav from "@/components/layout/SpatialNav"
 import HeroScene from "@/components/3d/HeroScene"
+import BagAnatomySection from "@/components/shop/BagAnatomySection"
+import ProductSpotlightSection from "@/components/shop/ProductSpotlightSection"
+import InteractiveLookbookSection from "@/components/shop/InteractiveLookbookSection"
 import CustomerReviewsSection from "@/components/shop/CustomerReviewsSection"
 import { apiFetch } from "@/lib/api"
 import { 
   ArrowRight, ShieldCheck, Truck, RotateCcw, Award, Heart, Star, 
-  ChevronLeft, ChevronRight, Mail, Sparkles, Lock, CheckCircle2, Leaf
+  Mail, Sparkles, Lock, CheckCircle2, Leaf
 } from "lucide-react"
 import { useCartStore } from "@/store/cartStore"
 
@@ -39,7 +42,7 @@ export default function Home() {
   const addItem = useCartStore((state) => state.addItem)
 
   useEffect(() => {
-    // Fetch live products
+    // Fetch live catalog from Django REST backend API
     apiFetch('/products/items/')
       .then(data => {
         const items = data.results || data || []
@@ -59,7 +62,7 @@ export default function Home() {
       })
       .catch(console.error)
 
-    // Fetch active Hero Slider settings from backend CMS
+    // Fetch live Hero settings from backend CMS
     apiFetch('/cms/sliders/')
       .then(data => {
         if (data && data.length > 0) setHeroContent(data[0])
@@ -99,7 +102,7 @@ export default function Home() {
       {/* Top Announcement Bar & Sticky Header */}
       <SpatialNav />
 
-      {/* SECTION 1: SPATIAL 3D HERO SECTION (Dark Luxury #0A192F) */}
+      {/* SECTION 1: SPATIAL 3D STUDIO HERO STAGE (#0A192F Dark Luxury) */}
       <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#0A192F] text-white">
         {heroContent?.image_url && (
           <img src={heroContent.image_url} className="absolute inset-0 w-full h-full object-cover opacity-15" alt="" />
@@ -108,8 +111,8 @@ export default function Home() {
         <HeroScene />
         
         <div className="z-10 text-center pointer-events-none mt-16 relative px-4 max-w-4xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#C5A059] mb-4 block drop-shadow">
-            HAUTE MODEST FASHION &amp; BESPOKE LUXURY
+          <span className="text-xs font-bold uppercase tracking-[0.35em] text-[#C5A059] mb-4 block drop-shadow">
+            HAUTE FASHION &amp; SPATIAL 3D ATELIER
           </span>
           <h1 className="text-5xl md:text-8xl font-bold tracking-[0.2em] text-[#C5A059] uppercase mb-6 drop-shadow-2xl font-serif">
             {heroContent?.title || "DE'NOURA"}
@@ -235,7 +238,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 4: SHOP BY CATEGORY (Warm Beige #FAF8F5) */}
+      {/* SECTION 4: INTERACTIVE BAG ANATOMY & CRAFTSMANSHIP ("THE DETAILS MATTER") */}
+      <BagAnatomySection />
+
+      {/* SECTION 5: CINEMATIC PRODUCT SPOTLIGHT ("PRODUCT OF THE SEASON" matching Reference Images 4 & 5) */}
+      <ProductSpotlightSection />
+
+      {/* SECTION 6: SHOP BY CATEGORY (Warm Beige #FAF8F5) */}
       <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto space-y-12">
         <div className="text-center space-y-3">
           <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#C5A059]">Curated Categories</span>
@@ -288,7 +297,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 5: ICONIC COLLECTIONS (Dark Editorial #0A192F) */}
+      {/* SECTION 7: ICONIC COLLECTIONS (Dark Editorial #0A192F) */}
       <section className="py-24 bg-[#0A192F] text-white px-6 md:px-12">
         <div className="max-w-7xl mx-auto space-y-12 text-center">
           <div className="space-y-3">
@@ -341,7 +350,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 6: TRUST & SECURITY BAR (Light Background) */}
+      {/* SECTION 8: INTERACTIVE EDITORIAL LOOKBOOK & SHOP THE LOOK (matching Reference Images 1 & 3) */}
+      <InteractiveLookbookSection />
+
+      {/* SECTION 9: TRUST & SECURITY BAR (Light Background) */}
       <section className="py-12 bg-white border-y border-black/10 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div className="flex flex-col items-center space-y-2">
@@ -367,7 +379,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 7: AS SEEN IN PRESS LOGOS BAR matching reference image */}
+      {/* SECTION 10: AS SEEN IN PRESS LOGOS BAR matching reference image */}
       <section className="py-10 bg-[#FAF8F5] border-b border-black/10 px-6">
         <div className="max-w-7xl mx-auto text-center space-y-4">
           <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400">AS SEEN IN</span>
@@ -382,7 +394,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 8: BEST SELLERS (Warm Light Background) */}
+      {/* SECTION 11: BEST SELLERS (Warm Light Background) */}
       <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto space-y-12">
         <div className="flex justify-between items-end border-b border-black/10 pb-6">
           <div>
@@ -441,12 +453,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 9: VERIFIED CUSTOMER REVIEWS */}
+      {/* SECTION 12: VERIFIED CUSTOMER REVIEWS */}
       <section className="max-w-7xl mx-auto px-6 md:px-12 my-12">
         <CustomerReviewsSection />
       </section>
 
-      {/* SECTION 10: NEWSLETTER & FOOTER (Dark #06152D Background matching reference image) */}
+      {/* SECTION 13: NEWSLETTER & FOOTER (Dark #06152D Background matching reference image) */}
       <footer className="bg-[#06152D] text-white pt-20 pb-12 px-6 md:px-12 border-t border-[#C5A059]/20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
           
