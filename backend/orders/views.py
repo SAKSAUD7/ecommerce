@@ -88,7 +88,7 @@ class CouponValidateView(views.APIView):
         return Response(CouponSerializer(coupon).data)
 
 class CheckoutView(views.APIView):
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
     def post(self, request):
         serializer = CheckoutSerializer(data=request.data)
@@ -107,7 +107,7 @@ class CheckoutView(views.APIView):
                     'quantity': item['quantity']
                 })
         else:
-            cart = getattr(request.user, 'cart', None)
+            cart = getattr(request.user, 'cart', None) if request.user.is_authenticated else None
             if not cart or not cart.items.exists():
                 return Response({"detail": "Your cart is empty."}, status=status.HTTP_400_BAD_REQUEST)
             
@@ -150,8 +150,9 @@ class CheckoutView(views.APIView):
         total = subtotal - discount + tax + shipping_cost
 
         # 3. Create Order
+        user_obj = request.user if request.user.is_authenticated else None
         order = Order.objects.create(
-            user=request.user,
+            user=user_obj,
             full_name=data['full_name'],
             email=data['email'],
             phone=data['phone'],
