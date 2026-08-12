@@ -99,3 +99,82 @@ export async function fetchPageBySlug(slug: string) {
     next: { revalidate: 60 }
   });
 }
+
+export async function fetchReturns() {
+  return apiFetch('/orders/returns/');
+}
+
+export async function updateReturnStatus(id: number, data: any) {
+  return apiFetch(`/orders/returns/${id}/`, {
+    method: 'PATCH',
+    body: JSON.stringify(data)
+  });
+}
+
+export async function createReturnRequest(data: any) {
+  return apiFetch('/orders/returns/', {
+    method: 'POST',
+    body: JSON.stringify(data)
+  });
+}
+
+export async function fetchAdminCollections() {
+  return apiFetch('/products/admin-collections/');
+}
+
+export async function createAdminCollection(data: any) {
+  return apiFetch('/products/admin-collections/', {
+    method: 'POST',
+    body: JSON.stringify(data)
+  });
+}
+
+export async function deleteAdminCollection(id: number) {
+  return apiFetch(`/products/admin-collections/${id}/`, {
+    method: 'DELETE'
+  });
+}
+
+export async function fetchPurchaseOrders() {
+  return apiFetch('/inventory/purchase-orders/');
+}
+
+export async function createPurchaseOrder(data: any) {
+  return apiFetch('/inventory/purchase-orders/', {
+    method: 'POST',
+    body: JSON.stringify(data)
+  });
+}
+
+export async function updatePurchaseOrder(id: number, data: any) {
+  return apiFetch(`/inventory/purchase-orders/${id}/`, {
+    method: 'PATCH',
+    body: JSON.stringify(data)
+  });
+}
+
+export async function fetchInventoryMovements() {
+  return apiFetch('/inventory/movements/');
+}
+
+export async function updateProductVariant(id: number, data: any) {
+  return apiFetch(`/products/admin-items/${id}/`, {
+    method: 'PATCH',
+    body: JSON.stringify(data)
+  });
+}
+
+export async function fetchInventoryLevels() {
+  return apiFetch('/inventory/levels/');
+}
+
+export async function updateInventoryLevel(id: number, data: any) {
+  return apiFetch(`/inventory/levels/${id}/`, {
+    method: 'PATCH',
+    body: JSON.stringify(data)
+  });
+}
+
+
+
+

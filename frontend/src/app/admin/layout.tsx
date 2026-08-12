@@ -10,6 +10,8 @@ import {
 } from "lucide-react"
 import { useAuthStore } from "@/store/authStore"
 
+import DeNouraLogo from "@/components/common/DeNouraLogo"
+
 type SubItem = { name: string; href: string }
 type NavItem = { name: string; href: string; icon: any; subItems?: SubItem[] }
 
@@ -45,6 +47,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { 
       name: "Orders", href: "/admin/orders", icon: ShoppingCart,
       subItems: [
+        { name: "Returns & Refunds", href: "/admin/returns" },
         { name: "Drafts", href: "/admin/orders/drafts" },
         { name: "Abandoned Checkouts", href: "/admin/orders/abandoned" },
       ]
@@ -122,8 +125,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <div className="flex-1 overflow-y-auto overflow-x-hidden pb-20 custom-scrollbar">
           <div className="flex flex-col h-full p-4">
             <div className="flex items-center justify-between mb-6 px-2 mt-2 shrink-0">
-              <Link href="/admin" className="text-xl font-bold tracking-tight text-gray-900 flex items-center gap-2">
-                <span className="bg-black text-white px-2 py-1 rounded text-sm">A</span> Aura Admin
+              <Link href="/admin">
+                <DeNouraLogo size="sm" variant="dark" />
               </Link>
               <button className="lg:hidden text-gray-500 hover:text-gray-900" onClick={() => setSidebarOpen(false)}>
                 <X className="w-5 h-5" />

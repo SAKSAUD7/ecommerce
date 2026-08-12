@@ -45,6 +45,11 @@ class CollectionViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = CollectionSerializer
     lookup_field = 'slug'
 
+class AdminCollectionViewSet(viewsets.ModelViewSet):
+    queryset = Collection.objects.all().order_by('-id')
+    serializer_class = CollectionSerializer
+    permission_classes = [permissions.IsAdminUser]
+
 class ProductViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Product.objects.filter(is_active=True)
     serializer_class = ProductSerializer

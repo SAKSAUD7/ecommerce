@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Cart, CartItem, Order, OrderItem, Coupon, Payment
+from .models import Cart, CartItem, Order, OrderItem, Coupon, Payment, ReturnRequest
 from products.models import ProductVariant
 from products.serializers import ProductVariantSerializer, ProductSerializer
 
@@ -76,3 +76,18 @@ class CheckoutSerializer(serializers.Serializer):
     payment_method = serializers.ChoiceField(choices=(('stripe', 'Stripe'), ('razorpay', 'Razorpay'), ('cod', 'COD')))
     payment_token = serializers.CharField(max_length=150, required=False, allow_blank=True)
     items = CheckoutItemSerializer(many=True, required=False)
+
+class ReturnRequestSerializer(serializers.ModelSerializer):
+    order_id = serializers.IntegerField(source='order.id', read_only=True)
+    customer_email = serializers.CharField(source='order.email', read_only=True)
+    customer_name = serializers.CharField(source='order.full_name', read_only=True)
+
+    class Meta:
+        model = ReturnRequest
+        fields = (
+            'id', 'order', 'order_id', 'customer_name', 'customer_email',
+            'user', 'status', 'reason', 'explanation',
+            'refund_amount', 'restock_inventory', 'admin_notes',
+            'created_at', 'updated_at'
+        )
+

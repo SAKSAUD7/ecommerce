@@ -26,3 +26,12 @@ class Address(models.Model):
 
     def __str__(self):
         return f"{self.street_address}, {self.city} - {self.postal_code}"
+
+class CustomerSegment(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True, null=True)
+    filters = models.JSONField(default=dict, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name

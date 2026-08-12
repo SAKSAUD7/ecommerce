@@ -5,8 +5,8 @@ from django.utils import timezone
 from decimal import Decimal
 
 from products.models import ProductVariant
-from .models import Cart, CartItem, Order, OrderItem, Coupon, Payment
-from .serializers import CartSerializer, OrderSerializer, CheckoutSerializer, CouponSerializer
+from .models import Cart, CartItem, Order, OrderItem, Coupon, Payment, ReturnRequest
+from .serializers import CartSerializer, OrderSerializer, CheckoutSerializer, CouponSerializer, ReturnRequestSerializer
 
 class CartView(views.APIView):
     # Support authenticated users. For guest carts, session keys are used.
@@ -266,3 +266,26 @@ class AdminCouponViewSet(viewsets.ModelViewSet):
     serializer_class = CouponSerializer
     permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
     queryset = Coupon.objects.all().order_by('-valid_to')
+
+class ReturnRequestViewSet(viewsets.ModelViewSet):
+    serializer_class = ReturnRequestSerializer
+    permission_classes = [permissions.AllowAny]
+
+    def get_queryset(self):
+        if self.request.user and self.request.user.is_staff:
+            return ReturnRequest.objects.all().order_by('-created_at')
+        if self.request.user and self.request.user.is_authenticated:
+            return ReturnRequest.objects.filter(user=self.request.user).order_by('-created_at')
+        return ReturnRequest.objects.all().order_by('-created_at')
+
+    def perform_create(self, serializer):
+        user = self.request.user if self.request.user.is_authenticated else None
+        serializer.save(user=user)
+
+    def perform_update(self, serializer):
+        instance = serializer.save()
+        if instance.status in ['approved', 'refunded'] and instance.restock_inventory:
+            for item in instance.order.items.all():
+                item.variant.stock += item.quantity
+                item.variant.save()
+

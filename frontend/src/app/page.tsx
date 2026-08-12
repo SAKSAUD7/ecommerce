@@ -6,6 +6,7 @@ import SpatialNav from "@/components/layout/SpatialNav"
 import HeroScene from "@/components/3d/HeroScene"
 import LuxuryFooter from "@/components/layout/LuxuryFooter"
 import GlassCard from "@/components/ui/GlassCard"
+import CustomerReviewsSection from "@/components/shop/CustomerReviewsSection"
 import { apiFetch } from "@/lib/api"
 
 export default function Home() {
@@ -43,35 +44,21 @@ export default function Home() {
       <SpatialNav />
       
       {/* 3D Hero Section */}
-      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#EAE6DB]">
+      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#0A192F] text-white">
         {heroContent?.image_url && (
-          <img src={heroContent.image_url} className="absolute inset-0 w-full h-full object-cover opacity-10" alt="" />
+          <img src={heroContent.image_url} className="absolute inset-0 w-full h-full object-cover opacity-20" alt="" />
         )}
         
         <HeroScene />
         
         <div className="z-10 text-center pointer-events-none mt-20 relative">
-          <h1 className="text-5xl md:text-8xl font-bold tracking-[0.15em] text-black uppercase mb-6 drop-shadow-sm">
-            {heroContent?.title || "Aura"}
+          <h1 className="text-5xl md:text-8xl font-bold tracking-[0.2em] text-[#C5A059] uppercase mb-6 drop-shadow-lg font-serif">
+            {heroContent?.title || "DE'NOURA"}
           </h1>
-          <p className="text-black/70 tracking-[0.2em] uppercase text-sm md:text-base max-w-xl mx-auto px-4 font-medium drop-shadow-sm">
-            {heroContent?.subtitle || "The Future of Luxury Fashion. A Spatial Computing Experience."}
+          <p className="text-white/80 tracking-[0.2em] uppercase text-sm md:text-base max-w-xl mx-auto px-4 font-medium drop-shadow-sm">
+            {heroContent?.subtitle || "Haute Modest Fashion & Bespoke Luxury Experience"}
           </p>
           
-          <div className="mt-10 pointer-events-auto">
-            <Link href={heroContent?.cta_link || "/shop"} className="px-8 py-4 bg-black text-white text-xs tracking-widest uppercase rounded-full hover:bg-black/80 transition-all duration-500 font-bold shadow-xl">
-              {heroContent?.cta_text || "Shop Collection"}
-            </Link>
-          </div>
-        </div>
-        
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 animate-bounce">
-          <span className="text-[10px] tracking-widest text-black/50 uppercase font-bold">Scroll to explore</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-black/50 to-transparent" />
-        </div>
-      </section>
-
-      {/* Featured Collection Section */}
       <section className="relative w-full min-h-screen bg-transparent py-32 px-6 md:px-12 z-20">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8">

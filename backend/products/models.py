@@ -21,11 +21,18 @@ class Category(models.Model):
         return self.name
 
 class Collection(models.Model):
+    COLLECTION_TYPE_CHOICES = (
+        ('manual', 'Manual'),
+        ('smart', 'Smart (Automated Rules)'),
+    )
     name = models.CharField(max_length=100)
     slug = models.SlugField(unique=True, blank=True)
     description = models.TextField(blank=True, null=True)
     image_url = models.URLField(max_length=500, blank=True, null=True)
+    collection_type = models.CharField(max_length=20, choices=COLLECTION_TYPE_CHOICES, default='manual')
+    rules = models.JSONField(default=dict, blank=True)
     is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:

@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import CartDrawer from "@/components/shop/CartDrawer"
 import SearchDrawer from "@/components/ui/SearchDrawer"
 import { useCartStore } from "@/store/cartStore"
+import DeNouraLogo from "../common/DeNouraLogo"
 
 export default function SpatialNav() {
   const [scrolled, setScrolled] = useState(false)
@@ -40,8 +41,8 @@ export default function SpatialNav() {
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="flex items-center gap-8">
-          <Link href="/" className="text-2xl font-bold tracking-[0.2em] uppercase text-black">
-            Aura
+          <Link href="/">
+            <DeNouraLogo size="md" variant="dark" />
           </Link>
           
           <div className="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest text-black/70 font-bold">

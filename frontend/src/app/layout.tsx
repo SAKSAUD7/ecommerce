@@ -16,8 +16,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Aura | Spatial 3D Luxury Fashion",
-  description: "Experience the future of online shopping with spatial UI and 3D luxury fashion.",
+  title: "DE'NOURA | Haute Modest Fashion & Luxury Spatial Experience",
+  description: "DE'NOURA — Discover the finest in luxury modest fashion, bespoke couture, and spatial digital shopping.",
 };
 
 export default function RootLayout({

@@ -45,26 +45,25 @@ export default function ContactPage() {
                 <Mail className="w-5 h-5 mt-1" />
                 <div>
                   <h3 className="font-bold tracking-widest uppercase mb-1">Email Us</h3>
-                  <p className="text-black/60">care@auraluxury.com</p>
-                  <p className="text-black/60">Response within 24 hours</p>
+                  <p className="text-black/90 font-semibold">Denoura.co@gmail.com</p>
+                  <p className="text-black/60 text-xs mt-1">Official domains: Denoura.co &amp; Denoura.co.uk</p>
                 </div>
               </div>
               
               <div className="flex items-start gap-4">
                 <Phone className="w-5 h-5 mt-1" />
                 <div>
-                  <h3 className="font-bold tracking-widest uppercase mb-1">Call Us</h3>
-                  <p className="text-black/60">+1 (800) 123-4567</p>
-                  <p className="text-black/60">Mon-Fri, 9am - 6pm EST</p>
+                  <h3 className="font-bold tracking-widest uppercase mb-1">Social Concierge</h3>
+                  <p className="text-black/80">Instagram: @Denoura.co</p>
+                  <p className="text-black/80">TikTok: @Denoura.co</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
                 <MapPin className="w-5 h-5 mt-1" />
                 <div>
-                  <h3 className="font-bold tracking-widest uppercase mb-1">Headquarters</h3>
-                  <p className="text-black/60">123 Fashion Avenue, Suite 400</p>
-                  <p className="text-black/60">New York, NY 10001</p>
+                  <h3 className="font-bold tracking-widest uppercase mb-1">Global Atelier</h3>
+                  <p className="text-black/60">London &amp; International Distribution</p>
                 </div>
               </div>
             </div>

@@ -41,3 +41,36 @@ class InventoryMovement(models.Model):
     
     def __str__(self):
         return f"{self.movement_type} of {self.quantity} {self.variant.name} at {self.location.name}"
+
+class PurchaseOrder(models.Model):
+    STATUS_CHOICES = (
+        ('draft', 'Draft'),
+        ('sent', 'Sent to Supplier'),
+        ('partial', 'Partially Received'),
+        ('received', 'Received & Stocked'),
+        ('cancelled', 'Cancelled'),
+    )
+    supplier = models.ForeignKey('suppliers.Supplier', on_delete=models.CASCADE, related_name='purchase_orders')
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='draft')
+    expected_delivery = models.DateField(null=True, blank=True)
+    tracking_number = models.CharField(max_length=100, blank=True, null=True)
+    total_cost = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    notes = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"PO #{self.id} - {self.supplier.name} ({self.status})"
+
+class PurchaseOrderItem(models.Model):
+    purchase_order = models.ForeignKey(PurchaseOrder, on_delete=models.CASCADE, related_name='items')
+    variant = models.ForeignKey(ProductVariant, on_delete=models.CASCADE)
+    quantity_ordered = models.PositiveIntegerField(default=1)
+    quantity_received = models.PositiveIntegerField(default=0)
+    cost_price = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return f"PO Item {self.variant.product.name} (Qty {self.quantity_ordered})"

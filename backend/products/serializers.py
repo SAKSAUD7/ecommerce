@@ -15,9 +15,14 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class CollectionSerializer(serializers.ModelSerializer):
+    products_count = serializers.SerializerMethodField()
+
     class Meta:
         model = Collection
-        fields = '__all__'
+        fields = ('id', 'name', 'slug', 'description', 'image_url', 'collection_type', 'rules', 'is_active', 'created_at', 'products_count')
+
+    def get_products_count(self, obj):
+        return obj.products.count()
 
 class ProductImageSerializer(serializers.ModelSerializer):
     class Meta:

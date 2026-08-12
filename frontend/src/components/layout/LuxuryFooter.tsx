@@ -2,6 +2,7 @@
 
 import React from "react"
 import Link from "next/link"
+import DeNouraLogo from "../common/DeNouraLogo"
 
 export default function LuxuryFooter() {
   return (
@@ -9,11 +10,11 @@ export default function LuxuryFooter() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
         
         <div className="col-span-1 md:col-span-2">
-          <Link href="/" className="text-3xl font-bold tracking-[0.2em] uppercase text-black block mb-6">
-            Aura
+          <Link href="/" className="block mb-6">
+            <DeNouraLogo size="lg" variant="dark" />
           </Link>
           <p className="max-w-md text-sm leading-relaxed mb-8 font-medium">
-            Experience the future of online shopping. A spatial luxury modest fashion platform blending premium physical garments with immersive digital realities.
+            DE&apos;NOURA — Experience the pinnacle of haute modest fashion. Blending timeless elegance with immersive digital craftsmanship.
           </p>
           <form className="relative max-w-sm">
             <input 
@@ -40,20 +41,39 @@ export default function LuxuryFooter() {
         <div>
           <h4 className="text-black text-xs font-bold uppercase tracking-widest mb-6">Client Care</h4>
           <ul className="space-y-4 text-sm font-medium">
-            <li><Link href="/contact" className="hover:text-black transition-colors">Contact Us</Link></li>
-            <li><Link href="/shipping" className="hover:text-black transition-colors">Shipping & Returns</Link></li>
-            <li><Link href="/faq" className="hover:text-black transition-colors">FAQ</Link></li>
+            <li><a href="mailto:Denoura.co@gmail.com" className="hover:text-black transition-colors">Denoura.co@gmail.com</a></li>
+            <li><Link href="/track" className="hover:text-black transition-colors">Track Your Order</Link></li>
+            <li><Link href="/privacy" className="hover:text-black transition-colors">Privacy Policy</Link></li>
             <li><Link href="/terms" className="hover:text-black transition-colors">Terms of Service</Link></li>
           </ul>
         </div>
       </div>
       
-      <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-black/10 flex flex-col md:flex-row items-center justify-between text-xs tracking-widest font-bold">
-        <p>&copy; {new Date().getFullYear()} AURA LUXURY. ALL RIGHTS RESERVED.</p>
+      {/* Trust Guarantee Badges */}
+      <div className="max-w-7xl mx-auto mt-12 py-6 border-y border-black/10 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-wider text-black">Worldwide Express Shipping</p>
+          <p className="text-[11px] text-gray-500 mt-0.5">Tracked Delivery via DHL/FedEx</p>
+        </div>
+        <div>
+          <p className="text-xs font-bold uppercase tracking-wider text-black">Authentic Modest Luxury</p>
+          <p className="text-[11px] text-gray-500 mt-0.5">100% Premium Fabrics & Silk</p>
+        </div>
+        <div>
+          <p className="text-xs font-bold uppercase tracking-wider text-black">Secure Checkout</p>
+          <p className="text-[11px] text-gray-500 mt-0.5">256-Bit SSL Bank-Grade Security</p>
+        </div>
+        <div>
+          <p className="text-xs font-bold uppercase tracking-wider text-black">30-Day Easy Returns</p>
+          <p className="text-[11px] text-gray-500 mt-0.5">Hassle-Free Refunds & Exchanges</p>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto mt-8 flex flex-col md:flex-row items-center justify-between text-xs tracking-widest font-bold">
+        <p>&copy; {new Date().getFullYear()} DE&apos;NOURA (Denoura.co & Denoura.co.uk). ALL RIGHTS RESERVED.</p>
         <div className="flex items-center gap-6 mt-4 md:mt-0">
-          <Link href="#" className="hover:text-black transition-colors">INSTAGRAM</Link>
-          <Link href="#" className="hover:text-black transition-colors">TWITTER</Link>
-          <Link href="#" className="hover:text-black transition-colors">PINTEREST</Link>
+          <a href="https://instagram.com/denoura.co" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">INSTAGRAM @DENOURA.CO</a>
+          <a href="https://tiktok.com/@denoura.co" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">TIKTOK @DENOURA.CO</a>
         </div>
       </div>
     </footer>

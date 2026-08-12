@@ -1,10 +1,11 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import CartView, CouponValidateView, CheckoutView, OrderViewSet, AdminOrderViewSet, OrderTrackingView, AdminCouponViewSet
+from .views import CartView, CouponValidateView, CheckoutView, OrderViewSet, AdminOrderViewSet, OrderTrackingView, AdminCouponViewSet, ReturnRequestViewSet
 
 router = DefaultRouter()
 router.register(r'admin-orders', AdminOrderViewSet, basename='admin_orders')
 router.register(r'admin-coupons', AdminCouponViewSet, basename='admin_coupons')
+router.register(r'returns', ReturnRequestViewSet, basename='returns')
 router.register(r'history', OrderViewSet, basename='order_history')
 
 urlpatterns = [
@@ -14,3 +15,4 @@ urlpatterns = [
     path('track/', OrderTrackingView.as_view(), name='order_tracking'),
     path('', include(router.urls)),
 ]
+
