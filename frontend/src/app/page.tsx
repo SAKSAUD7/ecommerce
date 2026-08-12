@@ -59,6 +59,24 @@ export default function Home() {
             {heroContent?.subtitle || "Haute Modest Fashion & Bespoke Luxury Experience"}
           </p>
           
+          <div className="mt-10 pointer-events-auto flex items-center justify-center gap-4">
+            <Link 
+              href="/shop" 
+              className="px-8 py-4 bg-[#C5A059] text-black font-bold uppercase tracking-[0.2em] text-xs hover:bg-[#d5b069] transition-colors rounded-full shadow-lg"
+            >
+              Explore Collection
+            </Link>
+            <Link 
+              href="/collections" 
+              className="px-8 py-4 border border-white/30 text-white font-bold uppercase tracking-[0.2em] text-xs hover:bg-white/10 transition-colors rounded-full backdrop-blur-md"
+            >
+              Collections
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Collection Section */}
       <section className="relative w-full min-h-screen bg-transparent py-32 px-6 md:px-12 z-20">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8">
@@ -84,13 +102,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Customer Reviews Section */}
+      <section className="max-w-7xl mx-auto px-6 md:px-12">
+        <CustomerReviewsSection />
+      </section>
+
       {/* Editorial Section */}
       <section className="relative w-full h-[80vh] flex items-center justify-center overflow-hidden z-20">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#EAE6DB] to-transparent -z-10" />
         
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-2xl md:text-4xl font-light tracking-[0.2em] uppercase leading-relaxed mb-8 text-black">
-            "{manifesto?.summary || 'Redefining the boundary between physical craftsmanship and digital artistry.'}"
+            &ldquo;{manifesto?.summary || 'Redefining the boundary between physical craftsmanship and digital artistry.'}&rdquo;
           </h2>
           <button className="px-8 py-4 bg-black text-white text-xs tracking-widest uppercase rounded-full hover:bg-black/80 transition-all duration-500 interactive font-bold">
             {manifesto?.title || 'Read the Manifesto'}
