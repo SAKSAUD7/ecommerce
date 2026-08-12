@@ -1,0 +1,8910 @@
+ Yes. If your goal is to **build your own ecommerce admin portal comparable to Shopify**, I would not limit it to “Products + Orders + Customers.” A serious platform needs the entire commerce operating system: catalog, inventory, orders, payments, fulfillment, returns, customers, marketing, storefront/CMS, analytics, finance, tax, shipping, integrations, automation, security, and eventually B2B/multi-store.
+
+I went through Shopify's current admin structure and documentation, including its Products, Orders, Customers, Analytics, Growth/Marketing, Discounts, Content, inventory, B2B, checkout, permissions and app-extension capabilities. Shopify's own admin describes Orders, Products, Customers, Analytics, marketing/promotions and Discounts as core areas, while its current 2026 changelog shows that the terminology and feature set continue evolving—for example, Marketing was renamed **Growth** in June 2026. ([Shopify Help Center][1])
+
+Below is the **master blueprint I would use for your ecommerce admin portal**.
+
+---
+
+# 🛒 COMPLETE ECOMMERCE ADMIN PORTAL
+
+## Recommended main sidebar
+
+```text
+ADMIN
+├── Dashboard
+├── Orders
+├── Products
+├── Inventory
+├── Collections
+├── Customers
+├── Marketing / Growth
+├── Discounts
+├── Content / CMS
+├── Online Store
+├── Sales Channels
+├── Payments
+├── Shipping & Delivery
+├── Returns & Refunds
+├── Fulfillment
+├── Purchases / Suppliers
+├── Finance
+├── Taxes
+├── Analytics & Reports
+├── Customer Support
+├── Reviews
+├── Subscriptions
+├── Gift Cards
+├── Loyalty
+├── B2B
+├── Markets / International
+├── Automation
+├── Apps & Integrations
+├── Media / Files
+├── Search & Discovery
+├── SEO
+├── Notifications
+├── Users & Permissions
+├── Security
+├── Audit Logs
+└── Settings
+```
+
+Some of these can initially be grouped together, but **the underlying systems should exist separately**.
+
+---
+
+# 1. 🏠 DASHBOARD
+
+The dashboard is the command center.
+
+### Overview
+
+Display:
+
+* Total sales
+* Net sales
+* Gross sales
+* Orders
+* Average order value
+* Units sold
+* Customers
+* New customers
+* Returning customers
+* Conversion rate
+* Refunds
+* Discounts
+* Taxes
+* Shipping revenue
+* Payment fees
+* Gross profit
+* Net profit
+* Pending payments
+* Pending fulfillment
+* Low-stock products
+* Out-of-stock products
+
+### Sales chart
+
+Filters:
+
+* Today
+* Yesterday
+* Last 7 days
+* Last 30 days
+* Last 90 days
+* This month
+* Last month
+* This year
+* Custom range
+
+Compare against:
+
+* Previous period
+* Previous year
+
+### Sales breakdown
+
+* By product
+* By category
+* By collection
+* By customer
+* By country
+* By state
+* By city
+* By sales channel
+* By device
+* By payment method
+* By shipping method
+* By discount
+* By campaign
+
+### Order status widgets
+
+* New
+* Unpaid
+* Paid
+* Processing
+* Fulfillment pending
+* Fulfilled
+* Partially fulfilled
+* Shipped
+* Delivered
+* Cancelled
+* Returned
+* Refunded
+* Failed
+* Fraud review
+
+### Alerts
+
+* Low inventory
+* Out of stock
+* Payment failures
+* Failed fulfillment
+* High return rate
+* Fraud risk
+* Failed integrations
+* Broken products
+* Expiring discounts
+* Abandoned carts
+* Failed emails
+* Failed webhooks
+
+### Quick actions
+
+* Add product
+* Create order
+* Create customer
+* Create discount
+* Create collection
+* Create campaign
+* Add supplier
+* Create purchase order
+* Create shipping rule
+
+---
+
+# 2. 📦 ORDERS
+
+This is one of the most important systems.
+
+Shopify's order management includes viewing/tracking orders, payment processing, editing orders, fulfillment, returns and refunds. It also supports draft orders and creating orders on behalf of customers. ([Shopify Help Center][2])
+
+## Orders
+
+Views:
+
+```text
+All
+Unpaid
+Paid
+Processing
+Unfulfilled
+Partially fulfilled
+Fulfilled
+Shipped
+Delivered
+Cancelled
+Returned
+Refunded
+Failed
+Fraud review
+Archived
+```
+
+### Order search
+
+Search by:
+
+* Order ID
+* Customer
+* Email
+* Phone
+* Product
+* SKU
+* Tracking number
+* Coupon
+* Transaction ID
+
+### Filters
+
+* Date
+* Status
+* Payment status
+* Fulfillment status
+* Customer
+* Product
+* SKU
+* Sales channel
+* Location
+* Country
+* Shipping method
+* Payment method
+* Discount
+* Total
+* Tags
+
+---
+
+## Order details
+
+```text
+Order #10001
+
+Customer
+Products
+Pricing
+Payment
+Shipping
+Fulfillment
+Timeline
+Notes
+Fraud
+Returns
+Refunds
+Documents
+```
+
+### Customer information
+
+* Name
+* Email
+* Phone
+* Customer ID
+* Customer tags
+* Customer segment
+* Previous orders
+* Lifetime value
+
+### Billing
+
+* Billing address
+* Tax ID
+* Invoice address
+
+### Shipping
+
+* Shipping address
+* Shipping method
+* Shipping cost
+* Carrier
+* Tracking number
+* Delivery estimate
+
+### Line items
+
+For each product:
+
+* Product
+* Variant
+* SKU
+* Quantity
+* Unit price
+* Discount
+* Tax
+* Total
+* Cost
+* Margin
+
+---
+
+## Order actions
+
+* Edit order
+* Add product
+* Remove product
+* Change quantity
+* Change price
+* Add discount
+* Remove discount
+* Change shipping
+* Change customer
+* Change address
+* Capture payment
+* Cancel order
+* Refund
+* Partial refund
+* Create return
+* Exchange
+* Fulfill
+* Partial fulfillment
+* Create shipment
+* Print invoice
+* Print packing slip
+* Send invoice
+* Send confirmation
+* Add note
+* Add tag
+* Archive
+* Duplicate order
+
+---
+
+# 3. 🛍️ PRODUCTS
+
+Shopify's current Products system supports product information such as title, description, media, pricing, inventory, variants, tags and metafields, plus bulk management and automation. ([Shopify Help Center][3])
+
+## Product catalog
+
+```text
+All products
+Active
+Draft
+Archived
+Out of stock
+Low stock
+Scheduled
+Unpublished
+```
+
+### Product creation
+
+#### Basic information
+
+* Product name
+* Description
+* Product type
+* Vendor/brand
+* Category
+* Subcategory
+* Tags
+* Status
+
+#### Media
+
+* Images
+* Videos
+* 3D models
+* Product gallery
+* Thumbnail
+* Alt text
+* Image ordering
+
+#### Pricing
+
+* Price
+* Compare-at price
+* Cost per item
+* Margin
+* Profit
+* Taxable
+* Tax category
+
+#### Inventory
+
+* SKU
+* Barcode
+* Track inventory
+* Quantity
+* Reserved quantity
+* Available quantity
+* Incoming quantity
+* Safety stock
+* Reorder point
+
+#### Shipping
+
+* Physical product
+* Weight
+* Dimensions
+* Package
+* Requires shipping
+* Customs information
+* Country of origin
+* HS code
+
+---
+
+# 4. 🔀 PRODUCT VARIANTS
+
+Variant system should support:
+
+```text
+Color
+Size
+Material
+Storage
+Capacity
+Style
+Custom option
+```
+
+Example:
+
+```text
+T-Shirt
+├── Black / S
+├── Black / M
+├── Black / L
+├── White / S
+├── White / M
+└── White / L
+```
+
+Each variant should have:
+
+* SKU
+* Barcode
+* Price
+* Cost
+* Inventory
+* Weight
+* Image
+* Tax
+* Shipping
+* Availability
+* Dimensions
+
+---
+
+# 5. 🗂️ CATEGORIES
+
+Hierarchical category system:
+
+```text
+Electronics
+├── Phones
+│   ├── Android
+│   └── iPhone
+├── Laptops
+└── Accessories
+```
+
+Functions:
+
+* Create
+* Edit
+* Delete
+* Reorder
+* Parent category
+* Child category
+* Category image
+* Category SEO
+* Category description
+* Category filters
+* Category attributes
+
+---
+
+# 6. 📚 COLLECTIONS
+
+Shopify supports both manual and smart/automatic collections. ([Shopify Help Center][4])
+
+Your system should support:
+
+### Manual collection
+
+Admin selects products.
+
+### Smart collection
+
+Rules automatically determine products.
+
+Example:
+
+```text
+Collection: Men's Shoes
+
+WHERE
+category = Shoes
+AND gender = Men
+AND price > 1000
+```
+
+Rules:
+
+* Product title
+* Category
+* Vendor
+* Price
+* Inventory
+* Tag
+* SKU
+* Variant
+* Product type
+* Rating
+
+---
+
+# 7. 📊 INVENTORY MANAGEMENT
+
+This needs to be a complete system rather than simply a stock number.
+
+## Inventory dashboard
+
+* Total inventory
+* Inventory value
+* Available
+* Reserved
+* Incoming
+* Damaged
+* Returned
+* Lost
+* In transit
+
+## Inventory movements
+
+```text
+Purchase
+Sale
+Return
+Adjustment
+Transfer
+Damage
+Loss
+Correction
+Reservation
+Release
+```
+
+Every adjustment should have:
+
+* Who changed it
+* When
+* Previous quantity
+* New quantity
+* Difference
+* Reason
+* Reference
+* Location
+
+Shopify itself has expanded inventory adjustment history with full change tracking. ([Shopify Changelog][5])
+
+---
+
+# 8. 🏢 MULTI-LOCATION INVENTORY
+
+Support:
+
+```text
+Warehouse
+Store
+Fulfillment center
+Supplier
+Dropship location
+3PL
+```
+
+Each location:
+
+* Address
+* Contact
+* Opening hours
+* Inventory
+* Fulfillment priority
+* Shipping availability
+* Pickup availability
+
+---
+
+# 9. 🔄 INVENTORY TRANSFERS
+
+```text
+Warehouse A
+      ↓
+Warehouse B
+```
+
+Statuses:
+
+* Draft
+* Requested
+* In transit
+* Partially received
+* Received
+* Cancelled
+
+Track:
+
+* Items
+* Quantity
+* Source
+* Destination
+* Carrier
+* Tracking
+* Expected date
+* Received quantity
+
+---
+
+# 10. 📋 PURCHASE ORDERS
+
+Shopify has supplier and purchase-order functionality for recording products, quantities, costs, payment terms and supplier information. ([Shopify Help Center][6])
+
+### Suppliers
+
+* Supplier name
+* Contact
+* Email
+* Phone
+* Address
+* Currency
+* Payment terms
+* Lead time
+* Products
+* Supplier SKU
+
+### Purchase order
+
+```text
+PO-1001
+
+Supplier
+Products
+Quantity
+Unit cost
+Tax
+Shipping
+Total
+Expected date
+Payment terms
+Notes
+```
+
+Statuses:
+
+* Draft
+* Ordered
+* Partially received
+* Received
+* Cancelled
+
+---
+
+# 11. 👥 CUSTOMERS
+
+Shopify maintains customer profiles and supports segmentation, importing/exporting customer lists and customer accounts. ([Shopify Help Center][7])
+
+## Customer list
+
+Columns:
+
+* Name
+* Email
+* Phone
+* Orders
+* Total spent
+* Average order
+* Last order
+* Location
+* Tags
+* Marketing consent
+* Customer status
+
+## Customer profile
+
+```text
+Overview
+Orders
+Returns
+Payments
+Addresses
+Wishlist
+Reviews
+Subscriptions
+Store credit
+Loyalty
+Notes
+Tags
+Activity
+Marketing
+```
+
+### Customer metrics
+
+* Lifetime value
+* Total orders
+* Total spent
+* Average order value
+* First order
+* Last order
+* Refund total
+* Discount total
+
+---
+
+# 12. 🎯 CUSTOMER SEGMENTS
+
+This is extremely valuable.
+
+Shopify's customer segmentation can dynamically add/remove customers according to rules and can be used for targeted marketing. ([Shopify Help Center][8])
+
+Examples:
+
+```text
+VIP customers
+New customers
+Repeat customers
+Never purchased
+High spenders
+Inactive 90 days
+Abandoned cart
+Purchased category X
+Purchased more than ₹10,000
+Located in Bangalore
+```
+
+Rule builder:
+
+```text
+IF
+orders >= 5
+AND
+total_spent > ₹50,000
+AND
+last_order < 90 days
+THEN
+VIP
+```
+
+---
+
+# 13. 💳 PAYMENTS
+
+Complete payment management:
+
+### Payment providers
+
+* Razorpay
+* Stripe
+* PayPal
+* Adyen
+* Cash on Delivery
+* Bank transfer
+* Manual payment
+* Wallets
+
+### Payment statuses
+
+* Pending
+* Authorized
+* Captured
+* Failed
+* Partially captured
+* Refunded
+* Partially refunded
+* Cancelled
+
+### Transactions
+
+* Transaction ID
+* Gateway
+* Amount
+* Currency
+* Fees
+* Tax
+* Net amount
+* Status
+* Gateway response
+
+---
+
+# 14. 💰 FINANCE
+
+This is where your platform can become much more powerful than a basic ecommerce admin.
+
+### Financial overview
+
+* Revenue
+* Cost of goods
+* Gross profit
+* Operating expenses
+* Net profit
+* Taxes
+* Payment fees
+* Shipping costs
+* Refunds
+* Discounts
+
+### Financial ledger
+
+Every transaction should create accounting records.
+
+---
+
+# 15. 🧾 INVOICING
+
+Support:
+
+* Invoice generation
+* Invoice numbering
+* Credit notes
+* Debit notes
+* Proforma invoices
+* Tax invoices
+* PDF
+* Email invoice
+* Download
+* Print
+* Invoice templates
+
+---
+
+# 16. 🔄 RETURNS
+
+Return management:
+
+```text
+Return requested
+Approved
+Rejected
+Received
+Inspection
+Refund approved
+Refunded
+Exchange
+Closed
+```
+
+Return reasons:
+
+* Wrong size
+* Damaged
+* Defective
+* Wrong product
+* Changed mind
+* Late delivery
+* Not as described
+* Other
+
+---
+
+# 17. 💸 REFUNDS
+
+Support:
+
+* Full refund
+* Partial refund
+* Product refund
+* Shipping refund
+* Tax refund
+* Discount adjustment
+* Store credit
+* Original payment refund
+
+---
+
+# 18. 🚚 FULFILLMENT
+
+Order → fulfillment workflow.
+
+```text
+Order
+ ↓
+Payment
+ ↓
+Picking
+ ↓
+Packing
+ ↓
+Label
+ ↓
+Shipment
+ ↓
+In transit
+ ↓
+Delivered
+```
+
+### Fulfillment dashboard
+
+* Awaiting fulfillment
+* Picking
+* Packing
+* Ready to ship
+* Shipped
+* Delivered
+* Failed delivery
+* RTO
+
+---
+
+# 19. 📦 SHIPPING
+
+## Shipping zones
+
+```text
+India
+├── Karnataka
+├── Maharashtra
+├── Delhi
+└── etc.
+
+International
+├── USA
+├── UK
+├── UAE
+└── Europe
+```
+
+### Shipping rates
+
+* Flat rate
+* Free shipping
+* Weight based
+* Price based
+* Carrier calculated
+* Distance based
+* Location based
+
+### Conditions
+
+```text
+Order > ₹2,000 → Free
+Order < ₹2,000 → ₹100
+Weight > 5kg → ₹250
+```
+
+---
+
+# 20. 🚛 SHIPPING CARRIERS
+
+Integrate:
+
+* Shiprocket
+* Delhivery
+* Blue Dart
+* DHL
+* FedEx
+* UPS
+* USPS
+* Aramex
+* Custom carrier API
+
+Functions:
+
+* Create shipment
+* Generate label
+* Pickup request
+* Tracking
+* Delivery status
+* Cancel shipment
+* RTO
+* NDR
+* Shipping manifest
+
+---
+
+# 21. 📍 ORDER TRACKING
+
+Timeline:
+
+```text
+Order placed
+Payment confirmed
+Order confirmed
+Packed
+Shipped
+Out for delivery
+Delivered
+```
+
+Customer-facing tracking page:
+
+* Order number
+* Product
+* Carrier
+* Tracking number
+* Map
+* Estimated delivery
+* Timeline
+
+---
+
+# 22. 🎟️ DISCOUNTS
+
+A complete discount engine should support:
+
+### Percentage
+
+```text
+20% OFF
+```
+
+### Fixed amount
+
+```text
+₹500 OFF
+```
+
+### Free shipping
+
+### Buy X Get Y
+
+```text
+Buy 2 → Get 1
+```
+
+### Quantity discount
+
+```text
+1 = ₹1000
+2 = ₹1800
+3 = ₹2400
+```
+
+### Conditions
+
+* Minimum order
+* Minimum quantity
+* Specific products
+* Specific categories
+* Specific customers
+* Customer segments
+* Countries
+* Payment method
+* Shipping method
+
+### Limits
+
+* Total uses
+* Uses per customer
+* Start date
+* End date
+
+---
+
+# 23. 🎁 GIFT CARDS
+
+Support:
+
+* Create
+* Issue
+* Activate
+* Disable
+* Recharge
+* Refund
+* Balance
+* Expiry
+* Customer assignment
+* Gift card history
+
+---
+
+# 24. ⭐ REVIEWS
+
+Product review system:
+
+* Reviews
+* Ratings
+* Verified purchase
+* Photos
+* Videos
+* Questions
+* Answers
+
+Admin:
+
+* Approve
+* Reject
+* Hide
+* Delete
+* Respond
+* Flag
+* Report
+
+Analytics:
+
+* Average rating
+* Rating distribution
+* Review conversion
+* Product rating trends
+
+---
+
+# 25. ❤️ WISHLIST
+
+Track:
+
+* Product wishlists
+* Variant wishlists
+* Customer wishlists
+* Wishlist conversion
+* Wishlist abandonment
+
+---
+
+# 26. 📈 ANALYTICS
+
+This should be one of the biggest systems.
+
+## Sales analytics
+
+* Gross sales
+* Net sales
+* Orders
+* AOV
+* Units sold
+* Discounts
+* Returns
+* Refunds
+
+## Customer analytics
+
+* New customers
+* Returning customers
+* Customer lifetime value
+* Retention
+* Repeat purchase rate
+* Churn
+
+## Product analytics
+
+* Best sellers
+* Worst sellers
+* Most viewed
+* Highest conversion
+* Lowest conversion
+* Inventory turnover
+
+## Marketing analytics
+
+* Traffic
+* Sessions
+* CTR
+* CPC
+* ROAS
+* Conversion rate
+* Revenue per campaign
+
+---
+
+# 27. 📊 REPORT BUILDER
+
+This is something I'd definitely include in your own platform.
+
+Allow admin to create custom reports:
+
+```text
+Metric
+Dimension
+Filters
+Date range
+Grouping
+Sorting
+Chart
+Export
+```
+
+Example:
+
+```text
+Sales
+BY
+Product
+WHERE
+Country = USA
+AND
+Revenue > $1,000
+```
+
+Export:
+
+* CSV
+* Excel
+* PDF
+
+---
+
+# 28. 📣 MARKETING / GROWTH
+
+Important: Shopify currently calls this **Growth** rather than Marketing. ([Shopify Changelog][5])
+
+Include:
+
+```text
+Campaigns
+Automations
+Email
+SMS
+Push notifications
+Social
+Affiliate
+Referral
+Abandoned cart
+Retargeting
+```
+
+---
+
+# 29. 📧 EMAIL MARKETING
+
+Campaign builder:
+
+* Subject
+* Preview text
+* Sender
+* Recipients
+* Segment
+* Template
+* Schedule
+
+Templates:
+
+* Welcome
+* Abandoned cart
+* Order confirmation
+* Shipping
+* Delivery
+* Review request
+* Win-back
+* Birthday
+* Promotion
+
+Metrics:
+
+* Sent
+* Delivered
+* Opened
+* Clicked
+* Bounced
+* Unsubscribed
+* Revenue
+
+---
+
+# 30. 🤖 MARKETING AUTOMATION
+
+Visual workflow builder:
+
+```text
+TRIGGER
+ ↓
+CONDITION
+ ↓
+ACTION
+ ↓
+WAIT
+ ↓
+CONDITION
+ ↓
+ACTION
+```
+
+Example:
+
+```text
+Customer abandons cart
+ ↓
+Wait 2 hours
+ ↓
+Send email
+ ↓
+Wait 24 hours
+ ↓
+Still hasn't purchased?
+ ↓
+Send 10% discount
+```
+
+---
+
+# 31. 🛒 ABANDONED CARTS
+
+Track:
+
+* Customer
+* Products
+* Cart value
+* Time abandoned
+* Device
+* Source
+* Recovery status
+
+Actions:
+
+* Email
+* SMS
+* Push
+* Coupon
+* Retarget
+
+Metrics:
+
+* Abandoned carts
+* Recovery rate
+* Recovered revenue
+
+---
+
+# 32. 🎨 CONTENT / CMS
+
+Shopify's current Content area includes Metaobjects and Files. ([Shopify Help Center][9])
+
+Your CMS should include:
+
+```text
+Pages
+Blogs
+Blog posts
+Menus
+Navigation
+Banners
+Sections
+Landing pages
+FAQs
+Testimonials
+Media
+Metaobjects
+Custom fields
+```
+
+---
+
+# 33. 📝 PAGE BUILDER
+
+Drag-and-drop:
+
+```text
+Hero
+Image
+Text
+Video
+Product grid
+Collection grid
+Carousel
+Banner
+Testimonials
+FAQ
+Reviews
+Newsletter
+Countdown
+CTA
+Custom HTML
+```
+
+Each block:
+
+* Desktop layout
+* Tablet layout
+* Mobile layout
+* Padding
+* Margin
+* Typography
+* Colors
+* Background
+* Animation
+* Visibility rules
+
+---
+
+# 34. 🎨 ONLINE STORE / THEME SYSTEM
+
+### Themes
+
+* Installed themes
+* Published theme
+* Draft themes
+* Duplicate
+* Preview
+* Customize
+* Delete
+
+### Theme editor
+
+```text
+Header
+Announcement
+Hero
+Featured products
+Collections
+Product sections
+Testimonials
+FAQ
+Newsletter
+Footer
+```
+
+### Theme settings
+
+* Colors
+* Typography
+* Buttons
+* Cards
+* Layout
+* Product grid
+* Animations
+* Mobile settings
+
+---
+
+# 35. 🧭 NAVIGATION
+
+Shopify provides menu management under Content and supports nested/dropdown navigation. ([Shopify Help Center][10])
+
+Support:
+
+```text
+Main menu
+Footer menu
+Mobile menu
+Account menu
+Mega menu
+Dropdowns
+Nested navigation
+```
+
+---
+
+# 36. 🔍 SEARCH & DISCOVERY
+
+Very important for large stores.
+
+### Search
+
+* Keyword search
+* Typo tolerance
+* Synonyms
+* Partial matching
+* SKU search
+* Barcode search
+
+### Filters
+
+* Price
+* Brand
+* Category
+* Size
+* Color
+* Rating
+* Availability
+* Attributes
+
+### Search analytics
+
+* Top searches
+* Zero-result searches
+* Search conversion
+* Search abandonment
+
+---
+
+# 37. 🔎 SEO
+
+Per product:
+
+* SEO title
+* Meta description
+* URL
+* Canonical
+* Robots
+* Image alt text
+* Structured data
+
+Per category:
+
+* SEO title
+* Description
+* URL
+* Image
+* Schema
+
+Global:
+
+* Sitemap
+* Robots.txt
+* Redirects
+* Canonicals
+* Schema
+* Open Graph
+* Twitter cards
+
+---
+
+# 38. 🌍 MARKETS / INTERNATIONAL
+
+For worldwide ecommerce:
+
+```text
+Markets
+├── India
+├── USA
+├── UK
+├── UAE
+├── Europe
+└── Custom
+```
+
+Each market:
+
+* Currency
+* Language
+* Domain
+* Pricing
+* Products
+* Tax
+* Duties
+* Shipping
+* Payment methods
+* Discounts
+
+Shopify's Markets/B2B functionality now supports market-specific currency, themes, taxes/duties, discounts and catalogs. ([Shopify Help Center][11])
+
+---
+
+# 39. 💱 CURRENCY
+
+Support:
+
+* Store currency
+* Customer currency
+* Exchange rates
+* Automatic conversion
+* Manual rates
+* Rounding rules
+
+---
+
+# 40. 🌐 MULTI-LANGUAGE
+
+Support:
+
+* English
+* Hindi
+* Arabic
+* French
+* German
+* Spanish
+* etc.
+
+Translation system:
+
+```text
+Product
+Description
+Category
+CMS
+Navigation
+Checkout
+Emails
+Policies
+```
+
+---
+
+# 41. 🧾 TAX MANAGEMENT
+
+Support:
+
+* GST
+* VAT
+* Sales tax
+* Import tax
+* Tax-inclusive pricing
+* Tax-exclusive pricing
+
+Tax rules:
+
+```text
+Country
+State
+Product category
+Customer type
+Tax exemption
+Tax ID
+```
+
+---
+
+# 42. 🏢 B2B / WHOLESALE
+
+If you're trying to make this a serious Shopify competitor, include this eventually.
+
+### Companies
+
+```text
+Company
+├── Locations
+├── Buyers
+├── Contacts
+└── Addresses
+```
+
+### B2B pricing
+
+* Wholesale price
+* Customer-specific price
+* Volume pricing
+* Catalog pricing
+* Contract pricing
+
+### Payment
+
+* Net 7
+* Net 15
+* Net 30
+* Net 60
+* Deposit
+* Credit limit
+
+Shopify's B2B functionality includes company locations, catalogs, payment terms, deposits and customized checkout/payment/shipping behavior. ([Shopify Help Center][12])
+
+---
+
+# 43. 🔁 SUBSCRIPTIONS
+
+For recurring products:
+
+```text
+Subscription
+├── Customer
+├── Products
+├── Frequency
+├── Price
+├── Discount
+├── Payment
+├── Next billing
+└── Status
+```
+
+Frequencies:
+
+* Weekly
+* Monthly
+* Quarterly
+* Yearly
+* Custom
+
+Statuses:
+
+* Active
+* Paused
+* Cancelled
+* Payment failed
+* Expired
+
+---
+
+# 44. 🎁 LOYALTY PROGRAM
+
+Points:
+
+```text
+₹100 spent = 10 points
+```
+
+Rewards:
+
+* Discount
+* Free shipping
+* Gift
+* Store credit
+* Coupon
+
+Levels:
+
+```text
+Bronze
+Silver
+Gold
+Platinum
+VIP
+```
+
+---
+
+# 45. 🧑‍💼 CUSTOMER SUPPORT
+
+Admin ticket system:
+
+```text
+Tickets
+Live chat
+Email
+Contact forms
+WhatsApp
+Phone
+```
+
+Ticket statuses:
+
+* Open
+* Pending
+* Assigned
+* Waiting for customer
+* Resolved
+* Closed
+
+Ticket categories:
+
+* Order
+* Payment
+* Refund
+* Shipping
+* Product
+* Account
+* Technical
+
+---
+
+# 46. 💬 LIVE CHAT
+
+Admin can see:
+
+* Visitor
+* Customer
+* Current page
+* Cart
+* Previous orders
+* Location
+* Device
+
+Actions:
+
+* Reply
+* Send product
+* Send coupon
+* Create order
+* Create ticket
+
+---
+
+# 47. 📱 SALES CHANNELS
+
+Your platform should support multiple selling locations:
+
+```text
+Online Store
+Mobile App
+Instagram
+Facebook
+Google Shopping
+TikTok
+Amazon
+eBay
+POS
+Wholesale
+API
+```
+
+Each channel can have:
+
+* Product publishing
+* Pricing
+* Inventory
+* Orders
+* Customers
+* Promotions
+
+---
+
+# 48. 🏪 POS
+
+If you want Shopify-level completeness:
+
+### POS
+
+* Register
+* Cash drawer
+* Products
+* Barcode scanner
+* Discounts
+* Customer lookup
+* Returns
+* Exchanges
+* Receipts
+* Staff
+* Locations
+* Taxes
+
+---
+
+# 49. 📲 MOBILE ADMIN
+
+Admin app should support:
+
+* Dashboard
+* Orders
+* Products
+* Customers
+* Inventory
+* Analytics
+* Notifications
+* Fulfillment
+
+---
+
+# 50. 🔔 NOTIFICATIONS
+
+Admin notifications:
+
+* New order
+* Payment received
+* Low stock
+* Out of stock
+* Return request
+* Refund
+* Failed payment
+* Failed fulfillment
+* New customer
+* Review
+* Support ticket
+
+Channels:
+
+* In-app
+* Email
+* SMS
+* Push
+* WhatsApp
+* Slack
+
+---
+
+# 51. 👨‍💼 STAFF / USERS
+
+This is extremely important.
+
+Users:
+
+```text
+Owner
+Super Admin
+Admin
+Manager
+Product Manager
+Inventory Manager
+Order Manager
+Fulfillment Staff
+Marketing Manager
+Customer Support
+Finance
+Accountant
+Content Manager
+Developer
+```
+
+---
+
+# 52. 🔐 ROLE-BASED ACCESS CONTROL
+
+Don't just have "Admin/User."
+
+Permissions should be granular.
+
+Example:
+
+```text
+Orders
+├── View
+├── Create
+├── Edit
+├── Cancel
+├── Refund
+├── Export
+└── Delete
+
+Products
+├── View
+├── Create
+├── Edit
+├── Delete
+├── Publish
+└── Export
+```
+
+Shopify itself has granular permissions across areas such as Orders, Analytics, Marketing and Discounts. ([Shopify Help Center][13])
+
+---
+
+# 53. 🔒 SECURITY
+
+Must include:
+
+* 2FA
+* Password policy
+* Session management
+* Login history
+* Device management
+* IP restrictions
+* API keys
+* OAuth
+* Access tokens
+* Permission scopes
+* Suspicious login detection
+* Account recovery
+
+---
+
+# 54. 📜 AUDIT LOGS
+
+This is **critical** for a professional platform.
+
+Record:
+
+```text
+WHO
+WHAT
+WHEN
+WHERE
+BEFORE
+AFTER
+IP
+DEVICE
+```
+
+Example:
+
+```text
+Saud changed Product #102
+Price:
+₹1,999 → ₹2,199
+
+12 Aug 2026
+3:42 PM
+```
+
+---
+
+# 55. 🔌 APPS & INTEGRATIONS
+
+Create an app marketplace architecture.
+
+Categories:
+
+```text
+Marketing
+Payments
+Shipping
+Analytics
+Accounting
+Reviews
+Customer Support
+CRM
+Inventory
+ERP
+Automation
+AI
+Security
+SEO
+```
+
+Shopify itself allows apps to extend admin resource pages such as Products, Customers and Orders using admin UI extensions. ([Shopify][14])
+
+Your architecture should therefore support:
+
+```text
+App
+ ↓
+OAuth
+ ↓
+Permissions
+ ↓
+API
+ ↓
+Webhooks
+ ↓
+Extensions
+```
+
+---
+
+# 56. 🔗 API MANAGEMENT
+
+Admin:
+
+```text
+API Keys
+OAuth Apps
+Webhooks
+API Logs
+Rate Limits
+Access Scopes
+```
+
+Webhooks:
+
+```text
+order.created
+order.updated
+order.cancelled
+payment.success
+payment.failed
+product.created
+product.updated
+inventory.updated
+customer.created
+refund.created
+shipment.created
+```
+
+---
+
+# 57. 🤖 AUTOMATION ENGINE
+
+This could become one of your biggest differentiators.
+
+Visual automation:
+
+```text
+WHEN
+order.created
+
+IF
+order.total > ₹10,000
+
+THEN
+tag customer "VIP"
+
+AND
+send email
+
+AND
+notify Slack
+```
+
+Triggers:
+
+* Order created
+* Order paid
+* Product created
+* Inventory low
+* Customer created
+* Cart abandoned
+* Payment failed
+* Return created
+* Shipment delivered
+
+Actions:
+
+* Email
+* SMS
+* Push
+* Tag
+* Update product
+* Update customer
+* Create discount
+* Create task
+* Webhook
+* API call
+
+---
+
+# 58. 🧠 AI SYSTEM — OPTIONAL FUTURE LAYER
+
+Don't make this mandatory for V1.
+
+Later:
+
+### AI Product Assistant
+
+* Generate descriptions
+* Generate SEO
+* Generate titles
+* Generate tags
+* Categorize products
+* Detect duplicate products
+
+### AI Analytics
+
+Admin asks:
+
+> "Why did sales drop last week?"
+
+System analyzes:
+
+* Traffic
+* Conversion
+* Products
+* Pricing
+* Inventory
+* Marketing
+* Returns
+
+### AI Support
+
+* Customer questions
+* Order status
+* Returns
+* Product recommendations
+
+---
+
+# 59. 📁 MEDIA / FILE MANAGEMENT
+
+Shopify's Content system includes centralized Files and Metaobjects. ([Shopify Help Center][9])
+
+Your media library:
+
+```text
+Images
+Videos
+Documents
+3D
+PDF
+GIF
+```
+
+Functions:
+
+* Upload
+* Delete
+* Rename
+* Search
+* Filter
+* Folders
+* Tags
+* CDN
+* Alt text
+* File metadata
+
+---
+
+# 60. 🧩 CUSTOM DATA / METAFIELDS
+
+This is **very important** if you're building a flexible platform.
+
+Allow merchants to define custom fields.
+
+Example:
+
+```text
+Product
+
+Battery Capacity
+Warranty
+Material
+Country of Manufacture
+Model Number
+Technical Specification
+```
+
+Types:
+
+* Text
+* Number
+* Boolean
+* Date
+* URL
+* Image
+* Video
+* JSON
+* Product reference
+* Collection reference
+* Customer reference
+
+Shopify uses metafields and metaobjects for custom structured data. ([Shopify Help Center][3])
+
+---
+
+# 61. 📋 IMPORT / EXPORT
+
+Support:
+
+### Import
+
+* Products CSV
+* Customers CSV
+* Orders
+* Inventory
+* Collections
+
+### Export
+
+* Products
+* Customers
+* Orders
+* Inventory
+* Reports
+* Transactions
+
+Advanced:
+
+* Scheduled exports
+* API imports
+* Bulk operations
+
+---
+
+# 62. 🧪 TEST / DEVELOPMENT
+
+Merchant should have:
+
+* Test mode
+* Test payments
+* Development store
+* Preview store
+* Theme preview
+* Sandbox
+* API testing
+
+---
+
+# 63. ⚙️ SETTINGS
+
+This becomes a huge section.
+
+## General
+
+* Store name
+* Store email
+* Contact email
+* Address
+* Time zone
+* Currency
+* Weight unit
+* Order ID format
+
+## Store details
+
+* Legal business name
+* Business address
+* Phone
+* Tax ID
+
+## Payments
+
+* Payment gateways
+* Payment capture
+* Manual payment
+* COD
+* Wallets
+
+## Checkout
+
+* Customer accounts
+* Guest checkout
+* Contact information
+* Address collection
+* Marketing consent
+* Checkout customization
+
+Shopify provides dedicated checkout settings for collecting customer information, marketing consent and checkout customization. ([Shopify Help Center][15])
+
+## Shipping
+
+* Shipping zones
+* Rates
+* Carriers
+* Packages
+* Delivery
+
+## Taxes
+
+* Tax regions
+* Tax rates
+* Tax overrides
+* Tax exemptions
+
+## Notifications
+
+* Email templates
+* SMS
+* Push
+
+## Customer accounts
+
+* Login
+* Registration
+* Passwordless
+* Account recovery
+
+## Policies
+
+* Privacy policy
+* Terms
+* Refund policy
+* Shipping policy
+* Cookie policy
+
+## Domains
+
+* Primary domain
+* Custom domains
+* Subdomains
+* SSL
+
+---
+
+# 64. 📧 NOTIFICATION TEMPLATE SYSTEM
+
+Every email should be editable.
+
+Example:
+
+```text
+Order Confirmation
+Shipping Confirmation
+Delivery Confirmation
+Refund
+Return
+Password Reset
+Welcome
+Account Verification
+Abandoned Cart
+```
+
+Template editor:
+
+```text
+{{customer.first_name}}
+{{order.number}}
+{{order.total}}
+{{tracking.number}}
+```
+
+---
+
+# 65. 🧮 PRICING ENGINE
+
+Don't hard-code one price.
+
+Build:
+
+```text
+Base price
+Compare price
+Cost
+Market price
+Customer-specific price
+Wholesale price
+Volume price
+Promotional price
+Scheduled price
+```
+
+---
+
+# 66. 🧠 RULE ENGINE
+
+This is another foundational system.
+
+Example:
+
+```text
+IF
+customer.segment = VIP
+
+AND
+cart.total > ₹5000
+
+THEN
+discount = 15%
+```
+
+This engine can later power:
+
+* Discounts
+* Shipping
+* Pricing
+* Tax
+* Marketing
+* Customer segmentation
+* B2B
+* Automation
+
+---
+
+# 67. 📊 PRODUCT PERFORMANCE
+
+Per product:
+
+```text
+Views
+Add to cart
+Checkout
+Purchases
+Conversion rate
+Revenue
+Profit
+Refunds
+Returns
+Rating
+Reviews
+Wishlist adds
+```
+
+Funnel:
+
+```text
+100,000 views
+      ↓
+20,000 product interactions
+      ↓
+8,000 carts
+      ↓
+5,000 checkouts
+      ↓
+3,500 orders
+```
+
+---
+
+# 68. 🧭 ACTIVITY TIMELINE
+
+Every important entity gets a timeline.
+
+For product:
+
+```text
+Created
+Price changed
+Inventory changed
+Description changed
+Published
+Unpublished
+Discount applied
+```
+
+For customer:
+
+```text
+Registered
+Order placed
+Payment
+Refund
+Review
+Support ticket
+Coupon
+Email
+```
+
+For order:
+
+```text
+Created
+Payment
+Packed
+Shipped
+Delivered
+Return
+Refund
+```
+
+---
+
+# 69. 🗃️ GLOBAL SEARCH
+
+Admin should be able to search everything.
+
+Search:
+
+```text
+ORD-1023
+john@gmail.com
+SKU-ABC123
+₹5,999
+tracking number
+product name
+customer phone
+```
+
+Results:
+
+```text
+Orders
+Products
+Customers
+Inventory
+Discounts
+Pages
+Reports
+Settings
+```
+
+---
+
+# 70. 📱 RESPONSIVE ADMIN
+
+Desktop:
+
+```text
+Sidebar
+Content
+Right-side contextual panel
+```
+
+Tablet:
+
+```text
+Collapsed sidebar
+```
+
+Mobile:
+
+```text
+Bottom navigation
+Dashboard
+Orders
+Products
+More
+```
+
+---
+
+# 71. 🏗️ MULTI-TENANT ARCHITECTURE
+
+Since you are building this as potentially a **Shopify-like SaaS**, this is extremely important.
+
+Your database shouldn't simply be:
+
+```text
+products
+orders
+customers
+```
+
+It should be conceptually:
+
+```text
+platform
+   ↓
+tenant/store
+   ↓
+users
+products
+orders
+customers
+inventory
+payments
+...
+```
+
+Every business gets its own:
+
+```text
+Store
+Domain
+Users
+Catalog
+Customers
+Orders
+Inventory
+Settings
+Payment configuration
+Shipping configuration
+Analytics
+```
+
+---
+
+# 72. 🏪 MULTI-STORE
+
+One account can own:
+
+```text
+Account
+├── Store A
+├── Store B
+├── Store C
+└── Store D
+```
+
+Switch store from admin.
+
+This is particularly useful for agencies and enterprise merchants.
+
+---
+
+# 73. 🧑‍💻 DEVELOPER PORTAL
+
+If you're making a platform rather than merely a single-store ecommerce site, build:
+
+```text
+Developer
+├── Apps
+├── API Keys
+├── OAuth
+├── Webhooks
+├── API Documentation
+├── API Logs
+├── Extensions
+├── Sandbox
+└── Usage
+```
+
+---
+
+# 74. 📡 SYSTEM MONITORING
+
+Platform owner should have a completely separate **Super Admin**.
+
+Monitor:
+
+* API health
+* Database
+* Queue
+* Workers
+* Payments
+* Webhooks
+* Email
+* SMS
+* Storage
+* CDN
+* Error rate
+* Latency
+
+---
+
+# 75. 🚨 FRAUD & RISK
+
+Order risk engine:
+
+```text
+Risk score: 87/100
+```
+
+Signals:
+
+* IP
+* Country mismatch
+* Billing/shipping mismatch
+* High order value
+* Multiple failed payments
+* Disposable email
+* Multiple accounts
+* Previous chargebacks
+* Velocity
+
+Actions:
+
+* Approve
+* Hold
+* Cancel
+* Manual review
+
+---
+
+# 76. 📦 PRODUCT BUNDLES
+
+Support:
+
+```text
+Bundle
+├── Product A
+├── Product B
+└── Product C
+```
+
+Types:
+
+* Fixed bundle
+* Mix & match
+* Buy X get Y
+* Volume bundle
+* Frequently bought together
+* Build your own bundle
+
+---
+
+# 77. 💵 STORE CREDIT
+
+Customer wallet:
+
+```text
+Balance
+Transactions
+Credits
+Debits
+Expiry
+Reason
+```
+
+Example:
+
+```text
+Refund → ₹1,000 store credit
+```
+
+---
+
+# 78. 📍 DELIVERY MANAGEMENT
+
+Advanced system:
+
+* Delivery zones
+* Pincode/postcode
+* Same-day delivery
+* Next-day delivery
+* Scheduled delivery
+* Pickup
+* Local delivery
+* Delivery slots
+
+---
+
+# 79. 🏷️ BARCODE SYSTEM
+
+Support:
+
+* SKU
+* UPC
+* EAN
+* ISBN
+* GTIN
+* QR codes
+
+Generate:
+
+* Barcode labels
+* QR codes
+* Product labels
+* Shipping labels
+
+---
+
+# 80. 📦 PACKAGING
+
+Package library:
+
+```text
+Small Box
+Medium Box
+Large Box
+Envelope
+Custom
+```
+
+Each:
+
+* Weight
+* Length
+* Width
+* Height
+* Max capacity
+
+System can automatically select packaging.
+
+---
+
+# 81. 🔄 RECONCILIATION
+
+Extremely useful for finance.
+
+Compare:
+
+```text
+Orders
+vs
+Payment gateway
+vs
+Bank
+vs
+Refunds
+```
+
+Detect:
+
+* Missing payment
+* Duplicate payment
+* Incorrect refund
+* Settlement mismatch
+
+---
+
+# 82. 💳 PAYMENT RECONCILIATION
+
+Example:
+
+```text
+Order: ₹10,000
+Gateway fee: ₹200
+Tax on fee: ₹36
+Net settlement: ₹9,764
+```
+
+Track every amount.
+
+---
+
+# 83. 🧮 PROFITABILITY ENGINE
+
+Per order:
+
+```text
+Revenue
+- Product Cost
+- Payment Fee
+- Shipping Cost
+- Tax
+- Discount
+- Return Cost
+= Profit
+```
+
+This is something many simple ecommerce dashboards don't handle deeply enough.
+
+---
+
+# 84. 📈 FORECASTING
+
+Later:
+
+* Sales forecast
+* Inventory forecast
+* Demand forecast
+* Revenue forecast
+* Cash flow forecast
+
+---
+
+# 85. 📦 STOCK ALERT SYSTEM
+
+Rules:
+
+```text
+IF stock < 10
+→ Notify inventory manager
+```
+
+Advanced:
+
+```text
+IF
+stock < reorder point
+
+AND
+sales velocity > X
+
+THEN
+recommend purchase quantity
+```
+
+---
+
+# 86. 🧾 DOCUMENT CENTER
+
+Central location for:
+
+* Invoices
+* Credit notes
+* Purchase orders
+* Shipping labels
+* Packing slips
+* Refund documents
+* Tax documents
+* Reports
+
+---
+
+# 87. 🛠️ BULK OPERATIONS
+
+Every major module should support:
+
+```text
+Select 500 products
+ ↓
+Bulk edit
+```
+
+Actions:
+
+* Change price
+* Change category
+* Add tags
+* Remove tags
+* Publish
+* Unpublish
+* Archive
+* Delete
+* Export
+
+Shopify's product system itself supports bulk editing and CSV-based catalog management. ([Shopify Help Center][3])
+
+---
+
+# 88. 🔄 SAVED VIEWS
+
+This is a small feature with huge usability benefits.
+
+Example:
+
+```text
+Orders
+├── All
+├── Today's orders
+├── High value
+├── COD
+├── Unfulfilled
+└── My orders
+```
+
+Allow users to:
+
+* Save filters
+* Save columns
+* Save sorting
+* Rename view
+* Share view
+
+Shopify uses saved/custom views in several admin areas, including purchase orders. ([Shopify Help Center][16])
+
+---
+
+# 89. 🧱 THE CORE DATABASE DOMAINS
+
+If you're going to actually develop this, I'd divide the backend into domains like:
+
+```text
+AUTH
+TENANTS
+USERS
+ROLES
+PERMISSIONS
+
+CATALOG
+PRODUCTS
+VARIANTS
+CATEGORIES
+COLLECTIONS
+ATTRIBUTES
+METAFIELDS
+MEDIA
+
+INVENTORY
+LOCATIONS
+STOCK
+TRANSFERS
+PURCHASE_ORDERS
+SUPPLIERS
+
+CUSTOMERS
+SEGMENTS
+ADDRESSES
+WISHLISTS
+LOYALTY
+STORE_CREDIT
+
+CART
+CHECKOUT
+ORDERS
+ORDER_ITEMS
+
+PAYMENTS
+TRANSACTIONS
+REFUNDS
+PAYOUTS
+RECONCILIATION
+
+SHIPPING
+CARRIERS
+SHIPMENTS
+TRACKING
+DELIVERY
+
+RETURNS
+EXCHANGES
+RMA
+
+MARKETING
+CAMPAIGNS
+AUTOMATIONS
+EMAIL
+SMS
+PUSH
+
+DISCOUNTS
+COUPONS
+GIFT_CARDS
+
+CMS
+PAGES
+BLOGS
+MENUS
+SECTIONS
+METAOBJECTS
+
+ANALYTICS
+EVENTS
+REPORTS
+DASHBOARDS
+
+REVIEWS
+SUPPORT
+TICKETS
+
+SUBSCRIPTIONS
+B2B
+MARKETS
+TAXES
+
+APPS
+INTEGRATIONS
+API_KEYS
+OAUTH
+WEBHOOKS
+
+NOTIFICATIONS
+AUDIT_LOGS
+SECURITY
+SETTINGS
+```
+
+---
+
+# 90. 🔥 WHAT I WOULD MAKE YOUR ADMIN SIDEBAR
+
+If **we were building this product**, I would make the actual UI cleaner than Shopify rather than copying Shopify's sidebar 1:1.
+
+### CORE
+
+```text
+🏠 Dashboard
+
+🛒 Commerce
+   ├── Orders
+   ├── Draft Orders
+   ├── Abandoned Carts
+   ├── Returns
+   └── Exchanges
+
+📦 Catalog
+   ├── Products
+   ├── Categories
+   ├── Collections
+   ├── Brands
+   ├── Attributes
+   └── Reviews
+
+🏭 Inventory
+   ├── Inventory
+   ├── Locations
+   ├── Transfers
+   ├── Purchase Orders
+   └── Suppliers
+
+👥 Customers
+   ├── Customers
+   ├── Segments
+   ├── Loyalty
+   ├── Store Credit
+   └── Subscriptions
+
+🚚 Fulfillment
+   ├── Shipments
+   ├── Shipping
+   ├── Delivery
+   └── Tracking
+
+💳 Finance
+   ├── Payments
+   ├── Transactions
+   ├── Refunds
+   ├── Invoices
+   ├── Payouts
+   └── Reconciliation
+
+📣 Growth
+   ├── Campaigns
+   ├── Automations
+   ├── Email
+   ├── SMS
+   ├── Abandoned Cart
+   ├── Affiliates
+   └── Referrals
+
+🎟️ Promotions
+   ├── Discounts
+   ├── Coupons
+   ├── Gift Cards
+   └── Bundles
+
+🎨 Store
+   ├── Theme
+   ├── Pages
+   ├── Navigation
+   ├── Blog
+   ├── CMS
+   ├── Media
+   └── SEO
+
+🌍 International
+   ├── Markets
+   ├── Countries
+   ├── Currencies
+   ├── Languages
+   ├── Taxes
+   └── Duties
+
+📊 Analytics
+   ├── Overview
+   ├── Sales
+   ├── Products
+   ├── Customers
+   ├── Marketing
+   ├── Inventory
+   ├── Finance
+   └── Reports
+
+💬 Support
+   ├── Tickets
+   ├── Live Chat
+   ├── Contact Forms
+   └── Knowledge Base
+
+🔌 Integrations
+   ├── Apps
+   ├── Payments
+   ├── Shipping
+   ├── Accounting
+   ├── Marketing
+   └── API
+
+⚙️ Settings
+   ├── Store
+   ├── Checkout
+   ├── Payments
+   ├── Shipping
+   ├── Taxes
+   ├── Notifications
+   ├── Domains
+   ├── Policies
+   ├── Users
+   ├── Roles
+   ├── Security
+   └── Audit Logs
+```
+
+---
+
+# 🧠 The most important architectural point
+
+**Don't build this as one giant admin page.**
+
+Build it as a collection of interconnected systems:
+
+```text
+                    ┌───────────────┐
+                    │    STORE      │
+                    └───────┬───────┘
+                            │
+          ┌─────────────────┼─────────────────┐
+          ↓                 ↓                 ↓
+       CATALOG           CUSTOMERS         CONTENT
+          │                 │                 │
+          ↓                 ↓                 ↓
+      INVENTORY          MARKETING         STOREFRONT
+          │                 │                 │
+          └────────────┬────┴─────────────────┘
+                       ↓
+                     CART
+                       ↓
+                    CHECKOUT
+                       ↓
+                     ORDER
+                       ↓
+          ┌────────────┼─────────────┐
+          ↓            ↓             ↓
+       PAYMENT      FULFILLMENT    TAX
+          │            │             │
+          ↓            ↓             ↓
+      FINANCE       SHIPPING      REPORTING
+                       │
+                       ↓
+                    DELIVERY
+                       ↓
+                    RETURNS
+                       ↓
+                    REFUNDS
+```
+
+That's the **actual ecommerce operating system**.
+
+And importantly, Shopify's own API model treats an Order as a central object connecting customer information, products, payment, fulfillment, returns/refunds and documents. ([Shopify][17])
+
+### What I would build first
+
+For your project, I would **not try to implement all 90 systems at once**.
+
+I'd divide it into:
+
+**Phase 1 — Core Commerce**
+
+* Dashboard
+* Products
+* Categories
+* Collections
+* Inventory
+* Customers
+* Cart
+* Checkout
+* Orders
+* Payments
+* Shipping
+* Fulfillment
+* Returns/refunds
+* Discounts
+
+**Phase 2 — Store Management**
+
+* CMS
+* Theme builder
+* Pages
+* Navigation
+* Media
+* SEO
+* Reviews
+* Gift cards
+* Store credit
+
+**Phase 3 — Business Intelligence**
+
+* Analytics
+* Reports
+* Profitability
+* Customer segmentation
+* Inventory forecasting
+* Reconciliation
+
+**Phase 4 — Growth**
+
+* Campaigns
+* Email
+* SMS
+* Push
+* Abandoned carts
+* Automations
+* Loyalty
+* Affiliates
+
+**Phase 5 — Platform**
+
+* Multi-tenant
+* Multi-store
+* B2B
+* Markets
+* API
+* Webhooks
+* Apps
+* Developer portal
+* POS
+* Advanced permissions
+
+That gives you something much more powerful than a basic “Shopify clone.” Shopify itself is now a broad commerce platform spanning analytics/reporting, automation, B2B, checkout, developer tools, finance, global expansion, inventory, marketing, storefront, order/fulfillment, POS, returns, selling options and shipping. ([Shopify][18])
+
+**For your actual development, the next useful step is to turn this into a proper `Ecommerce Admin Portal Master Specification`: every sidebar item → every page → every tab → every button → every dropdown → every modal → every field → every API action → every database entity → every permission → every status/state transition.** That would be the document you can give directly to Antigravity/Cursor/Replit and build the entire admin systematically.
+
+[1]: https://help.shopify.com/en/manual/shopify-admin/shopify-admin-overview?links=false&utm_source=chatgpt.com "Shopify Help Center | Navigating the Shopify admin"
+[2]: https://help.shopify.com/en/manual/fulfillment/managing-orders?utm_source=chatgpt.com "Shopify Help Center | Managing orders"
+[3]: https://help.shopify.com/en/manual/products?utm_source=chatgpt.com "Shopify Help Center | Products"
+[4]: https://help.shopify.com/en/manual/products/collections?utm_source=chatgpt.com "Shopify Help Center | Collections"
+[5]: https://changelog.shopify.com/?utm_source=chatgpt.com "Shopify Changelog"
+[6]: https://help.shopify.com/en/manual/products/inventory/purchase-orders?utm_source=chatgpt.com "Shopify Help Center | Purchase orders"
+[7]: https://help.shopify.com/en/manual/customers?utm_source=chatgpt.com "Shopify Help Center | Customers"
+[8]: https://help.shopify.com/en/manual/customers/customer-segmentation/create-customer-segments?utm_source=chatgpt.com "Shopify Help Center | Creating customer segments"
+[9]: https://help.shopify.com/en/manual/custom-data/navigating-content?utm_source=chatgpt.com "Shopify Help Center | Navigating the Content section in the admin"
+[10]: https://help.shopify.com/en/manual/online-store/menus-and-links?utm_source=chatgpt.com "Shopify Help Center | Menus and links"
+[11]: https://help.shopify.com/en/manual/b2b/markets?utm_source=chatgpt.com "Shopify Help Center | B2B and Markets"
+[12]: https://help.shopify.com/en/manual/b2b/getting-started/features?utm_source=chatgpt.com "Shopify Help Center | Overview of B2B features on Shopify"
+[13]: https://help.shopify.com/en/manual/your-account/staff-accounts/staff-permissions/staff-permissions-descriptions?lang=en&utm_source=chatgpt.com "Shopify Help Center | Store permissions"
+[14]: https://shopify.dev/docs/apps/build/admin?utm_source=chatgpt.com "Apps in admin"
+[15]: https://help.shopify.com/en/manual/checkout-settings?utm_source=chatgpt.com "Shopify Help Center | Shopify Checkout"
+[16]: https://help.shopify.com/en/manual/products/inventory/purchase-orders/viewing-purchase-orders?utm_source=chatgpt.com "Shopify Help Center | Viewing and filtering purchase orders"
+[17]: https://shopify.dev/docs/api/admin-graphql/latest/objects/Order?utm_source=chatgpt.com "Order - GraphQL Admin"
+[18]: https://www.shopify.com/in/products?utm_source=chatgpt.com "Browse all of Shopify’s products & features - Shopify India"
+ # MASTER PROMPT — COMPLETE THE ENTIRE GLOBAL ECOMMERCE & DROPSHIPPING PLATFORM
+
+You are the lead architect, senior full-stack engineer, product engineer, QA engineer, database architect, DevOps engineer, security engineer, UX engineer and performance engineer for this project.
+
+The project is already actively being developed.
+
+There is an existing:
+
+* Frontend
+* Backend
+* Database
+* Admin Portal
+* Ecommerce storefront
+* APIs
+* Authentication
+* Product system
+* Order system
+* Customer system
+* Inventory system
+* Dropshipping systems
+* Analytics/reporting systems
+* Integrations
+* UI/UX
+* Existing components and pages
+
+I have also provided screenshots/references of the Shopify Admin Portal.
+
+Use those Shopify screenshots **only as UX/product reference and inspiration**. Do NOT blindly copy Shopify's branding, proprietary implementation, code, assets or exact design. Build our own better, modern, faster and more scalable implementation.
+
+---
+
+# 🚨 PRIMARY OBJECTIVE
+
+Your job is NOT simply to continue adding random features.
+
+Your job is to perform a complete **production-grade audit and completion of the entire platform**.
+
+The final result must be:
+
+> A complete, global, production-ready ecommerce + dropshipping platform with a powerful merchant admin portal, storefront, backend, analytics, supplier management, fulfillment, finance, automation, security, international commerce and scalable architecture.
+
+Everything must actually work.
+
+No fake buttons.
+
+No placeholder pages.
+
+No empty dashboards.
+
+No mock functionality where real functionality is expected.
+
+No "coming soon" for required systems.
+
+No broken navigation.
+
+No disconnected frontend/backend features.
+
+No dead APIs.
+
+No unfinished forms.
+
+No incomplete CRUD.
+
+No hardcoded business data.
+
+No duplicated systems.
+
+No inconsistent terminology.
+
+No broken responsive layouts.
+
+No obvious performance problems.
+
+---
+
+# 1. FIRST: AUDIT THE ENTIRE EXISTING PROJECT
+
+Before making major changes, inspect the entire codebase.
+
+Analyze:
+
+* Frontend architecture
+* Backend architecture
+* Database architecture
+* API architecture
+* Authentication
+* Authorization
+* Admin portal
+* Storefront
+* Components
+* Pages
+* Routes
+* API endpoints
+* Database models
+* Migrations
+* Services
+* Background jobs
+* Queues
+* Cron jobs
+* Webhooks
+* Integrations
+* Payment systems
+* Shipping systems
+* Supplier systems
+* Inventory systems
+* Analytics
+* Reports
+* CMS
+* SEO
+* Notifications
+* Security
+* Performance
+* Error handling
+* Logging
+* Testing
+* Deployment configuration
+
+Do not assume something is implemented just because a UI screen exists.
+
+For EVERY feature determine:
+
+1. Does the frontend exist?
+2. Does the backend exist?
+3. Does the database support it?
+4. Does the API exist?
+5. Is the API connected to the frontend?
+6. Does validation exist?
+7. Does error handling exist?
+8. Does permission checking exist?
+9. Does loading state exist?
+10. Does empty state exist?
+11. Does success state exist?
+12. Does failure state exist?
+13. Does it work on mobile?
+14. Does it generate analytics events where required?
+15. Does it work with real data?
+16. Is it production ready?
+
+Create an internal feature-completion matrix.
+
+Example:
+
+FEATURE | FRONTEND | BACKEND | DB | API | VALIDATION | PERMISSIONS | TESTED | STATUS
+
+Do not consider a feature complete until every required layer is implemented.
+
+---
+
+# 2. DO NOT DESTROY EXISTING FUNCTIONALITY
+
+This is extremely important.
+
+Before modifying anything:
+
+* Understand the existing architecture.
+* Reuse existing working components.
+* Reuse existing APIs where appropriate.
+* Reuse existing database models where appropriate.
+* Avoid unnecessary rewrites.
+* Do not delete working functionality simply to implement a different approach.
+* Do not break existing routes.
+* Do not break existing authentication.
+* Do not break existing integrations.
+* Do not change production-critical behavior without understanding dependencies.
+
+If an existing implementation is good, improve it rather than replacing it.
+
+If the architecture is fundamentally incorrect, refactor it carefully and migrate existing functionality safely.
+
+---
+
+# 3. GLOBAL ECOMMERCE REQUIREMENT
+
+This is NOT a local-only ecommerce website.
+
+The platform must be designed for:
+
+* Global customers
+* Multiple countries
+* Multiple currencies
+* Multiple languages
+* Multiple tax systems
+* International shipping
+* Different payment methods
+* Different customer addresses
+* Different currencies
+* International product availability
+* Duties and customs
+* Different pricing by market
+* Different shipping rules
+* Different legal policies
+* Multiple suppliers
+* Multiple warehouses
+* Multiple fulfillment methods
+
+The architecture must be global from the beginning.
+
+---
+
+# 4. COMPLETE ADMIN PORTAL
+
+Ensure the admin portal has a complete, polished implementation of:
+
+## Dashboard
+
+* Revenue
+* Orders
+* Customers
+* Products
+* Profit
+* Gross margin
+* Contribution margin
+* Conversion rate
+* AOV
+* CAC
+* LTV
+* ROAS
+* MER
+* Refunds
+* Returns
+* Chargebacks
+* Supplier performance
+* Fulfillment
+* Shipping
+* Inventory
+* Alerts
+* Goals
+* Trends
+* Business health
+* Real-time activity
+
+Dashboard widgets must use real backend data.
+
+Every widget must have:
+
+* Loading state
+* Empty state
+* Error state
+* Date filters
+* Comparison periods
+* Appropriate drill-down
+* Export where applicable
+
+---
+
+# 5. ORDERS
+
+Implement the complete order lifecycle.
+
+Statuses:
+
+* Draft
+* Pending
+* Unpaid
+* Payment pending
+* Paid
+* Processing
+* Awaiting fulfillment
+* Partially fulfilled
+* Fulfilled
+* Shipped
+* In transit
+* Out for delivery
+* Delivered
+* Cancelled
+* Returned
+* Partially refunded
+* Refunded
+* Failed
+* Fraud review
+* Archived
+
+Features:
+
+* Order list
+* Search
+* Advanced filters
+* Saved views
+* Sorting
+* Pagination
+* Bulk operations
+* Order details
+* Customer information
+* Product information
+* Pricing
+* Discounts
+* Taxes
+* Shipping
+* Payment
+* Fulfillment
+* Supplier
+* Tracking
+* Timeline
+* Notes
+* Tags
+* Fraud information
+* Returns
+* Refunds
+* Documents
+* Invoice
+* Packing slip
+* Order editing
+* Duplicate order
+* Create order manually
+* Draft orders
+* Cancel
+* Refund
+* Partial refund
+* Fulfill
+* Partial fulfillment
+* Resend notifications
+
+Every order state transition must be handled correctly by backend logic.
+
+---
+
+# 6. PRODUCTS
+
+Complete product management.
+
+Support:
+
+* Products
+* Variants
+* Categories
+* Collections
+* Brands
+* Product types
+* Tags
+* Attributes
+* Custom fields
+* Metafields
+* Media
+* Images
+* Videos
+* 3D assets
+* SKU
+* Barcode
+* GTIN
+* Price
+* Compare-at price
+* Cost
+* Margin
+* Tax
+* Weight
+* Dimensions
+* Country of origin
+* HS code
+* Customs information
+* Shipping information
+* Inventory
+* Supplier
+* SEO
+* Product status
+* Publication status
+* Sales channels
+
+Product states:
+
+* Draft
+* Active
+* Archived
+* Scheduled
+* Unpublished
+* Out of stock
+* Low stock
+
+Implement complete product CRUD and bulk operations.
+
+---
+
+# 7. PRODUCT VARIANTS
+
+Support multiple option types:
+
+* Size
+* Color
+* Material
+* Storage
+* Capacity
+* Style
+* Custom options
+
+Every variant must independently support:
+
+* SKU
+* Barcode
+* Price
+* Cost
+* Inventory
+* Image
+* Weight
+* Dimensions
+* Shipping
+* Tax
+* Supplier
+* Supplier SKU
+* Availability
+
+---
+
+# 8. COLLECTIONS
+
+Support:
+
+* Manual collections
+* Automatic collections
+* Rule-based collections
+* Product conditions
+* Tags
+* Categories
+* Price conditions
+* Inventory conditions
+* Vendor conditions
+* Custom attributes
+
+Collections must automatically update when rules change.
+
+---
+
+# 9. INVENTORY
+
+Implement complete inventory management.
+
+Track:
+
+* Available
+* Reserved
+* Incoming
+* Committed
+* Damaged
+* Lost
+* Returned
+* In transit
+* Supplier stock
+* Warehouse stock
+
+Inventory movements:
+
+* Sale
+* Return
+* Adjustment
+* Transfer
+* Purchase
+* Damage
+* Loss
+* Reservation
+* Release
+
+Maintain complete inventory history/audit trail.
+
+---
+
+# 10. MULTI-LOCATION INVENTORY
+
+Support:
+
+* Warehouses
+* Stores
+* Fulfillment centers
+* Supplier warehouses
+* 3PL locations
+* Dropshipping locations
+
+Each location must support:
+
+* Address
+* Contact
+* Inventory
+* Fulfillment priority
+* Shipping availability
+* Pickup
+* Delivery zones
+
+---
+
+# 11. SUPPLIERS
+
+This is a global dropshipping platform.
+
+Build a complete supplier system.
+
+Supplier:
+
+* Profile
+* Company
+* Contact
+* Country
+* Warehouses
+* Products
+* Pricing
+* Inventory
+* Orders
+* Fulfillment
+* Shipping
+* Returns
+* Payments
+* Documents
+* API credentials
+* Performance
+* SLA
+* Quality score
+
+Supplier statuses:
+
+* Pending
+* Under review
+* Approved
+* Rejected
+* Suspended
+* Blocked
+* Active
+
+---
+
+# 12. DROPSHIPPING SYSTEM
+
+Implement the complete dropshipping workflow.
+
+Customer:
+
+Order
+↓
+Payment
+↓
+Fraud check
+↓
+Product availability
+↓
+Supplier selection
+↓
+Order routing
+↓
+Supplier order
+↓
+Supplier confirmation
+↓
+Supplier fulfillment
+↓
+Tracking
+↓
+Shipment
+↓
+Delivery
+↓
+Customer notification
+
+No manual intervention should be required for normal automated orders.
+
+---
+
+# 13. PRODUCT IMPORT SYSTEM
+
+Support supplier product importing through:
+
+* API
+* CSV
+* XML
+* JSON
+* SFTP
+* Webhooks
+* Manual import
+
+Import:
+
+* Title
+* Description
+* Images
+* Videos
+* Variants
+* SKU
+* Supplier SKU
+* Cost
+* Inventory
+* Weight
+* Dimensions
+* Categories
+* Attributes
+* Shipping information
+
+Provide import preview before publishing.
+
+---
+
+# 14. PRODUCT NORMALIZATION
+
+Supplier product data must be normalized.
+
+Support:
+
+* Title cleanup
+* Description cleanup
+* Attribute normalization
+* Variant normalization
+* Category mapping
+* Brand mapping
+* Image cleanup
+* SKU mapping
+* Supplier SKU mapping
+* SEO generation
+* Product tags
+
+Do not expose unnecessary supplier branding to customers.
+
+---
+
+# 15. PRODUCT SYNC
+
+Synchronize:
+
+* Price
+* Inventory
+* Availability
+* Variants
+* Product data
+* Images
+* Shipping information
+
+Support:
+
+* Real-time sync
+* Scheduled sync
+* Manual sync
+* Webhook sync
+
+If supplier price changes:
+
+Recalculate:
+
+* Selling price
+* Margin
+* Profit
+
+Then apply configured rules.
+
+---
+
+# 16. SUPPLIER ROUTING
+
+When multiple suppliers sell the same product, automatically evaluate:
+
+* Price
+* Stock
+* Shipping speed
+* Destination
+* Warehouse location
+* Supplier score
+* SLA
+* Quality
+* Historical delivery
+* Return rate
+
+Choose the optimal supplier.
+
+Support manual override.
+
+---
+
+# 17. FALLBACK SUPPLIER
+
+If primary supplier:
+
+* Runs out of stock
+* Rejects order
+* Becomes unavailable
+* Exceeds SLA
+* Has shipping issues
+
+Automatically attempt an approved fallback supplier when business rules allow it.
+
+---
+
+# 18. SUPPLIER ANALYTICS
+
+Track:
+
+* Orders
+* Revenue
+* Cost
+* Profit
+* Margin
+* Processing time
+* Shipping time
+* Delivery time
+* Cancellation rate
+* Return rate
+* Defect rate
+* Stockout rate
+* SLA compliance
+* Supplier score
+
+---
+
+# 19. PRICING ENGINE
+
+Implement a real pricing engine.
+
+Support:
+
+* Fixed markup
+* Percentage markup
+* Target margin
+* Market-specific pricing
+* Customer-specific pricing
+* Wholesale pricing
+* Volume pricing
+* Promotional pricing
+* Scheduled pricing
+
+Pricing can account for:
+
+* Supplier cost
+* Shipping
+* Payment fees
+* Taxes
+* Duties
+* Expected refunds
+* Advertising cost
+* Desired profit
+
+Never calculate profit from selling price alone.
+
+---
+
+# 20. CART
+
+Complete cart system:
+
+* Add product
+* Remove product
+* Quantity
+* Variants
+* Discounts
+* Shipping estimate
+* Taxes
+* Currency
+* Inventory validation
+* Supplier availability
+* Save cart
+* Guest cart
+* Customer cart
+
+---
+
+# 21. CHECKOUT
+
+Complete checkout:
+
+* Guest checkout
+* Customer checkout
+* Address
+* Shipping
+* Tax
+* Duties
+* Discount
+* Payment
+* Order confirmation
+* Fraud checks
+* Currency
+* Country
+* Language
+* Consent
+* Terms
+
+Optimize checkout heavily for conversion.
+
+---
+
+# 22. PAYMENTS
+
+Support architecture for multiple providers.
+
+Payment states:
+
+* Pending
+* Authorized
+* Captured
+* Failed
+* Partially captured
+* Refunded
+* Partially refunded
+* Cancelled
+
+Track:
+
+* Gateway
+* Transaction ID
+* Amount
+* Currency
+* Fees
+* Taxes
+* Net settlement
+* Failure reason
+
+Never expose secret credentials to frontend.
+
+---
+
+# 23. REFUNDS
+
+Support:
+
+* Full refund
+* Partial refund
+* Product refund
+* Shipping refund
+* Tax refund
+* Store credit
+* Original payment refund
+
+---
+
+# 24. RETURNS
+
+Complete RMA system:
+
+* Return request
+* Approval
+* Rejection
+* Return shipping
+* Return address
+* Supplier return
+* Inspection
+* Refund
+* Exchange
+* Store credit
+* Return completion
+
+Track return reasons.
+
+---
+
+# 25. SHIPPING
+
+Global shipping engine.
+
+Support:
+
+* Shipping zones
+* Countries
+* States
+* Postal codes
+* Weight-based rates
+* Price-based rates
+* Free shipping
+* Flat rates
+* Carrier rates
+* Delivery estimates
+* Local delivery
+* Pickup
+* Same-day
+* Next-day
+* Scheduled delivery
+
+---
+
+# 26. CARRIERS
+
+Architecture must support multiple carrier integrations.
+
+Track:
+
+* Shipment
+* Carrier
+* Tracking number
+* Tracking events
+* Delivery estimate
+* Delivery status
+* Failed delivery
+* RTO
+* NDR
+
+---
+
+# 27. GLOBAL MARKETS
+
+Support market-specific:
+
+* Currency
+* Language
+* Domain
+* Product availability
+* Pricing
+* Tax
+* Duties
+* Shipping
+* Payment methods
+* Discounts
+* Catalogs
+
+---
+
+# 28. CURRENCIES
+
+Support:
+
+* Store currency
+* Customer currency
+* Exchange rates
+* Automatic rates
+* Manual rates
+* Rounding rules
+* Currency formatting
+
+Never use floating-point arithmetic for money.
+
+Use proper decimal/fixed-precision monetary representation.
+
+---
+
+# 29. TAX
+
+Architecture must support:
+
+* GST
+* VAT
+* Sales tax
+* Regional taxes
+* Tax-inclusive
+* Tax-exclusive
+* Tax exemptions
+* Tax IDs
+* Product tax categories
+* Customer tax status
+
+Do not hardcode one country's tax rules.
+
+---
+
+# 30. DUTIES & CUSTOMS
+
+For global orders support:
+
+* HS code
+* Country of origin
+* Declared value
+* Customs description
+* Duties
+* Import taxes
+* Landed cost
+
+---
+
+# 31. CUSTOMERS
+
+Complete customer profiles.
+
+Track:
+
+* Personal information
+* Addresses
+* Orders
+* Returns
+* Refunds
+* Store credit
+* Loyalty
+* Reviews
+* Wishlist
+* Subscriptions
+* Marketing consent
+* Tags
+* Segments
+* Lifetime value
+* Customer activity
+
+---
+
+# 32. CUSTOMER SEGMENTS
+
+Build a rule engine for segments.
+
+Examples:
+
+* VIP
+* New customer
+* Returning customer
+* High spender
+* Inactive
+* Abandoned cart
+* Purchased product X
+* Purchased category Y
+* Country
+* Order count
+* Lifetime value
+
+Segments should update dynamically.
+
+---
+
+# 33. MARKETING / GROWTH
+
+Implement:
+
+* Campaigns
+* Email
+* SMS
+* Push
+* Social
+* Affiliates
+* Referrals
+* Abandoned cart
+* Retargeting
+* Automation
+
+---
+
+# 34. MARKETING AUTOMATION
+
+Visual workflow engine:
+
+TRIGGER
+↓
+CONDITION
+↓
+ACTION
+↓
+WAIT
+↓
+CONDITION
+↓
+ACTION
+
+Examples:
+
+* Cart abandoned
+* Customer created
+* Order placed
+* Order delivered
+* Product purchased
+* Customer inactive
+
+Actions:
+
+* Email
+* SMS
+* Push
+* Coupon
+* Tag customer
+* Update customer
+* Webhook
+* API call
+
+---
+
+# 35. DISCOUNTS
+
+Support:
+
+* Percentage
+* Fixed amount
+* Free shipping
+* Buy X Get Y
+* Quantity discounts
+* Product discounts
+* Collection discounts
+* Customer discounts
+* Segment discounts
+* Market discounts
+* Minimum order
+* Usage limits
+* Expiry
+* Start date
+
+---
+
+# 36. GIFT CARDS
+
+Implement:
+
+* Create
+* Issue
+* Activate
+* Disable
+* Recharge
+* Balance
+* Expiry
+* Customer assignment
+* Transactions
+
+---
+
+# 37. LOYALTY
+
+Support:
+
+* Points
+* Rewards
+* Tiers
+* VIP
+* Referrals
+* Purchase rewards
+* Review rewards
+* Signup rewards
+* Birthday rewards
+
+---
+
+# 38. REVIEWS
+
+Support:
+
+* Ratings
+* Reviews
+* Verified purchase
+* Images
+* Videos
+* Questions
+* Answers
+* Moderation
+* Reporting
+* Merchant response
+
+---
+
+# 39. WISHLIST
+
+Track:
+
+* Products
+* Variants
+* Customers
+* Wishlist conversion
+* Wishlist revenue
+
+---
+
+# 40. CMS
+
+Complete CMS:
+
+* Pages
+* Blogs
+* Blog posts
+* FAQs
+* Testimonials
+* Banners
+* Landing pages
+* Sections
+* Navigation
+* Menus
+* Metaobjects
+* Custom content
+
+---
+
+# 41. PAGE BUILDER
+
+Build a reusable block system.
+
+Blocks:
+
+* Hero
+* Image
+* Text
+* Video
+* Product grid
+* Collection grid
+* Carousel
+* Banner
+* Testimonials
+* FAQ
+* Newsletter
+* Countdown
+* CTA
+* Custom HTML
+
+Responsive configuration:
+
+* Desktop
+* Tablet
+* Mobile
+
+---
+
+# 42. THEME SYSTEM
+
+Support:
+
+* Themes
+* Draft themes
+* Published theme
+* Duplicate
+* Preview
+* Customize
+* Theme settings
+
+Do not tightly couple storefront business logic to one theme.
+
+---
+
+# 43. SEARCH
+
+Implement:
+
+* Product search
+* SKU search
+* Barcode search
+* Customer search
+* Order search
+* Typo tolerance
+* Synonyms
+* Filters
+* Sorting
+* Search ranking
+
+Track search analytics.
+
+---
+
+# 44. SEO
+
+Complete SEO:
+
+* Meta title
+* Meta description
+* URL
+* Canonical
+* Robots
+* Sitemap
+* Robots.txt
+* Structured data
+* Open Graph
+* Social metadata
+* Image alt text
+* Redirects
+
+---
+
+# 45. ANALYTICS ENGINE
+
+DO NOT create analytics as hardcoded dashboard numbers.
+
+Build a real analytics/event system.
+
+Track events such as:
+
+* Page viewed
+* Product viewed
+* Search performed
+* Add to cart
+* Remove from cart
+* Checkout started
+* Shipping selected
+* Payment started
+* Payment completed
+* Order created
+* Order cancelled
+* Refund created
+* Product purchased
+* Review submitted
+* Wishlist added
+* Email clicked
+* Campaign clicked
+* Ad attributed
+* Shipment created
+* Shipment delivered
+* Return created
+
+Every event should contain appropriate:
+
+* Timestamp
+* Store
+* Customer
+* Session
+* Device
+* Country
+* Product
+* Order
+* Campaign
+* Source
+* Medium
+* Referrer
+
+---
+
+# 46. ANALYTICS DASHBOARD
+
+Metrics:
+
+### Revenue
+
+* Gross sales
+* Net sales
+* Revenue
+* Growth
+* Revenue/order
+* Revenue/customer
+
+### Orders
+
+* Orders
+* AOV
+* Units/order
+* Cancellation
+* Refund
+* Return
+
+### Customers
+
+* New customers
+* Returning customers
+* LTV
+* CAC
+* Retention
+* Churn
+
+### Marketing
+
+* Spend
+* ROAS
+* MER
+* CPA
+* CPC
+* CPM
+* CTR
+* Conversion
+
+### Profit
+
+* Revenue
+* Product cost
+* Shipping
+* Payment fees
+* Advertising
+* Refunds
+* Chargebacks
+* Taxes
+* Duties
+* Contribution profit
+* Margin
+
+---
+
+# 47. PRODUCT ANALYTICS
+
+For every product:
+
+* Views
+* Sessions
+* Add-to-cart
+* Checkout
+* Orders
+* Conversion
+* Revenue
+* Cost
+* Profit
+* Margin
+* Refunds
+* Returns
+* Rating
+* Reviews
+* Wishlist
+* Growth
+
+---
+
+# 48. DROPSHIPPING PRODUCT ANALYTICS
+
+Additional metrics:
+
+* Supplier cost
+* Supplier margin
+* Supplier stock
+* Supplier availability
+* Supplier fulfillment time
+* Shipping time
+* Return rate
+* Defect rate
+* Product score
+* Competition score
+* Demand score
+* Trend score
+
+---
+
+# 49. SUPPLIER ANALYTICS
+
+Reports:
+
+* Supplier revenue
+* Supplier cost
+* Supplier profit
+* Supplier margin
+* Orders
+* Fulfillment time
+* Shipping time
+* SLA
+* Stockouts
+* Cancellations
+* Returns
+* Defects
+* Refunds
+* Quality score
+
+---
+
+# 50. MARKETING ANALYTICS
+
+Track:
+
+* Impressions
+* Reach
+* Clicks
+* CTR
+* CPC
+* CPM
+* Sessions
+* Product views
+* Add-to-cart
+* Checkout
+* Orders
+* Revenue
+* Spend
+* CPA
+* ROAS
+* MER
+
+Channels:
+
+* Google
+* Meta
+* Instagram
+* TikTok
+* YouTube
+* Pinterest
+* Organic
+* Email
+* SMS
+* Affiliate
+* Referral
+* Direct
+
+---
+
+# 51. ATTRIBUTION
+
+Support:
+
+* First touch
+* Last touch
+* Last non-direct
+* Linear
+* Position based
+* Time decay
+* Data-driven
+
+The architecture must allow attribution models to evolve.
+
+---
+
+# 52. CUSTOMER ANALYTICS
+
+Reports:
+
+* New vs returning
+* Customer LTV
+* CAC
+* Purchase frequency
+* Repeat purchase rate
+* Retention
+* Churn
+* Cohorts
+* Revenue per customer
+* Orders/customer
+
+---
+
+# 53. COHORT ANALYTICS
+
+Group customers by:
+
+* Acquisition date
+* First purchase
+* Campaign
+* Country
+* Product
+* Channel
+
+Track over time:
+
+* Revenue
+* Orders
+* Retention
+* LTV
+
+---
+
+# 54. SHIPPING ANALYTICS
+
+Track:
+
+* Processing time
+* Supplier time
+* Transit time
+* Delivery time
+* On-time rate
+* Late rate
+* RTO
+* NDR
+* Shipping cost
+* Delivery success
+
+---
+
+# 55. RETURNS ANALYTICS
+
+Track:
+
+* Return rate
+* Return reason
+* Product
+* Supplier
+* Country
+* Customer
+* Cost
+* Refund amount
+* Exchange rate
+
+---
+
+# 56. FINANCE ANALYTICS
+
+Track:
+
+* Revenue
+* Costs
+* Product costs
+* Supplier costs
+* Shipping
+* Payment fees
+* Advertising
+* Refunds
+* Chargebacks
+* Taxes
+* Duties
+* Profit
+* Margin
+
+---
+
+# 57. REAL PROFITABILITY ENGINE
+
+Profit must be calculated correctly.
+
+Example:
+
+Revenue
+
+* Supplier cost
+* Shipping
+* Payment fee
+* Advertising cost
+* Tax
+* Duties
+* Discounts
+* Refunds
+* Chargebacks
+* Other variable costs
+
+=
+
+Contribution profit
+
+Do not show misleading "profit".
+
+Every monetary calculation must be traceable.
+
+---
+
+# 58. CUSTOM REPORT BUILDER
+
+Allow users to select:
+
+### Metrics
+
+* Revenue
+* Orders
+* Profit
+* Margin
+* Customers
+* Sessions
+* Cost
+* Refunds
+
+### Dimensions
+
+* Product
+* Variant
+* Supplier
+* Country
+* Customer
+* Campaign
+* Channel
+* Date
+
+### Filters
+
+* Country
+* Supplier
+* Product
+* Margin
+* Revenue
+* Date
+* Customer segment
+
+### Visualizations
+
+* KPI
+* Table
+* Line
+* Bar
+* Area
+* Pie
+* Funnel
+* Cohort
+* Map
+
+---
+
+# 59. REPORT LIBRARY
+
+Implement reports for:
+
+* Sales
+* Orders
+* Products
+* Customers
+* Suppliers
+* Marketing
+* Advertising
+* Inventory
+* Shipping
+* Fulfillment
+* Returns
+* Finance
+* Profit
+* Taxes
+* Payments
+* Refunds
+* Chargebacks
+
+Reports must be exportable.
+
+Formats:
+
+* CSV
+* XLSX
+* PDF
+
+Support scheduled reports.
+
+---
+
+# 60. ALERTS
+
+Build configurable alerts.
+
+Examples:
+
+IF:
+
+supplier stock < threshold
+
+THEN:
+
+notify admin.
+
+IF:
+
+margin < threshold
+
+THEN:
+
+alert.
+
+IF:
+
+ROAS < threshold
+
+THEN:
+
+alert.
+
+IF:
+
+supplier SLA breached
+
+THEN:
+
+alert.
+
+---
+
+# 61. AUTOMATION ENGINE
+
+Build a generic automation engine that can be reused by:
+
+* Orders
+* Products
+* Inventory
+* Customers
+* Suppliers
+* Marketing
+* Shipping
+* Payments
+
+Architecture:
+
+TRIGGER
++
+CONDITIONS
++
+ACTIONS
+
+Actions can include:
+
+* Send email
+* Send SMS
+* Push notification
+* Update record
+* Add tag
+* Remove tag
+* Create discount
+* Pause product
+* Change supplier
+* Create task
+* Webhook
+* API call
+
+---
+
+# 62. NOTIFICATIONS
+
+Channels:
+
+* In-app
+* Email
+* SMS
+* Push
+* WhatsApp where integrated
+
+Notification center:
+
+* Read
+* Unread
+* Priority
+* Category
+* Timestamp
+* Entity reference
+
+---
+
+# 63. CUSTOMER SUPPORT
+
+Support:
+
+* Tickets
+* Live chat
+* Email
+* Contact forms
+* WhatsApp integration
+* Internal notes
+* Assignment
+* Priority
+* Status
+* SLA
+
+---
+
+# 64. USERS / ROLES / PERMISSIONS
+
+Create granular RBAC.
+
+Roles:
+
+* Owner
+* Super Admin
+* Admin
+* Operations
+* Product Manager
+* Inventory Manager
+* Supplier Manager
+* Fulfillment Manager
+* Marketing Manager
+* Finance
+* Support
+* Content Manager
+* Analyst
+* Developer
+
+Permissions must be granular:
+
+VIEW
+CREATE
+EDIT
+DELETE
+PUBLISH
+EXPORT
+REFUND
+CANCEL
+MANAGE
+etc.
+
+---
+
+# 65. SECURITY
+
+Implement:
+
+* Secure authentication
+* Password hashing
+* Session management
+* 2FA
+* OAuth where applicable
+* RBAC
+* API authorization
+* Rate limiting
+* CSRF protection
+* CORS configuration
+* Input validation
+* Output validation
+* SQL injection protection
+* XSS protection
+* Secure cookies
+* Encryption for secrets
+* Secure file uploads
+* Audit logging
+* Security headers
+* Webhook signature validation
+
+Never expose:
+
+* API secrets
+* Payment secrets
+* Supplier credentials
+* Database credentials
+* Private keys
+
+to the frontend.
+
+---
+
+# 66. AUDIT LOG
+
+Record:
+
+* User
+* Action
+* Entity
+* Before value
+* After value
+* Timestamp
+* IP
+* Device
+* Source
+
+For important actions:
+
+* Refund
+* Delete
+* Price change
+* Supplier change
+* Permission change
+* Product publishing
+* Order cancellation
+* Payment changes
+
+---
+
+# 67. API ARCHITECTURE
+
+Ensure all major systems have proper APIs.
+
+Do not create frontend-only business logic.
+
+Business logic should live in the backend/domain/service layer.
+
+Use:
+
+* Validation
+* Authentication
+* Authorization
+* Pagination
+* Filtering
+* Sorting
+* Error handling
+* Rate limiting
+* Versioning where appropriate
+
+---
+
+# 68. WEBHOOKS
+
+Support events:
+
+* order.created
+* order.updated
+* order.cancelled
+* payment.created
+* payment.failed
+* payment.success
+* refund.created
+* product.created
+* product.updated
+* inventory.updated
+* customer.created
+* shipment.created
+* shipment.updated
+* delivery.completed
+* return.created
+
+Webhooks must be:
+
+* Signed
+* Retryable
+* Idempotent
+* Logged
+* Monitored
+
+---
+
+# 69. DATABASE QUALITY
+
+Audit all database models.
+
+Check:
+
+* Relationships
+* Foreign keys
+* Unique constraints
+* Indexes
+* Cascades
+* Soft deletes
+* Timestamps
+* Audit fields
+* Multi-tenant isolation
+
+Avoid:
+
+* Duplicate data
+* N+1 queries
+* Missing indexes
+* Unnecessary joins
+* Unstructured critical business data
+
+---
+
+# 70. MULTI-TENANT ARCHITECTURE
+
+This is a global SaaS platform.
+
+Every merchant/store must be isolated.
+
+Core structure:
+
+TENANT
+↓
+STORE
+↓
+USERS
+↓
+PRODUCTS
+↓
+CUSTOMERS
+↓
+ORDERS
+↓
+INVENTORY
+↓
+PAYMENTS
+↓
+ANALYTICS
+
+Never allow data leakage between tenants.
+
+Test tenant isolation explicitly.
+
+---
+
+# 71. MULTI-STORE
+
+Allow one business/account to manage:
+
+* Multiple stores
+* Multiple domains
+* Multiple markets
+* Multiple catalogs
+
+Store switching must be clean and safe.
+
+---
+
+# 72. GLOBAL SEARCH
+
+Admin global search should search:
+
+* Orders
+* Products
+* Customers
+* Suppliers
+* SKUs
+* Coupons
+* Pages
+* Reports
+* Settings
+
+Search should be fast.
+
+---
+
+# 73. BULK OPERATIONS
+
+All major admin tables should support:
+
+* Select all
+* Select multiple
+* Bulk edit
+* Bulk delete where safe
+* Bulk archive
+* Bulk publish
+* Bulk unpublish
+* Bulk tag
+* Bulk export
+
+Do not perform huge operations synchronously if they can timeout.
+
+Use background jobs for large operations.
+
+---
+
+# 74. IMPORT / EXPORT
+
+Support:
+
+* Product import
+* Customer import
+* Inventory import
+* Supplier import
+* Orders import where appropriate
+
+Provide:
+
+* Validation
+* Preview
+* Error rows
+* Retry
+* Import history
+* Export history
+
+---
+
+# 75. BACKGROUND JOBS
+
+Use asynchronous jobs for:
+
+* Product sync
+* Supplier sync
+* Inventory sync
+* Email
+* Reports
+* Large exports
+* Imports
+* Analytics aggregation
+* Webhooks
+* Notifications
+* Order routing
+* Shipping updates
+
+Jobs must have:
+
+* Status
+* Retry
+* Failure reason
+* Logs
+* Dead-letter handling where appropriate
+
+---
+
+# 76. PERFORMANCE — EXTREMELY IMPORTANT
+
+The platform must be FAST.
+
+Do not optimize only after everything is built.
+
+Performance must be part of implementation.
+
+Frontend:
+
+* Code splitting
+* Lazy loading
+* Route-level loading
+* Image optimization
+* Responsive images
+* CDN
+* Caching
+* Minification
+* Tree shaking
+* Avoid unnecessary dependencies
+* Avoid unnecessary re-renders
+* Virtualized large tables
+* Debounced search
+* Pagination
+* Optimistic updates where safe
+
+Backend:
+
+* Database indexes
+* Query optimization
+* Select only required columns
+* Avoid N+1 queries
+* Caching
+* Background processing
+* Pagination
+* Connection pooling
+* Efficient serialization
+* Rate limiting
+
+Analytics:
+
+* Do not query massive raw event tables for every dashboard load.
+* Use appropriate aggregation/materialization strategies.
+* Cache expensive reports.
+
+---
+
+# 77. ADMIN PERFORMANCE
+
+The admin portal must remain fast even with:
+
+* 10,000 products
+* 100,000 products
+* 1 million orders
+* 1 million customers
+* Large event volumes
+
+Never load an entire database table into the browser.
+
+Use:
+
+* Server-side pagination
+* Server-side filtering
+* Server-side sorting
+* Virtualized tables
+* Aggregated analytics
+* Proper indexes
+
+---
+
+# 78. STOREFRONT PERFORMANCE
+
+Target excellent Core Web Vitals.
+
+Optimize:
+
+* LCP
+* INP
+* CLS
+* TTFB
+
+Use:
+
+* CDN
+* Image optimization
+* Modern image formats
+* Lazy loading
+* Preloading only where necessary
+* Caching
+* SSR/SSG where appropriate
+* Minimal JavaScript
+* Optimized fonts
+
+Do not sacrifice storefront performance by loading the entire admin/business logic into the customer frontend.
+
+---
+
+# 79. UX QUALITY
+
+Every page must have:
+
+* Loading state
+* Skeleton
+* Empty state
+* Error state
+* Success feedback
+* Confirmation for destructive actions
+* Form validation
+* Helpful error messages
+* Breadcrumbs where useful
+* Search
+* Filters
+* Pagination
+* Responsive layout
+
+Tables should support:
+
+* Sorting
+* Filtering
+* Search
+* Column selection
+* Saved views
+* Bulk actions
+
+---
+
+# 80. MOBILE RESPONSIVENESS
+
+Every customer-facing page must work properly on:
+
+* Mobile
+* Tablet
+* Laptop
+* Desktop
+* Large screens
+
+Admin should also be responsive.
+
+Do not simply shrink desktop UI.
+
+Create appropriate mobile layouts.
+
+---
+
+# 81. ACCESSIBILITY
+
+Implement:
+
+* Keyboard navigation
+* Proper labels
+* Focus states
+* Semantic HTML
+* ARIA where required
+* Accessible forms
+* Accessible modals
+* Sufficient contrast
+* Screen reader support
+
+---
+
+# 82. ERROR HANDLING
+
+Never show raw errors to users.
+
+Implement:
+
+* Global frontend error boundary
+* API error handling
+* Friendly messages
+* Retry functionality
+* Logging
+* Error IDs
+* Backend structured logging
+
+---
+
+# 83. OBSERVABILITY
+
+Build monitoring for:
+
+* API latency
+* Error rate
+* Database latency
+* Queue latency
+* Failed jobs
+* Webhooks
+* Payment failures
+* Supplier failures
+* Shipping failures
+
+---
+
+# 84. TESTING
+
+Do not consider the project complete without testing.
+
+Implement:
+
+### Unit tests
+
+* Pricing
+* Discounts
+* Tax
+* Profit
+* Inventory
+* Supplier routing
+* Order calculations
+
+### Integration tests
+
+* Orders
+* Payments
+* Shipping
+* Supplier APIs
+* Inventory
+* Returns
+
+### E2E tests
+
+Test complete flows:
+
+Customer:
+
+Browse
+→ Product
+→ Cart
+→ Checkout
+→ Payment
+→ Order
+→ Tracking
+→ Delivery
+→ Return
+
+Admin:
+
+Login
+→ Product
+→ Inventory
+→ Order
+→ Fulfillment
+→ Refund
+
+Dropshipping:
+
+Order
+→ Supplier selection
+→ Supplier order
+→ Tracking
+→ Customer update
+
+---
+
+# 85. REAL DATA TESTING
+
+Do not only test with one product.
+
+Test:
+
+* Multiple products
+* Multiple variants
+* Multiple suppliers
+* Multiple currencies
+* Multiple countries
+* Multiple tax rules
+* Multiple shipping methods
+* Multiple payment methods
+* Partial refunds
+* Partial fulfillment
+* Split orders
+* Supplier failure
+* Product out of stock
+* Payment failure
+* Shipping failure
+
+---
+
+# 86. EDGE CASES
+
+Explicitly test:
+
+* Duplicate order
+* Duplicate webhook
+* Double payment
+* Payment timeout
+* Supplier timeout
+* Supplier rejects order
+* Product becomes unavailable after checkout
+* Price changes during checkout
+* Currency changes
+* Refund failure
+* Partial refund
+* Partial shipment
+* Multiple suppliers in one order
+* Customer changes address
+* Cancellation after fulfillment
+* Return after partial refund
+
+---
+
+# 87. NO FAKE ANALYTICS
+
+This is critical.
+
+Do NOT use:
+
+* Hardcoded chart values
+* Fake revenue
+* Fake orders
+* Fake customer counts
+* Fake supplier metrics
+* Random percentages
+
+Every production analytics number must originate from actual data/event pipelines.
+
+For demo/development environments, clearly separate seed/demo data from production data.
+
+---
+
+# 88. NO PLACEHOLDER UI
+
+Search the entire project for:
+
+* TODO
+* FIXME
+* Coming soon
+* Placeholder
+* Mock data
+* Dummy data
+* Fake API
+* Temporary
+* Not implemented
+* console.log
+* alert()
+* empty handlers
+
+Resolve everything that belongs to the production implementation.
+
+---
+
+# 89. CONSISTENCY AUDIT
+
+Check:
+
+* Button naming
+* Status naming
+* Colors
+* Icons
+* Typography
+* Spacing
+* Tables
+* Modals
+* Forms
+* Toasts
+* Filters
+* Pagination
+* Empty states
+* Error states
+
+Create a reusable design system.
+
+Do not build the same component five different ways.
+
+---
+
+# 90. SHOPIFY REFERENCE AUDIT
+
+Use the Shopify screenshots and feature references I provided as a benchmark.
+
+Compare our implementation against the reference for:
+
+* Information architecture
+* Navigation
+* Product management
+* Orders
+* Customers
+* Discounts
+* Analytics
+* Inventory
+* Settings
+* Permissions
+* Content
+* Sales channels
+* Fulfillment
+* Reporting
+
+But our platform must ultimately have its own:
+
+* Design
+* Branding
+* Components
+* Architecture
+* UX decisions
+
+The goal is:
+
+> Shopify-level completeness + better dropshipping intelligence + better profitability analytics + faster UX.
+
+---
+
+# 91. ADMIN NAVIGATION AUDIT
+
+Ensure the sidebar contains all required systems and every menu item leads to a functional page.
+
+Recommended structure:
+
+DASHBOARD
+
+COMMERCE
+
+* Orders
+* Draft Orders
+* Abandoned Carts
+* Returns
+* Refunds
+* Exchanges
+
+CATALOG
+
+* Products
+* Categories
+* Collections
+* Brands
+* Attributes
+* Bundles
+* Reviews
+* Product Research
+
+INVENTORY
+
+* Inventory
+* Locations
+* Transfers
+* Stock Alerts
+
+SUPPLIERS
+
+* Suppliers
+* Applications
+* Products
+* Pricing
+* Inventory
+* Orders
+* Payments
+* Performance
+* SLAs
+* Integrations
+
+DROPSHIPPING
+
+* Product Import
+* Product Sync
+* Inventory Sync
+* Price Sync
+* Order Routing
+* Fulfillment
+* Tracking
+* Supplier Routing
+* Fallback Suppliers
+* Quality Control
+
+CUSTOMERS
+
+* Customers
+* Segments
+* Loyalty
+* Store Credit
+* Subscriptions
+
+MARKETING
+
+* Campaigns
+* Email
+* SMS
+* Push
+* Automations
+* Affiliates
+* Referrals
+
+PROMOTIONS
+
+* Discounts
+* Coupons
+* Gift Cards
+* Bundles
+
+SHIPPING
+
+* Carriers
+* Zones
+* Rates
+* Shipments
+* Tracking
+* Delivery
+* RTO/NDR
+
+FINANCE
+
+* Payments
+* Transactions
+* Supplier Payments
+* Payouts
+* Invoices
+* Refunds
+* Chargebacks
+* Reconciliation
+* Costs
+* Profit
+
+MARKETS
+
+* Countries
+* Currencies
+* Languages
+* Taxes
+* Duties
+
+STOREFRONT
+
+* Theme
+* Pages
+* CMS
+* Navigation
+* Blog
+* Media
+* SEO
+* Domains
+
+ANALYTICS
+
+* Overview
+* Sales
+* Orders
+* Products
+* Customers
+* Suppliers
+* Marketing
+* Advertising
+* Shipping
+* Fulfillment
+* Returns
+* Finance
+* Profitability
+* Cohorts
+* Attribution
+* Custom Reports
+
+REPORTS
+
+* Sales
+* Products
+* Customers
+* Suppliers
+* Marketing
+* Finance
+* Inventory
+* Shipping
+* Returns
+* Taxes
+* Payments
+
+SUPPORT
+
+* Tickets
+* Live Chat
+* Email
+* WhatsApp
+* Knowledge Base
+
+INTEGRATIONS
+
+* Apps
+* Payments
+* Shipping
+* Suppliers
+* Marketing
+* Accounting
+* Webhooks
+* API
+
+AUTOMATION
+
+* Workflows
+* Triggers
+* Conditions
+* Actions
+* Jobs
+* Logs
+
+SECURITY
+
+* Users
+* Roles
+* Permissions
+* 2FA
+* Sessions
+* API Keys
+* Audit Logs
+* Security Events
+
+SETTINGS
+
+* Store
+* Checkout
+* Payments
+* Shipping
+* Taxes
+* Notifications
+* Customer Accounts
+* Domains
+* Policies
+* Billing
+* Advanced
+
+---
+
+# 92. GLOBALIZATION AUDIT
+
+Test:
+
+India
+USA
+UK
+UAE
+Europe
+Australia
+Canada
+and additional markets.
+
+Check:
+
+* Currency
+* Number formatting
+* Date formatting
+* Address formatting
+* Phone formatting
+* Tax
+* Shipping
+* Duties
+* Payment
+* Language
+* Product availability
+
+Do not assume every country follows the same structure.
+
+---
+
+# 93. DATABASE / API / FRONTEND CONSISTENCY
+
+For every major entity:
+
+PRODUCT
+CUSTOMER
+ORDER
+ORDER ITEM
+VARIANT
+INVENTORY
+SUPPLIER
+SUPPLIER ORDER
+SHIPMENT
+PAYMENT
+REFUND
+RETURN
+DISCOUNT
+CAMPAIGN
+ANALYTICS EVENT
+etc.
+
+Ensure:
+
+Frontend model
+↕
+API schema
+↕
+Backend service
+↕
+Database model
+
+are consistent.
+
+---
+
+# 94. FINAL QA LOOP
+
+After implementing everything:
+
+1. Build frontend.
+2. Build backend.
+3. Run migrations.
+4. Run tests.
+5. Run linting.
+6. Run type checks.
+7. Test APIs.
+8. Test authentication.
+9. Test permissions.
+10. Test admin.
+11. Test storefront.
+12. Test checkout.
+13. Test payments.
+14. Test supplier flow.
+15. Test shipping.
+16. Test returns.
+17. Test analytics.
+18. Test reports.
+19. Test responsive layouts.
+20. Test performance.
+21. Test security.
+22. Fix every issue.
+23. Run everything again.
+
+Do not stop after the first successful build.
+
+---
+
+# 95. DEFINITION OF DONE
+
+The project is NOT complete when:
+
+* Pages exist.
+* UI looks good.
+* Build succeeds.
+
+The project is complete only when:
+
+* Frontend works.
+* Backend works.
+* Database works.
+* APIs work.
+* Authentication works.
+* Authorization works.
+* Admin works.
+* Storefront works.
+* Products work.
+* Inventory works.
+* Suppliers work.
+* Dropshipping works.
+* Orders work.
+* Payments work.
+* Shipping works.
+* Fulfillment works.
+* Returns work.
+* Refunds work.
+* Customers work.
+* Marketing works.
+* Discounts work.
+* CMS works.
+* SEO works.
+* Analytics work.
+* Reports work.
+* Automation works.
+* Notifications work.
+* Security works.
+* Globalization works.
+* Performance is optimized.
+* Mobile works.
+* Tests pass.
+* No critical errors remain.
+
+---
+
+# 96. IMPORTANT EXECUTION RULE
+
+Do NOT respond with a list of things you could build.
+
+Actually inspect the existing project and implement what is missing.
+
+For every missing feature:
+
+1. Plan it.
+2. Implement frontend.
+3. Implement backend.
+4. Implement database changes.
+5. Implement API.
+6. Implement validation.
+7. Implement permissions.
+8. Connect frontend to backend.
+9. Add loading/error/empty states.
+10. Add analytics events where applicable.
+11. Test it.
+12. Fix issues.
+13. Mark it complete.
+
+If something already exists but is incomplete:
+
+> Finish it.
+
+If something exists but is broken:
+
+> Fix it.
+
+If something exists only visually:
+
+> Connect it to the real system.
+
+If something is duplicated:
+
+> Consolidate it.
+
+If something is architecturally weak:
+
+> Refactor it safely.
+
+---
+
+# 97. PRIORITY ORDER
+
+Do not randomly jump between modules.
+
+Use this priority:
+
+## P0 — Foundation
+
+* Architecture
+* Database
+* Authentication
+* Authorization
+* Multi-tenancy
+* API architecture
+* Error handling
+* Security
+* Performance infrastructure
+
+## P1 — Core Commerce
+
+* Products
+* Variants
+* Categories
+* Collections
+* Customers
+* Cart
+* Checkout
+* Orders
+* Payments
+* Inventory
+
+## P2 — Dropshipping
+
+* Suppliers
+* Supplier products
+* Product import
+* Product sync
+* Price sync
+* Inventory sync
+* Supplier routing
+* Supplier orders
+* Fulfillment
+* Tracking
+* Returns
+
+## P3 — Global Commerce
+
+* Markets
+* Currency
+* Language
+* Taxes
+* Duties
+* International shipping
+* Payment methods
+
+## P4 — Merchant Growth
+
+* Discounts
+* Marketing
+* Campaigns
+* Email
+* SMS
+* Automation
+* Loyalty
+* Reviews
+* Gift cards
+
+## P5 — Storefront
+
+* CMS
+* Theme
+* Page builder
+* Navigation
+* Search
+* SEO
+* Media
+
+## P6 — Analytics
+
+* Event tracking
+* Sales analytics
+* Product analytics
+* Customer analytics
+* Supplier analytics
+* Marketing analytics
+* Finance
+* Profitability
+* Attribution
+* Cohorts
+* Reports
+
+## P7 — Advanced
+
+* B2B
+* Multi-store
+* Apps
+* Developer platform
+* API marketplace
+* Advanced automation
+* AI
+* Forecasting
+
+---
+
+# 98. PERFORMANCE TARGET
+
+Treat performance as a first-class requirement.
+
+The final system should feel extremely fast.
+
+Admin:
+
+* Fast initial load
+* Instant navigation where possible
+* Fast table filtering
+* Fast search
+* Fast pagination
+* Fast dashboard rendering
+
+Storefront:
+
+* Excellent Core Web Vitals
+* Fast first render
+* Optimized images
+* Minimal JavaScript
+* CDN
+* Caching
+* Efficient API requests
+
+Backend:
+
+* Low API latency
+* Efficient DB queries
+* Proper indexes
+* Caching
+* Background jobs
+* Connection pooling
+
+Do not solve performance by hiding slow operations.
+
+Fix the underlying architecture.
+
+---
+
+# 99. FINAL PROJECT AUDIT REPORT
+
+At the end of the implementation, create an internal audit containing:
+
+### COMPLETED
+
+List everything fully implemented.
+
+### PARTIALLY COMPLETE
+
+List anything that still requires work.
+
+### BROKEN
+
+List bugs.
+
+### MISSING
+
+List features that were not implemented.
+
+### PERFORMANCE
+
+Show:
+
+* Frontend performance
+* API latency
+* Database performance
+* Slow queries
+* Bundle size
+* Core Web Vitals
+
+### SECURITY
+
+Show security findings.
+
+### TESTING
+
+Show:
+
+* Unit tests
+* Integration tests
+* E2E tests
+* Failed tests
+* Fixed tests
+
+### DATABASE
+
+Show:
+
+* Models
+* Indexes
+* Constraints
+* Migrations
+
+### API
+
+Show:
+
+* Endpoints
+* Authentication
+* Permissions
+* Webhooks
+
+### FINAL FEATURE MATRIX
+
+Every feature must have:
+
+COMPLETE / PARTIAL / MISSING / BROKEN
+
+Do not claim COMPLETE unless it is genuinely working end-to-end.
+
+---
+
+# 100. FINAL PRINCIPLE
+
+Build this platform as if millions of customers and thousands of merchants could eventually depend on it.
+
+Do not optimize only for "getting the demo working."
+
+Build the foundation correctly.
+
+The goal is:
+
+**A globally scalable ecommerce + dropshipping operating system with:**
+
+* Shopify-level ecommerce functionality
+* A significantly stronger dropshipping backend
+* Supplier intelligence
+* Automated supplier routing
+* Automated fulfillment
+* Global commerce
+* Deep profitability analytics
+* Advanced reporting
+* Marketing automation
+* Strong security
+* Multi-tenant architecture
+* High-performance storefront
+* High-performance admin
+* Excellent UX
+* Production-grade APIs
+* Robust database architecture
+* Complete testing
+* Reliable background processing
+* Extensible integrations
+* Future-ready architecture
+
+Use the existing project as the starting point.
+
+Audit first.
+
+Implement second.
+
+Test continuously.
+
+Optimize continuously.
+
+Do not stop at UI completion.
+
+Do not leave incomplete systems.
+
+Do not leave fake functionality.
+
+Make the entire platform actually work end-to-end.
+Absolutely. If you are building a **serious dropshipping ecommerce platform**, the admin portal needs additional systems that a normal ecommerce store doesn't need—especially **supplier management, product importing, supplier synchronization, automatic order routing, supplier pricing, shipping synchronization, tracking, fulfillment SLAs, product research, landed-cost/profit calculations, and dropshipping-specific analytics**.
+
+Shopify defines dropshipping as selling without holding inventory, with suppliers handling fulfillment and shipping directly to customers. Its current ecosystem also supports supplier/product discovery, supplier price lists, product syncing and supplier fulfillment through systems such as Shopify Collective. ([Shopify Help Center][1])
+
+So I'd expand the previous specification into the following **complete Dropshipping Commerce OS**.
+
+---
+
+# 🌎 COMPLETE DROPSHIPPING ECOMMERCE PLATFORM
+
+Think of the platform as **10 major layers**:
+
+```text
+1. Storefront
+2. Product & Catalog
+3. Supplier Network
+4. Dropshipping Operations
+5. Orders & Fulfillment
+6. Customers
+7. Marketing & Growth
+8. Finance & Profit
+9. Analytics & Reports
+10. Platform / Automation / Integrations
+```
+
+---
+
+# 1. 🏠 EXECUTIVE DASHBOARD
+
+The first screen should immediately answer:
+
+> **"How is my business doing right now?"**
+
+### Revenue
+
+* Gross sales
+* Net sales
+* Product revenue
+* Shipping revenue
+* Tax collected
+* Discounts
+* Refunds
+* Chargebacks
+* Net revenue
+
+### Profit
+
+* Product cost
+* Supplier cost
+* Shipping cost
+* Payment gateway fees
+* Advertising cost
+* Refund cost
+* Chargeback cost
+* Transaction fees
+* Gross profit
+* Contribution margin
+* Net profit
+* Profit margin
+
+### Orders
+
+* Total orders
+* Paid
+* Unpaid
+* Pending
+* Processing
+* Fulfillment pending
+* Shipped
+* Delivered
+* Cancelled
+* Returned
+* Refunded
+* Failed
+* High-risk
+
+### Customers
+
+* Visitors
+* New customers
+* Returning customers
+* New customer revenue
+* Returning customer revenue
+* Customer lifetime value
+* Average order value
+
+### Marketing
+
+* Ad spend
+* ROAS
+* MER
+* CPA
+* CAC
+* CTR
+* CPC
+* Conversion rate
+* Revenue by channel
+
+### Supplier
+
+* Supplier orders pending
+* Supplier fulfillment time
+* Supplier failure rate
+* Supplier cancellation rate
+* Supplier stockouts
+* Supplier price changes
+* Supplier shipping delays
+
+---
+
+# 2. 🚨 REAL-TIME ALERT CENTER
+
+This should be separate from the dashboard.
+
+### Alerts
+
+```text
+🔴 Supplier price increased
+🔴 Product became unavailable
+🔴 Supplier stock = 0
+🔴 Shipping delay
+🔴 Order not fulfilled
+🔴 Payment failed
+🔴 High-risk order
+🔴 Negative margin
+🔴 Ad campaign losing money
+🟡 Supplier SLA approaching
+🟡 Product stock declining
+🟡 Delivery delayed
+🟢 Order delivered
+```
+
+### Alert rules
+
+Admin decides:
+
+> If supplier price increases by >10%, notify me.
+
+> If product margin falls below 20%, automatically pause product.
+
+> If delivery exceeds 7 days, alert operations.
+
+---
+
+# 3. 🛍️ PRODUCT RESEARCH SYSTEM
+
+This is **very important for dropshipping**.
+
+Normal ecommerce asks:
+
+> "What products do I sell?"
+
+Dropshipping asks:
+
+> **"Which products should I sell?"**
+
+So build a dedicated:
+
+# Product Research
+
+### Product discovery
+
+* Trending products
+* Viral products
+* New products
+* Rising products
+* Evergreen products
+* Seasonal products
+* Niche products
+* High-margin products
+* Low-competition products
+
+### Product scoring
+
+Give every product a score:
+
+```text
+Demand       87/100
+Competition  42/100
+Margin       91/100
+Trend        94/100
+Shipping     72/100
+Supplier     89/100
+Saturation   31/100
+
+Overall Score: 86/100
+```
+
+### Product opportunity score
+
+Could calculate:
+
+```text
+Opportunity =
+Demand
++ Trend
++ Margin
++ Supplier reliability
++ Shipping quality
+- Competition
+- Return risk
+- Saturation
+```
+
+---
+
+# 4. 🔥 TREND DETECTION
+
+Track:
+
+* Search trends
+* Product views
+* Product imports
+* Social mentions
+* Sales growth
+* Add-to-cart growth
+* Competitor listings
+* Supplier sales velocity
+
+### Trend states
+
+```text
+Emerging
+Rising
+Hot
+Peak
+Declining
+Dead
+Evergreen
+Seasonal
+```
+
+---
+
+# 5. 🔎 COMPETITOR PRODUCT RESEARCH
+
+If legally and technically appropriate through permitted data sources:
+
+Track:
+
+* Competitor product
+* Selling price
+* Product positioning
+* Reviews
+* Rating
+* Number of variants
+* Shipping promise
+* Estimated delivery
+* Product images
+* Product description structure
+* Offer
+* Discount
+* Bundle
+* Social engagement
+
+### Competitor comparison
+
+```text
+Your Store
+Competitor A
+Competitor B
+Competitor C
+```
+
+Compare:
+
+* Price
+* Shipping
+* Reviews
+* Offer
+* Estimated delivery
+* Product positioning
+
+---
+
+# 6. 🏭 SUPPLIER MANAGEMENT
+
+This is one of the biggest differences from ordinary ecommerce.
+
+## Supplier directory
+
+Each supplier:
+
+```text
+Supplier
+├── Company
+├── Contact
+├── Locations
+├── Products
+├── Pricing
+├── Inventory
+├── Orders
+├── Fulfillment
+├── Shipping
+├── Returns
+├── Payments
+├── Performance
+└── Documents
+```
+
+### Supplier profile
+
+* Supplier name
+* Company
+* Contact person
+* Email
+* Phone
+* Website
+* Country
+* Warehouse locations
+* Currency
+* Payment terms
+* Shipping methods
+* Return address
+* Support contact
+* API credentials
+* Contract
+* Status
+
+---
+
+# 7. 🤝 SUPPLIER ONBOARDING
+
+Workflow:
+
+```text
+Application
+ ↓
+Verification
+ ↓
+Documents
+ ↓
+Product approval
+ ↓
+Pricing approval
+ ↓
+Shipping approval
+ ↓
+Test order
+ ↓
+Quality approval
+ ↓
+Active
+```
+
+Statuses:
+
+* Pending
+* Under review
+* Approved
+* Rejected
+* Suspended
+* Blocked
+
+---
+
+# 8. 🏆 SUPPLIER SCORECARD
+
+Every supplier should receive a score.
+
+### Metrics
+
+* Product quality
+* Price competitiveness
+* Fulfillment speed
+* Shipping speed
+* Tracking accuracy
+* Stock accuracy
+* Cancellation rate
+* Defect rate
+* Return rate
+* Refund speed
+* Communication
+* Customer complaints
+
+Example:
+
+```text
+Supplier Score: 91/100
+
+Fulfillment     96
+Shipping        89
+Quality         94
+Inventory       91
+Communication   87
+Returns         92
+```
+
+---
+
+# 9. 📊 SUPPLIER ANALYTICS
+
+Reports:
+
+* Orders by supplier
+* Revenue by supplier
+* Cost by supplier
+* Profit by supplier
+* Margin by supplier
+* Fulfillment time
+* Shipping time
+* Supplier cancellations
+* Supplier stockouts
+* Supplier defects
+* Supplier returns
+* Supplier refunds
+* Supplier disputes
+* Supplier SLA performance
+
+---
+
+# 10. 📥 PRODUCT IMPORTER
+
+This is essential.
+
+Supplier product:
+
+```text
+Supplier
+ ↓
+Import
+ ↓
+Review
+ ↓
+Edit
+ ↓
+Publish
+```
+
+Import:
+
+* Title
+* Description
+* Images
+* Videos
+* Variants
+* SKU
+* Supplier SKU
+* Price
+* Cost
+* Inventory
+* Weight
+* Dimensions
+* Shipping
+* Attributes
+* Categories
+
+---
+
+# 11. 🧹 PRODUCT CLEANUP / NORMALIZATION
+
+Automatically clean supplier data.
+
+### Example
+
+Supplier:
+
+> "2026 NEW Wireless Portable Mini Blender Machine 6 Blades USB Rechargeable..."
+
+Your store:
+
+> **Portable USB Rechargeable Blender**
+
+AI/rules can:
+
+* Remove supplier branding
+* Remove unnecessary words
+* Rewrite description
+* Normalize attributes
+* Normalize variants
+* Normalize images
+* Remove duplicate images
+* Generate SEO
+* Generate product tags
+
+---
+
+# 12. 🔄 PRODUCT SYNC
+
+This is absolutely critical.
+
+Supplier changes:
+
+```text
+Price
+Inventory
+Title
+Description
+Images
+Variants
+Availability
+Shipping
+```
+
+Your system receives the change.
+
+Example:
+
+```text
+Supplier price:
+₹400 → ₹475
+
+Your price:
+₹999
+
+System detects:
+Margin decreased
+
+Action:
+⚠️ Alert admin
+```
+
+Possible actions:
+
+* Update automatically
+* Update with approval
+* Don't update
+* Pause product
+* Recalculate price
+
+---
+
+# 13. 💰 AUTOMATIC PRICING ENGINE
+
+This should be extremely sophisticated.
+
+### Fixed markup
+
+```text
+Supplier cost = ₹500
+Markup = 100%
+Selling price = ₹1,000
+```
+
+### Percentage margin
+
+```text
+Target margin = 40%
+```
+
+### Pricing formula
+
+```text
+Supplier cost
++ Shipping
++ Payment fee
++ Tax
++ Expected refund cost
++ Advertising allocation
++ Desired profit
+= Selling price
+```
+
+This is much better than simply doing:
+
+> Cost × 2
+
+---
+
+# 14. 📈 DYNAMIC PRICING
+
+Example:
+
+```text
+IF supplier_cost increases
+THEN increase selling price
+
+IF competitor_price decreases
+THEN review price
+
+IF margin < 25%
+THEN alert
+
+IF product demand > X
+THEN increase price by Y%
+```
+
+---
+
+# 15. 📦 SUPPLIER INVENTORY SYNC
+
+Track:
+
+```text
+Supplier stock
+Your available stock
+Reserved
+Incoming
+Unavailable
+```
+
+### Rules
+
+```text
+Supplier stock = 0
+↓
+Automatically unpublish product
+```
+
+or:
+
+```text
+Supplier stock < 5
+↓
+Show "Low stock"
+```
+
+---
+
+# 16. 🧩 MULTI-SUPPLIER PRODUCT SOURCING
+
+This is extremely powerful.
+
+One product:
+
+```text
+Portable Blender
+
+Supplier A
+Cost ₹400
+Shipping 8 days
+Rating 92
+
+Supplier B
+Cost ₹450
+Shipping 4 days
+Rating 97
+
+Supplier C
+Cost ₹380
+Shipping 12 days
+Rating 84
+```
+
+System can recommend:
+
+> **Supplier B — best overall**
+
+---
+
+# 17. 🔀 AUTOMATIC SUPPLIER ROUTING
+
+Customer orders product.
+
+System evaluates:
+
+```text
+Supplier availability
++
+Cost
++
+Shipping speed
++
+Location
++
+Supplier score
++
+SLA
+```
+
+Then automatically selects supplier.
+
+Example:
+
+```text
+Customer: USA
+
+Supplier A
+USA warehouse → 4 days
+
+Supplier B
+China warehouse → 12 days
+
+Supplier C
+USA warehouse → out of stock
+
+→ Select Supplier A
+```
+
+---
+
+# 18. 🛒 ORDER ROUTING
+
+One customer order may contain products from multiple suppliers.
+
+Example:
+
+```text
+Order #1023
+
+Product A → Supplier 1
+Product B → Supplier 2
+Product C → Supplier 1
+```
+
+System splits it:
+
+```text
+Customer Order
+       ↓
+Fulfillment Order A → Supplier 1
+Fulfillment Order B → Supplier 2
+```
+
+This is a **must-have dropshipping architecture**.
+
+---
+
+# 19. 📤 SUPPLIER ORDER AUTOMATION
+
+When customer pays:
+
+```text
+Customer order
+ ↓
+Fraud check
+ ↓
+Payment confirmed
+ ↓
+Supplier selected
+ ↓
+Supplier order created
+ ↓
+Supplier confirmation
+ ↓
+Supplier payment
+ ↓
+Fulfillment
+ ↓
+Tracking
+ ↓
+Customer notification
+```
+
+No manual work.
+
+---
+
+# 20. 🔁 SUPPLIER ORDER STATUSES
+
+```text
+Pending
+Sent to supplier
+Accepted
+Rejected
+Payment pending
+Paid
+Processing
+Packed
+Shipped
+Tracking received
+Delivered
+Cancelled
+Failed
+```
+
+---
+
+# 21. 🔗 SUPPLIER INTEGRATIONS
+
+Support:
+
+* API
+* CSV
+* XML
+* JSON
+* Webhooks
+* SFTP
+* Email
+* Manual upload
+
+Integration types:
+
+```text
+Real-time API
+Scheduled sync
+Webhook sync
+File sync
+Manual sync
+```
+
+---
+
+# 22. 🚚 DROPSHIP FULFILLMENT
+
+Shopify's fulfillment architecture supports self-fulfillment, third-party fulfillment, custom fulfillment and dropshipping services. ([Shopify Help Center][2])
+
+Your system should support:
+
+```text
+Dropship supplier
+3PL
+Own warehouse
+Hybrid
+Print-on-demand
+Marketplace fulfillment
+```
+
+---
+
+# 23. 📍 SUPPLIER WAREHOUSE ROUTING
+
+Supplier may have:
+
+```text
+China
+USA
+UK
+UAE
+Germany
+India
+```
+
+Customer:
+
+```text
+USA
+```
+
+System selects the best warehouse.
+
+---
+
+# 24. 🌎 SHIPPING OPTIMIZATION
+
+Calculate:
+
+* Shipping cost
+* Shipping time
+* Customs
+* Duties
+* Delivery probability
+* Carrier reliability
+
+Then choose:
+
+```text
+Best Cost
+Best Speed
+Best Reliability
+```
+
+---
+
+# 25. 📦 TRACKING SYNCHRONIZATION
+
+Supplier tracking:
+
+```text
+Tracking number
+Carrier
+Status
+Location
+Events
+Estimated delivery
+```
+
+Automatically sync to customer order.
+
+---
+
+# 26. 🚨 SHIPPING SLA ENGINE
+
+Track:
+
+```text
+Order received
+Supplier acceptance time
+Processing time
+Dispatch time
+Transit time
+Delivery time
+```
+
+Example:
+
+```text
+Supplier SLA: 48 hours
+
+Order:
+Received 10:00 AM
+
+Supplier hasn't shipped.
+
+At 36 hours:
+🟡 Warning
+
+At 48 hours:
+🔴 SLA breach
+```
+
+---
+
+# 27. 🌐 DELIVERY PROMISE ENGINE
+
+Don't just show:
+
+> Free shipping
+
+Show:
+
+> **Estimated delivery: Aug 18–22**
+
+Based on:
+
+* Supplier warehouse
+* Customer location
+* Carrier
+* Processing time
+* Historical delivery data
+
+---
+
+# 28. 🔄 AUTOMATIC FALLBACK SUPPLIER
+
+This is a **premium feature**.
+
+If:
+
+```text
+Supplier A
+↓
+Out of stock
+```
+
+System:
+
+```text
+Find alternative supplier
+↓
+Check cost
+↓
+Check shipping
+↓
+Check quality
+↓
+Switch fulfillment
+```
+
+---
+
+# 29. 🧾 SUPPLIER INVOICES
+
+Track:
+
+* Supplier invoice
+* Order
+* Supplier cost
+* Shipping
+* Tax
+* Duties
+* Total
+* Payment status
+
+---
+
+# 30. 💰 SUPPLIER PAYMENTS
+
+Track:
+
+```text
+Amount owed
+Amount paid
+Pending
+Refunded
+Credit
+Debit
+```
+
+Payment methods:
+
+* Wallet
+* Card
+* Bank
+* API
+* Manual
+
+---
+
+# 31. 🔄 SUPPLIER RECONCILIATION
+
+Compare:
+
+```text
+Customer order
+Supplier order
+Supplier invoice
+Gateway payment
+Supplier payout
+```
+
+Detect mismatches.
+
+---
+
+# 32. 🧪 SAMPLE / QUALITY MANAGEMENT
+
+Before selling a product:
+
+```text
+Product
+ ↓
+Sample requested
+ ↓
+Received
+ ↓
+Quality inspection
+ ↓
+Approved / Rejected
+```
+
+Record:
+
+* Sample cost
+* Shipping cost
+* Quality score
+* Photos
+* Videos
+* Notes
+
+---
+
+# 33. 📸 PRODUCT CONTENT MANAGEMENT
+
+For each product:
+
+* Supplier images
+* Original images
+* Edited images
+* AI images
+* Lifestyle images
+* Videos
+* UGC
+* Reviews
+
+---
+
+# 34. ⭐ PRODUCT QUALITY SCORE
+
+Calculate:
+
+```text
+Quality score
+
+Reviews
++
+Return rate
++
+Defect rate
++
+Complaint rate
++
+Supplier rating
+```
+
+---
+
+# 35. 🔁 RETURN ROUTING
+
+Dropshipping returns are complicated.
+
+Support:
+
+```text
+Customer
+ ↓
+Return request
+ ↓
+Return policy
+ ↓
+Return approval
+ ↓
+Return address
+ ↓
+Supplier
+ ↓
+Inspection
+ ↓
+Refund
+```
+
+Return address can be:
+
+* Supplier
+* Local warehouse
+* 3PL
+* Your own location
+
+---
+
+# 36. 💸 REFUND RESPONSIBILITY
+
+Determine:
+
+```text
+Supplier fault
+Customer fault
+Carrier fault
+Store fault
+```
+
+Then allocate:
+
+```text
+Refund cost
+Shipping cost
+Supplier charge
+```
+
+---
+
+# 37. ⚠️ CHARGEBACK MANAGEMENT
+
+Track:
+
+* Chargeback
+* Reason
+* Amount
+* Customer
+* Order
+* Evidence
+* Deadline
+* Response
+* Result
+
+---
+
+# 38. 📊 THE MOST IMPORTANT DROPSHIPPING ANALYTICS
+
+Now we get to the **big analytics system**.
+
+Your analytics shouldn't only say:
+
+> "You made ₹1 lakh."
+
+It should tell you:
+
+> **"You made ₹1 lakh revenue, spent ₹42k on products, ₹12k on ads, ₹5k shipping, ₹2k payment fees, refunded ₹3k, and your actual contribution profit was ₹36k."**
+
+---
+
+# 39. 📊 EXECUTIVE KPI DASHBOARD
+
+### Revenue KPIs
+
+* Gross revenue
+* Net revenue
+* Net sales
+* Revenue growth
+* Revenue per visitor
+* Revenue per customer
+* Revenue per order
+
+### Profit KPIs
+
+* Gross profit
+* Contribution profit
+* Net profit
+* Gross margin
+* Contribution margin
+* Net margin
+
+### Order KPIs
+
+* Orders
+* AOV
+* Units/order
+* Orders/customer
+* Cancellation rate
+* Return rate
+* Refund rate
+
+### Customer KPIs
+
+* CAC
+* LTV
+* LTV:CAC
+* Repeat purchase rate
+* Retention
+* Churn
+
+### Marketing KPIs
+
+* Ad spend
+* ROAS
+* MER
+* CPA
+* CTR
+* CPC
+* CPM
+* Conversion rate
+
+---
+
+# 40. 📈 SALES REPORTS
+
+Create:
+
+### Sales over time
+
+* Hourly
+* Daily
+* Weekly
+* Monthly
+* Quarterly
+* Yearly
+
+### Sales by
+
+* Product
+* Variant
+* Category
+* Collection
+* Brand
+* Supplier
+* Country
+* State
+* City
+* Currency
+* Sales channel
+* Device
+* Customer segment
+
+---
+
+# 41. 🛍️ PRODUCT REPORTS
+
+Every product:
+
+* Views
+* Sessions
+* Add-to-cart
+* Checkout
+* Purchases
+* Conversion
+* Revenue
+* Cost
+* Profit
+* Margin
+* Refunds
+* Returns
+* Rating
+* Reviews
+* Wishlist adds
+
+Shopify's own product analytics includes metrics such as sell-through rate, days of inventory remaining and inventory value. ([Shopify Help Center][3])
+
+---
+
+# 42. 🔥 PRODUCT PERFORMANCE SCORECARD
+
+```text
+Product A
+
+Revenue          ₹8,50,000
+Orders           1,240
+AOV              ₹685
+Cost             ₹3,20,000
+Ad Spend         ₹1,80,000
+Shipping         ₹65,000
+Refunds          ₹20,000
+
+Contribution     ₹2,65,000
+Margin           31.2%
+
+ROAS             4.72
+Conversion       3.8%
+
+Score            92/100
+```
+
+---
+
+# 43. 🏆 BEST/WORST PRODUCTS
+
+Automatically rank:
+
+### Best
+
+* Revenue
+* Profit
+* Margin
+* Growth
+* Conversion
+* Repeat purchase
+
+### Worst
+
+* Negative margin
+* High returns
+* High refunds
+* Low conversion
+* Supplier problems
+* High ad spend
+
+---
+
+# 44. 🧮 PRODUCT UNIT ECONOMICS
+
+For every SKU:
+
+```text
+Selling price
+- Supplier cost
+- Shipping
+- Payment fee
+- Tax
+- Discount
+- Refund allowance
+- Ad cost allocation
+= Contribution profit
+```
+
+This is **essential for dropshipping**.
+
+---
+
+# 45. 💰 PROFIT REPORT
+
+Shopify's current profit reports already separate product cost, gross profit, gross margin and order-level profitability; your system should go further by including the real dropshipping costs. ([Shopify Help Center][4])
+
+### Product profit
+
+### Order profit
+
+### Supplier profit
+
+### Market profit
+
+### Channel profit
+
+### Campaign profit
+
+### Customer profit
+
+---
+
+# 46. 📣 MARKETING ANALYTICS
+
+Track every channel:
+
+```text
+Google
+Meta
+TikTok
+Instagram
+YouTube
+Pinterest
+Email
+SMS
+Organic
+Direct
+Affiliate
+Influencer
+```
+
+Metrics:
+
+* Impressions
+* Reach
+* Clicks
+* CTR
+* CPC
+* CPM
+* Sessions
+* Add-to-cart
+* Checkout
+* Orders
+* Revenue
+* Spend
+* CPA
+* ROAS
+* MER
+
+Shopify's current marketing reporting includes channel/campaign performance, attribution, sales, sessions, orders, conversion rate, AOV, ROAS, CTR and CPA. ([Shopify Help Center][5])
+
+---
+
+# 47. 🎯 CAMPAIGN ANALYTICS
+
+For each campaign:
+
+```text
+Campaign
+↓
+Spend
+↓
+Impressions
+↓
+Clicks
+↓
+Sessions
+↓
+Product views
+↓
+Add to cart
+↓
+Checkout
+↓
+Purchase
+```
+
+Calculate conversion at every stage.
+
+---
+
+# 48. 📊 MARKETING FUNNEL
+
+```text
+1,000,000 impressions
+        ↓
+50,000 clicks
+        ↓
+35,000 sessions
+        ↓
+8,000 product views
+        ↓
+3,000 carts
+        ↓
+1,500 checkouts
+        ↓
+900 orders
+```
+
+---
+
+# 49. 💵 CAC
+
+Customer Acquisition Cost:
+
+```text
+Total marketing spend
+÷
+New customers
+```
+
+Track:
+
+* Overall CAC
+* CAC by channel
+* CAC by campaign
+* CAC by product
+* CAC by country
+
+---
+
+# 50. 💎 LTV
+
+Customer Lifetime Value:
+
+```text
+Average order value
+×
+Purchase frequency
+×
+Customer lifespan
+```
+
+Track:
+
+* LTV by customer segment
+* LTV by country
+* LTV by acquisition source
+* LTV by campaign
+* LTV by product
+
+---
+
+# 51. ⚖️ LTV : CAC
+
+This should be a headline KPI.
+
+Example:
+
+```text
+LTV = ₹8,000
+CAC = ₹2,000
+
+LTV:CAC = 4:1
+```
+
+---
+
+# 52. 📊 COHORT ANALYSIS
+
+Group customers by acquisition month.
+
+Example:
+
+```text
+January customers
+
+Month 0 → ₹100k
+Month 1 → ₹35k
+Month 2 → ₹25k
+Month 3 → ₹19k
+Month 4 → ₹15k
+```
+
+Track:
+
+* Retention
+* Revenue
+* Orders
+* LTV
+
+---
+
+# 53. 🔁 RETENTION ANALYTICS
+
+* 7-day
+* 30-day
+* 60-day
+* 90-day
+* 180-day
+* 365-day
+
+---
+
+# 54. 🛒 CART ANALYTICS
+
+Track:
+
+* Carts created
+* Cart value
+* Items/cart
+* Add-to-cart rate
+* Cart abandonment
+* Recovery
+* Recovered revenue
+
+---
+
+# 55. 💳 CHECKOUT ANALYTICS
+
+Funnel:
+
+```text
+Cart
+ ↓
+Checkout started
+ ↓
+Information entered
+ ↓
+Shipping selected
+ ↓
+Payment started
+ ↓
+Payment successful
+ ↓
+Order
+```
+
+Find exactly where customers leave.
+
+---
+
+# 56. 💳 PAYMENT ANALYTICS
+
+* Payment success rate
+* Payment failure rate
+* Gateway
+* Failure reason
+* Currency
+* Country
+* Card type
+* Payment method
+
+Compare:
+
+```text
+Razorpay
+Stripe
+PayPal
+COD
+```
+
+---
+
+# 57. 🚚 SHIPPING ANALYTICS
+
+* Average processing time
+* Average shipping time
+* Average delivery time
+* On-time delivery
+* Late delivery
+* RTO
+* NDR
+* Shipping cost
+* Cost/order
+* Delivery success rate
+
+---
+
+# 58. 🏭 SUPPLIER PERFORMANCE ANALYTICS
+
+This is a **must-have dropshipping report**.
+
+```text
+Supplier A
+
+Orders             5,200
+Revenue             ₹42L
+Cost                ₹21L
+Profit              ₹12L
+
+Avg processing      18 hrs
+Avg shipping        4.2 days
+Late rate           3.1%
+Cancellation        0.8%
+Return              2.3%
+Defect              1.1%
+
+Supplier score      94/100
+```
+
+---
+
+# 59. 📦 FULFILLMENT ANALYTICS
+
+Track:
+
+* Order-to-supplier time
+* Supplier acceptance time
+* Processing time
+* Dispatch time
+* Transit time
+* Delivery time
+
+---
+
+# 60. 🔄 RETURNS ANALYTICS
+
+Reports:
+
+* Return rate
+* Returns by product
+* Returns by supplier
+* Returns by country
+* Returns by reason
+* Return cost
+* Refund amount
+* Exchange rate
+
+---
+
+# 61. ❌ CANCELLATION ANALYTICS
+
+Reasons:
+
+* Customer cancelled
+* Supplier unavailable
+* Price changed
+* Payment failure
+* Fraud
+* Shipping delay
+* Product discontinued
+
+---
+
+# 62. 📦 INVENTORY / AVAILABILITY ANALYTICS
+
+For dropshipping, replace simple inventory with:
+
+```text
+Supplier availability
+```
+
+Reports:
+
+* Stock availability
+* Stockout rate
+* Supplier stockouts
+* Days unavailable
+* Lost sales from stockouts
+* Product availability percentage
+
+---
+
+# 63. 📈 DEMAND FORECAST
+
+Predict:
+
+```text
+Product A
+
+Next 7 days:
+420 units
+
+Next 30 days:
+1,850 units
+```
+
+Even without holding inventory, this helps decide supplier capacity and product promotion.
+
+---
+
+# 64. 🌎 GEO ANALYTICS
+
+Revenue by:
+
+* Country
+* State
+* City
+* Postal code
+* Region
+
+Profit by geography.
+
+Shipping performance by geography.
+
+Return rate by geography.
+
+---
+
+# 65. 🌐 MARKET ANALYTICS
+
+For each market:
+
+```text
+USA
+Revenue
+Orders
+AOV
+CAC
+LTV
+ROAS
+Profit
+Margin
+Return rate
+Shipping time
+```
+
+Then compare:
+
+```text
+USA vs UK vs UAE vs India
+```
+
+---
+
+# 66. 📱 DEVICE ANALYTICS
+
+* Desktop
+* Mobile
+* Tablet
+
+Track:
+
+* Sessions
+* Conversion
+* Revenue
+* AOV
+* Cart rate
+* Checkout completion
+
+---
+
+# 67. 🔍 SEARCH ANALYTICS
+
+Track:
+
+* Search terms
+* Search volume
+* Search conversion
+* Zero-result searches
+* Product clicks
+* Search revenue
+
+Example:
+
+```text
+"wireless blender"
+
+Searches: 4,200
+Results: 3,800
+Orders: 320
+Conversion: 7.6%
+```
+
+---
+
+# 68. 🧭 CUSTOMER JOURNEY ANALYTICS
+
+Track:
+
+```text
+First visit
+ ↓
+Product view
+ ↓
+Add to cart
+ ↓
+Checkout
+ ↓
+Purchase
+ ↓
+Delivery
+ ↓
+Review
+ ↓
+Repeat purchase
+```
+
+---
+
+# 69. 🧠 ATTRIBUTION SYSTEM
+
+Don't rely only on last-click.
+
+Support:
+
+* First touch
+* Last touch
+* Last non-direct
+* Linear
+* Position based
+* Time decay
+* Data-driven
+
+Shopify's reporting currently supports attribution models and lets merchants analyze how channels contribute across the customer journey. ([Shopify Help Center][6])
+
+---
+
+# 70. 📊 CUSTOM REPORT BUILDER
+
+This is one of the most important features.
+
+Admin chooses:
+
+### Metric
+
+```text
+Revenue
+Orders
+Profit
+Margin
+Customers
+Sessions
+```
+
+### Dimension
+
+```text
+Product
+Supplier
+Country
+Campaign
+Date
+Customer
+```
+
+### Filter
+
+```text
+Country = USA
+Margin > 30%
+Supplier = A
+```
+
+### Visualization
+
+* Table
+* Line chart
+* Bar chart
+* Area
+* Pie
+* Funnel
+* KPI
+* Map
+* Cohort
+
+Shopify's analytics architecture similarly separates **metrics** from **dimensions**, allowing them to be filtered/grouped in reports. ([Shopify Help Center][7])
+
+---
+
+# 71. 📑 REPORT LIBRARY
+
+I'd create these categories:
+
+```text
+SALES
+├── Sales overview
+├── Sales by product
+├── Sales by category
+├── Sales by channel
+├── Sales by country
+├── Sales by customer
+└── Sales growth
+
+ORDERS
+├── Orders overview
+├── Order status
+├── Average order value
+├── Cancellation
+└── Refunds
+
+PRODUCTS
+├── Product performance
+├── Best sellers
+├── Worst sellers
+├── Conversion
+└── Product profitability
+
+SUPPLIERS
+├── Supplier performance
+├── Supplier sales
+├── Supplier cost
+├── Supplier fulfillment
+├── Supplier delays
+├── Supplier returns
+└── Supplier quality
+
+FULFILLMENT
+├── Processing time
+├── Shipping time
+├── Delivery
+├── SLA
+├── RTO
+└── NDR
+
+MARKETING
+├── Channel
+├── Campaign
+├── Ad spend
+├── ROAS
+├── CAC
+├── Attribution
+└── Conversion
+
+CUSTOMERS
+├── New vs returning
+├── LTV
+├── CAC
+├── Retention
+├── Cohorts
+├── Churn
+└── Segments
+
+FINANCE
+├── Revenue
+├── Costs
+├── Profit
+├── Margin
+├── Payment fees
+├── Refunds
+├── Chargebacks
+└── Reconciliation
+
+INVENTORY
+├── Availability
+├── Stockouts
+├── Sell-through
+├── Inventory value
+└── Supplier stock
+
+RETURNS
+├── Return rate
+├── Return reasons
+├── Refunds
+├── Cost
+└── Product returns
+```
+
+Shopify currently organizes reports into categories such as Acquisition, Inventory and Sales, while allowing reports to be customized and exported. ([Shopify Help Center][8])
+
+---
+
+# 72. 📤 REPORT EXPORTS
+
+Every report:
+
+* CSV
+* Excel
+* PDF
+* JSON
+* API
+
+Scheduling:
+
+```text
+Every day
+Every week
+Every month
+```
+
+Send to:
+
+* Email
+* Google Drive
+* Slack
+* Webhook
+
+---
+
+# 73. 🎯 GOALS & TARGETS
+
+Admin can set:
+
+```text
+Monthly revenue
+₹10,00,000
+
+Target profit
+₹3,00,000
+
+Target ROAS
+4.0
+
+Target conversion
+3%
+
+Target AOV
+₹2,500
+```
+
+Dashboard:
+
+```text
+Revenue
+₹7.8L / ₹10L
+██████████████░░
+
+78%
+```
+
+Shopify's current Analytics dashboard also supports customizable metric cards and targets. ([Shopify Help Center][9])
+
+---
+
+# 74. 🤖 AUTOMATED BUSINESS INSIGHTS
+
+Instead of forcing the owner to read 50 reports:
+
+```text
+💡 Insight
+
+Your USA revenue increased 32%.
+
+The main reason:
+Portable Blenders generated ₹2.4L additional revenue.
+
+However:
+Supplier B's shipping time increased by 28%.
+
+Recommended action:
+Move 38% of USA orders to Supplier A.
+```
+
+---
+
+# 75. 🚨 ANOMALY DETECTION
+
+Automatically detect:
+
+```text
+Revenue suddenly ↓
+Conversion suddenly ↓
+Refunds suddenly ↑
+Ad spend suddenly ↑
+ROAS suddenly ↓
+Supplier delays ↑
+Payment failures ↑
+```
+
+---
+
+# 76. 🧠 BUSINESS HEALTH SCORE
+
+Example:
+
+```text
+BUSINESS HEALTH
+
+Sales          91
+Profit         84
+Marketing      76
+Suppliers      93
+Fulfillment    88
+Customers      81
+Operations     90
+
+Overall        86/100
+```
+
+---
+
+# 77. 🔥 PRODUCT HEALTH SCORE
+
+```text
+Demand          92
+Trend           95
+Margin          87
+Competition     72
+Supplier        94
+Shipping        89
+Returns         91
+
+Product score   89
+```
+
+---
+
+# 78. 🏭 SUPPLIER HEALTH SCORE
+
+```text
+Price           92
+Stock           96
+Quality         90
+Shipping        87
+Fulfillment     94
+Returns         91
+
+Overall         92
+```
+
+---
+
+# 79. 💰 REAL PROFIT DASHBOARD
+
+This is where I would make your platform particularly strong.
+
+Don't show only:
+
+> Sales = ₹10L
+
+Show:
+
+```text
+REVENUE
+₹10,00,000
+
+Supplier costs
+- ₹4,00,000
+
+Shipping
+- ₹80,000
+
+Payment fees
+- ₹25,000
+
+Advertising
+- ₹2,00,000
+
+Refunds
+- ₹30,000
+
+Chargebacks
+- ₹10,000
+
+Taxes/duties
+- ₹40,000
+
+────────────────
+CONTRIBUTION PROFIT
+₹2,15,000
+
+Margin
+21.5%
+```
+
+---
+
+# 80. 📊 THE COMPLETE DROPSHIPPING BUSINESS FUNNEL
+
+Your analytics architecture should ultimately connect:
+
+```text
+TRAFFIC
+ ↓
+SESSIONS
+ ↓
+PRODUCT VIEWS
+ ↓
+ADD TO CART
+ ↓
+CHECKOUT
+ ↓
+PAYMENT
+ ↓
+ORDER
+ ↓
+SUPPLIER
+ ↓
+FULFILLMENT
+ ↓
+SHIPMENT
+ ↓
+DELIVERY
+ ↓
+REVIEW
+ ↓
+REPEAT PURCHASE
+```
+
+And financially:
+
+```text
+ORDER
+ ↓
+REVENUE
+ ↓
+SUPPLIER COST
+ ↓
+SHIPPING
+ ↓
+PAYMENT FEES
+ ↓
+AD COST
+ ↓
+REFUNDS
+ ↓
+CHARGEBACKS
+ ↓
+PROFIT
+```
+
+That's the data model I would build the analytics around.
+
+---
+
+# 81. 🧱 FINAL SIDEBAR FOR YOUR DROPSHIPPING PLATFORM
+
+I'd now make the sidebar something like this:
+
+```text
+🏠 Dashboard
+
+🛒 COMMERCE
+   ├── Orders
+   ├── Draft Orders
+   ├── Abandoned Carts
+   ├── Returns
+   ├── Refunds
+   └── Exchanges
+
+📦 CATALOG
+   ├── Products
+   ├── Categories
+   ├── Collections
+   ├── Brands
+   ├── Attributes
+   ├── Bundles
+   ├── Reviews
+   └── Product Research
+
+🏭 SUPPLIERS
+   ├── Supplier Directory
+   ├── Supplier Applications
+   ├── Supplier Products
+   ├── Supplier Pricing
+   ├── Supplier Inventory
+   ├── Supplier Orders
+   ├── Supplier Payments
+   ├── Supplier Performance
+   ├── Supplier SLAs
+   └── Supplier Integrations
+
+🔄 DROPSHIPPING
+   ├── Product Imports
+   ├── Product Sync
+   ├── Inventory Sync
+   ├── Price Sync
+   ├── Order Routing
+   ├── Fulfillment
+   ├── Tracking
+   ├── Supplier Routing
+   ├── Fallback Suppliers
+   └── Quality Control
+
+📊 INVENTORY
+   ├── Availability
+   ├── Locations
+   ├── Transfers
+   ├── Purchase Orders
+   └── Stock Alerts
+
+👥 CUSTOMERS
+   ├── Customers
+   ├── Segments
+   ├── Loyalty
+   ├── Store Credit
+   ├── Subscriptions
+   └── Customer Lifetime Value
+
+📣 GROWTH
+   ├── Campaigns
+   ├── Email
+   ├── SMS
+   ├── Push
+   ├── Automations
+   ├── Affiliates
+   ├── Referrals
+   └── Abandoned Cart
+
+🎟️ PROMOTIONS
+   ├── Discounts
+   ├── Coupons
+   ├── Gift Cards
+   └── Bundles
+
+🚚 SHIPPING
+   ├── Carriers
+   ├── Shipping Rates
+   ├── Shipping Zones
+   ├── Shipments
+   ├── Tracking
+   ├── Delivery
+   └── RTO/NDR
+
+💳 FINANCE
+   ├── Payments
+   ├── Transactions
+   ├── Supplier Payments
+   ├── Payouts
+   ├── Invoices
+   ├── Refunds
+   ├── Chargebacks
+   ├── Reconciliation
+   ├── Costs
+   └── Profit
+
+🌍 MARKETS
+   ├── Countries
+   ├── Currencies
+   ├── Languages
+   ├── Taxes
+   ├── Duties
+   └── International Shipping
+
+🎨 STOREFRONT
+   ├── Theme
+   ├── Pages
+   ├── CMS
+   ├── Navigation
+   ├── Blog
+   ├── Media
+   ├── SEO
+   └── Domains
+
+📈 ANALYTICS
+   ├── Overview
+   ├── Sales
+   ├── Orders
+   ├── Products
+   ├── Customers
+   ├── Suppliers
+   ├── Marketing
+   ├── Advertising
+   ├── Shipping
+   ├── Fulfillment
+   ├── Returns
+   ├── Finance
+   ├── Profitability
+   ├── Cohorts
+   ├── Attribution
+   └── Custom Reports
+
+📑 REPORTS
+   ├── Sales Reports
+   ├── Product Reports
+   ├── Customer Reports
+   ├── Supplier Reports
+   ├── Marketing Reports
+   ├── Financial Reports
+   ├── Inventory Reports
+   ├── Shipping Reports
+   ├── Fulfillment Reports
+   ├── Return Reports
+   └── Scheduled Reports
+
+💬 SUPPORT
+   ├── Tickets
+   ├── Live Chat
+   ├── Email
+   ├── WhatsApp
+   └── Knowledge Base
+
+🔌 INTEGRATIONS
+   ├── Apps
+   ├── Payment Gateways
+   ├── Shipping APIs
+   ├── Supplier APIs
+   ├── Marketing
+   ├── Analytics
+   ├── Accounting
+   ├── Webhooks
+   └── Developer API
+
+🤖 AUTOMATION
+   ├── Workflows
+   ├── Triggers
+   ├── Conditions
+   ├── Actions
+   ├── Scheduled Jobs
+   └── Event Logs
+
+🔐 SECURITY
+   ├── Users
+   ├── Roles
+   ├── Permissions
+   ├── 2FA
+   ├── Sessions
+   ├── API Keys
+   ├── Audit Logs
+   └── Security Events
+
+⚙️ SETTINGS
+   ├── Store
+   ├── Checkout
+   ├── Payments
+   ├── Shipping
+   ├── Taxes
+   ├── Notifications
+   ├── Customer Accounts
+   ├── Domains
+   ├── Policies
+   ├── Billing
+   └── Advanced
+```
+
+---
+
+## ⭐ The biggest difference I would make
+
+If you're actually planning to build this as your own **Shopify-style SaaS**, I would make **Dropshipping Operations + Profit Analytics + Supplier Intelligence** the differentiator.
+
+A normal ecommerce platform says:
+
+> **"You sold 1,000 products."**
+
+Your platform should say:
+
+> **"You sold 1,000 products, Supplier A fulfilled 620, Supplier B fulfilled 380, Supplier B is 18% slower, Product X generated the highest contribution margin, Campaign Y generated revenue but was unprofitable after supplier/shipping/ad costs, and Product Z should be paused because its supplier price increased and its margin fell below your threshold."**
+
+That requires an underlying **event/data architecture**, not just dashboard charts.
+
+### The core data flow should therefore be:
+
+```text
+                    TRAFFIC
+                       ↓
+                 STOREFRONT
+                       ↓
+                    PRODUCT
+                       ↓
+                     CART
+                       ↓
+                   CHECKOUT
+                       ↓
+                    PAYMENT
+                       ↓
+                    ORDER
+                       ↓
+              ┌────────┴────────┐
+              ↓                 ↓
+         CUSTOMER           SUPPLIER
+                                ↓
+                         ORDER ROUTING
+                                ↓
+                           FULFILLMENT
+                                ↓
+                            SHIPMENT
+                                ↓
+                            DELIVERY
+                                ↓
+                         RETURN/REFUND
+                                ↓
+                         FINAL PROFIT
+```
+
+And **every event** should feed your analytics engine.
+
+This is important because Shopify's current analytics already provides unified dashboards/reports, customizable metric cards, reports, data exploration and automated insights; its inventory reporting covers sell-through, inventory value and adjustments, while customer reporting covers new/returning customers and purchase behavior. ([Shopify Help Center][10])
+
+**If you're building this with the intention of eventually selling it to other businesses, the next document should be the actual technical master specification:** `Module → Page → Tab → Component → Field → Button → Action → API → Database table → Permission → Status → Automation → Analytics event → Report`. That would turn everything above into an actual buildable blueprint rather than just a feature list.
+
+[1]: https://help.shopify.com/en/manual/products/dropshipping/what-is-dropshipping?utm_source=chatgpt.com "Shopify Help Center | What is dropshipping?"
+[2]: https://help.shopify.com/en/manual/fulfillment/setup/fulfillment-options?utm_source=chatgpt.com "Shopify Help Center | Fulfillment options and dropshipping services"
+[3]: https://help.shopify.com/en/manual/products/analytics?utm_source=chatgpt.com "Shopify Help Center | Product analytics overview"
+[4]: https://help.shopify.com/en/manual/reports-and-analytics/shopify-reports/report-types/default-reports/profit-reports?utm_source=chatgpt.com "Shopify Help Center | Profit reports"
+[5]: https://help.shopify.com/en/manual/promoting-marketing/analyze-marketing/marketing-performance?utm_source=chatgpt.com "Shopify Help Center | Measuring marketing performance"
+[6]: https://help.shopify.com/manual/reports-and-analytics/shopify-reports/report-types/marketing-reports?locale=en-US&utm_source=chatgpt.com "Shopify Help Center | Marketing reports"
+[7]: https://help.shopify.com/en/manual/reports-and-analytics/shopify-reports/report-types/analytics-fields?utm_source=chatgpt.com "Shopify Help Center | Analytics data points (fields) reference"
+[8]: https://help.shopify.com/en/manual/reports-and-analytics/shopify-reports/report-types?utm_source=chatgpt.com "Shopify Help Center | Reports"
+[9]: https://help.shopify.com/en/manual/reports-and-analytics/shopify-reports/overview-dashboard?utm_source=chatgpt.com "Shopify Help Center | Analytics"
+[10]: https://help.shopify.com/en/manual/reports-and-analytics/shopify-reports?utm_source=chatgpt.com "Shopify Help Center | Shopify analytics"

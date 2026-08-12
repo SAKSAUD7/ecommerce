@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-primary: #0a0a0a;
+  --color-graphite: #1a1a1a;
+  --color-deep-space: #050505;
+  --color-glass-white: rgba(255, 255, 255, 0.05);
+  --color-accent-gold: #d4af37;
+}
+
+@layer base {
+  :root {
+    --background: #F5F2EB;
+    --foreground: #1A1A1A;
+    
+    /* Elegant Spatial UI Colors */
+    --color-beige-base: #F5F2EB;
+    --color-sand: #EAE6DB;
+    --color-dark-text: #1A1A1A;
+    --color-muted-text: #666666;
+    
+    --radius: 0.5rem;
+    
+    /* Lenis variables */
+    --lenis-scroll-duration: 1.2s;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Lenis smooth scrolling defaults */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Glassmorphism System */
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/40 backdrop-blur-xl border border-black/5 shadow-[0_8px_32px_rgba(0,0,0,0.02)];
+  }
+
+  .glass-card {
+    @apply bg-white/30 backdrop-blur-lg border border-black/5 shadow-[0_8px_32px_rgba(0,0,0,0.02)] transition-all duration-500 hover:bg-white/50 hover:shadow-[0_8px_32px_rgba(0,0,0,0.05)];
+  }
+
+  .spatial-glow {
+    position: relative;
+  }
+
+  .spatial-glow::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+    border-radius: inherit;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .text-luxury {
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #d4d5d8;
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #b5b6b8;
+  }
+}
