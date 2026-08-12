@@ -11,35 +11,72 @@ import CustomerReviewsSection from "@/components/shop/CustomerReviewsSection"
 import { apiFetch } from "@/lib/api"
 import { 
   ArrowRight, ShieldCheck, Truck, RotateCcw, Award, Heart, Star, 
-  Mail, Sparkles, Lock, CheckCircle2, Leaf
+  Sparkles, Lock, CheckCircle2, Leaf, Play, X, Headphones, Globe, ArrowLeft, ChevronRight
 } from "lucide-react"
 import { useCartStore } from "@/store/cartStore"
 
+const HERO_SLIDES = [
+  {
+    id: "01",
+    eyebrow: "TIMELESS. ICONIC. UNMISTAKABLY DENOURA.",
+    title: "CRAFTED FOR A LEGACY.",
+    subtitle: "Iconic designs that transcend trends and define generations of quiet luxury.",
+    ctaText: "EXPLORE COLLECTIONS →",
+    ctaLink: "/collections"
+  },
+  {
+    id: "02",
+    eyebrow: "EXCEPTIONAL MATERIALS. MASTERFUL CRAFTSMANSHIP.",
+    title: "CRAFTED FOR ETERNITY.",
+    subtitle: "Designed to be cherished forever. Hand-carved Florentine calfskin tailored with 24k gold locks.",
+    ctaText: "DISCOVER AURELIA →",
+    ctaLink: "/shop?category=tote-bags"
+  },
+  {
+    id: "03",
+    eyebrow: "BESPOKE EDITIONS & LIMITED RUNS.",
+    title: "CRAFTED FOR ICONS.",
+    subtitle: "Unique designs that celebrate individuality. Exclusively curated for the modern connoisseur.",
+    ctaText: "VIEW LIMITED EDITION →",
+    ctaLink: "/collections?filter=limited-edition"
+  }
+]
+
 const FALLBACK_NEW_ARRIVALS = [
-  { id: 101, name: "Aurelia Quilted Shoulder Bag", slug: "aurelia-quilted-shoulder", price: "520.00", img: "https://images.unsplash.com/photo-1583391733956-6c78276477e2" },
-  { id: 102, name: "Luxe Leather Tote", slug: "luxe-leather-tote", price: "680.00", img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f" },
-  { id: 103, name: "Monogram Mini Bag", slug: "monogram-mini-bag", price: "450.00", img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b" },
-  { id: 104, name: "Classic Top Handle Bag", slug: "classic-top-handle-bag", price: "740.00", img: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f" },
-  { id: 105, name: "Chain Crossbody Bag", slug: "chain-crossbody-bag", price: "490.00", img: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3" }
+  { id: 101, name: "Aurelia Quilted Tote", slug: "aurelia-structured-tote-demo", price: "580.00", img: "https://images.unsplash.com/photo-1583391733956-6c78276477e2", tag: "NEW" },
+  { id: 102, name: "Noelle Top Handle Bag", slug: "elan-mini-top-handle-demo", price: "620.00", img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f", tag: "NEW" },
+  { id: 103, name: "Elise Chain Shoulder Bag", slug: "celeste-quilted-shoulder-demo", price: "490.00", img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b", tag: "NEW" },
+  { id: 104, name: "Maison Crossbody Bag", slug: "maison-leather-crossbody-demo", price: "450.00", img: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f", tag: "NEW" },
+  { id: 105, name: "Solenne Mini Bag", slug: "camille-quilted-mini-demo", price: "360.00", img: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3", tag: "NEW" }
 ]
 
 const FALLBACK_BEST_SELLERS = [
-  { id: 201, name: "Aurelia Signature Bag", slug: "aurelia-signature-bag", price: "680.00", rating: "4.9", reviewsCount: 128, img: "https://images.unsplash.com/photo-1583391733956-6c78276477e2" },
-  { id: 202, name: "Elegant Hobo Bag", slug: "elegant-hobo-bag", price: "560.00", rating: "4.9", reviewsCount: 98, img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f" },
-  { id: 203, name: "Luxe Mini Crossbody", slug: "luxe-mini-crossbody", price: "420.00", rating: "4.9", reviewsCount: 56, img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b" },
-  { id: 204, name: "Structured Satchel Bag", slug: "structured-satchel-bag", price: "410.00", rating: "4.9", reviewsCount: 88, img: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f" },
-  { id: 205, name: "Classic Chain Bag", slug: "classic-chain-bag", price: "480.00", rating: "4.9", reviewsCount: 105, img: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3" }
+  { id: 201, name: "Aurelia Signature Tote", slug: "aurelia-structured-tote-demo", price: "580.00", rating: "4.9", reviewsCount: 128, img: "https://images.unsplash.com/photo-1583391733956-6c78276477e2" },
+  { id: 202, name: "Classic Top Handle Bag", slug: "elan-mini-top-handle-demo", price: "680.00", rating: "4.9", reviewsCount: 98, img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f" },
+  { id: 203, name: "Noelle Chain Shoulder", slug: "celeste-quilted-shoulder-demo", price: "490.00", rating: "4.9", reviewsCount: 76, img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b" },
+  { id: 204, name: "Elegance Hobo Bag", slug: "maison-leather-crossbody-demo", price: "470.00", rating: "4.8", reviewsCount: 64, img: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f" },
+  { id: 205, name: "Maison Crossbody Bag", slug: "camille-quilted-mini-demo", price: "450.00", rating: "4.9", reviewsCount: 87, img: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3" }
 ]
 
 export default function Home() {
-  const [heroContent, setHeroContent] = useState<any>(null)
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
   const [newArrivals, setNewArrivals] = useState<any[]>(FALLBACK_NEW_ARRIVALS)
   const [bestSellers, setBestSellers] = useState<any[]>(FALLBACK_BEST_SELLERS)
   const [wishlist, setWishlist] = useState<number[]>([])
+  const [campaignModalOpen, setCampaignModalOpen] = useState(false)
   const [emailSub, setEmailSub] = useState("")
   const [subSuccess, setSubSuccess] = useState(false)
   
   const addItem = useCartStore((state) => state.addItem)
+  const slide = HERO_SLIDES[currentSlideIndex]
+
+  useEffect(() => {
+    // Auto-rotate hero slide every 7 seconds
+    const timer = setInterval(() => {
+      setCurrentSlideIndex(prev => (prev + 1) % HERO_SLIDES.length)
+    }, 7000)
+    return () => clearInterval(timer)
+  }, [])
 
   useEffect(() => {
     // Fetch live catalog from Django REST backend API
@@ -54,18 +91,12 @@ export default function Home() {
             price: p.base_price,
             img: p.images?.[0]?.image_url || "https://images.unsplash.com/photo-1583391733956-6c78276477e2",
             rating: "4.9",
-            reviewsCount: 112
+            reviewsCount: 128,
+            tag: "NEW"
           }))
           setNewArrivals(mapped.slice(0, 5))
           setBestSellers(mapped.slice(5, 10).length > 0 ? mapped.slice(5, 10) : mapped.slice(0, 5))
         }
-      })
-      .catch(console.error)
-
-    // Fetch live Hero settings from backend CMS
-    apiFetch('/cms/sliders/')
-      .then(data => {
-        if (data && data.length > 0) setHeroContent(data[0])
       })
       .catch(console.error)
   }, [])
@@ -97,93 +128,108 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-[#FAF8F5] text-black min-h-screen font-sans selection:bg-[#C5A059] selection:text-black">
+    <div className="bg-[#05080E] text-white min-h-screen font-sans selection:bg-[#C5A059] selection:text-black">
       
-      {/* Top Announcement Bar & Sticky Header */}
+      {/* Top Announcement Bar & Header */}
       <SpatialNav />
 
-      {/* SECTION 1: SPATIAL 3D STUDIO HERO STAGE (#0A192F Dark Luxury) */}
-      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#0A192F] text-white">
-        {heroContent?.image_url && (
-          <img src={heroContent.image_url} className="absolute inset-0 w-full h-full object-cover opacity-15" alt="" />
-        )}
+      {/* SECTION 1: SPATIAL 3D HERO STAGE (#05080E Dark Luxury matching Reference Screenshots) */}
+      <section className="relative w-full h-screen flex items-center justify-between overflow-hidden bg-[#05080E] text-white px-6 md:px-16">
         
+        {/* 3D Canvas Scene */}
         <HeroScene />
         
-        <div className="z-10 text-center pointer-events-none mt-16 relative px-4 max-w-4xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-[0.35em] text-[#C5A059] mb-4 block drop-shadow">
-            HAUTE FASHION &amp; SPATIAL 3D ATELIER
-          </span>
-          <h1 className="text-5xl md:text-8xl font-bold tracking-[0.2em] text-[#C5A059] uppercase mb-6 drop-shadow-2xl font-serif">
-            {heroContent?.title || "DE'NOURA"}
-          </h1>
-          <p className="text-white/80 tracking-[0.2em] uppercase text-xs md:text-sm max-w-xl mx-auto font-medium drop-shadow-sm leading-relaxed">
-            {heroContent?.subtitle || "Timeless luxury bags, meticulously crafted for the modern connoisseur."}
-          </p>
+        {/* Left Side Content Overlay matching Reference Screenshots */}
+        <div className="z-10 max-w-xl space-y-6 pt-12">
           
-          <div className="mt-10 pointer-events-auto flex flex-wrap items-center justify-center gap-4">
-            <Link 
-              href={heroContent?.cta_link || "/shop"} 
-              className="px-8 py-4 bg-[#C5A059] text-black font-bold uppercase tracking-[0.2em] text-xs hover:bg-[#d5b069] transition-all duration-300 rounded-full shadow-2xl hover:scale-105"
-            >
-              {heroContent?.cta_text || "EXPLORE COLLECTION"}
-            </Link>
-            <Link 
-              href={heroContent?.secondary_cta_link || "/lookbook"} 
-              className="px-8 py-4 border border-white/30 text-white font-bold uppercase tracking-[0.2em] text-xs hover:bg-white/10 transition-all duration-300 rounded-full backdrop-blur-md"
-            >
-              {heroContent?.secondary_cta_text || "VIEW LOOKBOOK"}
-            </Link>
+          {/* Slide Indicator Dots (01 / 02 / 03) */}
+          <div className="flex items-center gap-4 text-xs font-mono font-bold tracking-widest text-[#C5A059]">
+            {HERO_SLIDES.map((s, idx) => (
+              <button
+                key={s.id}
+                onClick={() => setCurrentSlideIndex(idx)}
+                className={`transition-all duration-300 ${
+                  currentSlideIndex === idx ? "text-[#C5A059] font-extrabold scale-110 border-b-2 border-[#C5A059] pb-0.5" : "text-white/40 hover:text-white"
+                }`}
+              >
+                {s.id}
+              </button>
+            ))}
           </div>
-        </div>
-      </section>
 
-      {/* SECTION 2: CRAFTED FOR ELEGANCE (Light Warm Beige #FAF8F5) */}
-      <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto text-center space-y-12">
-        <div className="space-y-4 max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-[0.15em] uppercase text-black font-serif">
-            CRAFTED FOR ELEGANCE.
-          </h2>
-          <p className="text-black/60 text-sm md:text-base uppercase tracking-widest font-medium">
-            Timeless luxury bags, meticulously crafted for the modern connoisseur.
+          <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.35em] text-[#C5A059] block drop-shadow">
+            {slide.eyebrow}
+          </span>
+          
+          <h1 className="text-4xl md:text-7xl font-bold tracking-[0.1em] text-white uppercase font-serif leading-tight drop-shadow-2xl">
+            {slide.title}
+          </h1>
+
+          <p className="text-white/70 text-xs md:text-sm uppercase tracking-widest font-medium leading-relaxed max-w-md">
+            {slide.subtitle}
           </p>
-          <div className="pt-4">
+
+          <div className="pt-4 flex items-center gap-6">
             <Link 
-              href="/shop" 
-              className="inline-block px-8 py-4 bg-[#0A192F] text-white text-xs font-bold uppercase tracking-[0.2em] rounded-full hover:bg-black transition-all shadow-md"
+              href={slide.ctaLink} 
+              className="px-8 py-4 bg-[#C5A059] text-black font-bold uppercase tracking-[0.2em] text-xs hover:bg-[#d5b069] transition-all duration-300 rounded-full shadow-2xl hover:scale-105 flex items-center gap-2"
             >
-              EXPLORE COLLECTION
+              {slide.ctaText}
             </Link>
+          </div>
+
+          {/* Bottom Scroll Prompt */}
+          <div className="pt-12 flex items-center gap-2 text-[10px] uppercase font-bold tracking-[0.25em] text-white/50 animate-bounce">
+            SCROLL TO DISCOVER ↓
           </div>
         </div>
 
-        {/* 4 Feature Pillars matching reference design */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-black/10">
-          <div className="space-y-2 p-4">
-            <Sparkles className="w-6 h-6 text-[#C5A059] mx-auto" />
-            <h4 className="text-xs font-bold uppercase tracking-widest text-black">FINEST MATERIALS</h4>
-            <p className="text-xs text-black/60">Premium quality leathers and hardware</p>
+        {/* Right Side: Play Campaign Button matching Reference Screenshot */}
+        <div className="hidden lg:flex flex-col items-center justify-center gap-3 z-10">
+          <button 
+            onClick={() => setCampaignModalOpen(true)}
+            className="w-16 h-16 rounded-full border-2 border-[#C5A059]/40 bg-black/60 backdrop-blur-md flex items-center justify-center text-[#C5A059] hover:bg-[#C5A059] hover:text-black transition-all duration-500 shadow-2xl group"
+            title="Play Campaign Film"
+          >
+            <Play className="w-6 h-6 fill-current group-hover:scale-110 transition-transform" />
+          </button>
+          <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-white/60">PLAY CAMPAIGN</span>
+        </div>
+      </section>
+
+      {/* SECTION 2: 5-PILLAR OFF-WHITE TRUST BAR directly under Hero matching Reference Screenshots */}
+      <section className="py-6 bg-[#FAF8F5] text-black border-y border-black/10 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+          <div className="flex flex-col items-center space-y-1">
+            <Globe className="w-5 h-5 text-[#C5A059]" />
+            <h4 className="text-[11px] font-bold uppercase tracking-widest text-black">WORLDWIDE SHIPPING</h4>
+            <p className="text-[10px] text-gray-500 font-medium">Fast, secure &amp; tracked delivery</p>
           </div>
-          <div className="space-y-2 p-4">
-            <Award className="w-6 h-6 text-[#C5A059] mx-auto" />
-            <h4 className="text-xs font-bold uppercase tracking-widest text-black">EXPERT CRAFTSMANSHIP</h4>
-            <p className="text-xs text-black/60">Handcrafted by skilled Florentine artisans</p>
+          <div className="flex flex-col items-center space-y-1">
+            <Sparkles className="w-5 h-5 text-[#C5A059]" />
+            <h4 className="text-[11px] font-bold uppercase tracking-widest text-black">FINEST MATERIALS</h4>
+            <p className="text-[10px] text-gray-500 font-medium">Premium leathers &amp; hardware</p>
           </div>
-          <div className="space-y-2 p-4">
-            <Truck className="w-6 h-6 text-[#C5A059] mx-auto" />
-            <h4 className="text-xs font-bold uppercase tracking-widest text-black">WORLDWIDE SHIPPING</h4>
-            <p className="text-xs text-black/60">Secure, fast &amp; reliable express delivery</p>
+          <div className="flex flex-col items-center space-y-1">
+            <RotateCcw className="w-5 h-5 text-[#C5A059]" />
+            <h4 className="text-[11px] font-bold uppercase tracking-widest text-black">EASY RETURNS</h4>
+            <p className="text-[10px] text-gray-500 font-medium">Hassle-free returns within 30 days</p>
           </div>
-          <div className="space-y-2 p-4">
-            <RotateCcw className="w-6 h-6 text-[#C5A059] mx-auto" />
-            <h4 className="text-xs font-bold uppercase tracking-widest text-black">EASY RETURNS</h4>
-            <p className="text-xs text-black/60">Hassle-free returns within 30 days</p>
+          <div className="flex flex-col items-center space-y-1">
+            <Lock className="w-5 h-5 text-[#C5A059]" />
+            <h4 className="text-[11px] font-bold uppercase tracking-widest text-black">SECURE PAYMENTS</h4>
+            <p className="text-[10px] text-gray-500 font-medium">100% secure checkout</p>
+          </div>
+          <div className="flex flex-col items-center space-y-1 col-span-2 md:col-span-1">
+            <Headphones className="w-5 h-5 text-[#C5A059]" />
+            <h4 className="text-[11px] font-bold uppercase tracking-widest text-black">24/7 CUSTOMER CARE</h4>
+            <p className="text-[10px] text-gray-500 font-medium">We&apos;re here for you</p>
           </div>
         </div>
       </section>
 
-      {/* SECTION 3: NEW ARRIVALS CAROUSEL (Dark #06152D) */}
-      <section className="py-24 bg-[#06152D] text-white px-6 md:px-12">
+      {/* SECTION 3: NEW ARRIVALS CAROUSEL (#060B12 Dark Section) */}
+      <section className="py-24 bg-[#060B12] text-white px-6 md:px-12 border-b border-white/10">
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="flex justify-between items-end border-b border-white/10 pb-6">
             <div>
@@ -192,22 +238,30 @@ export default function Home() {
                 NEW ARRIVALS
               </h2>
             </div>
-            <Link href="/shop?category=new-in" className="text-xs font-bold uppercase tracking-widest text-[#C5A059] hover:underline flex items-center gap-2">
-              VIEW ALL <ArrowRight className="w-4 h-4" />
-            </Link>
+
+            <div className="flex items-center gap-6">
+              <Link href="/shop?category=new-in" className="text-xs font-bold uppercase tracking-widest text-[#C5A059] hover:underline flex items-center gap-2">
+                VIEW ALL <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
 
-          {/* 5 Product Horizontal Carousel Cards */}
+          {/* 5 Product Horizontal Cards matching screenshot */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {newArrivals.map(product => (
-              <div key={product.id} className="bg-[#0A192F] p-4 rounded-2xl border border-white/10 flex flex-col justify-between group hover:border-[#C5A059]/50 transition-all duration-300">
+              <div key={product.id} className="bg-[#0B1220] p-4 rounded-2xl border border-white/10 flex flex-col justify-between group hover:border-[#C5A059]/50 transition-all duration-300 relative shadow-xl">
                 <div>
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-black/20 mb-4">
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-black/40 mb-4 border border-white/5">
                     <img 
                       src={product.img} 
                       alt={product.name} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                     />
+                    
+                    <span className="absolute top-3 left-3 bg-black/80 text-[#C5A059] border border-[#C5A059]/40 text-[9px] font-bold uppercase px-2 py-0.5 rounded">
+                      NEW
+                    </span>
+
                     <button 
                       onClick={() => toggleWishlist(product.id)}
                       className="absolute top-3 right-3 p-2 bg-black/60 rounded-full backdrop-blur-md hover:bg-[#C5A059] hover:text-black transition-colors"
@@ -238,152 +292,138 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 4: INTERACTIVE BAG ANATOMY & CRAFTSMANSHIP ("THE DETAILS MATTER") */}
+      {/* SECTION 4: THE SIGNATURE COLLECTION FEATURE SECTION matching Reference Screenshots */}
+      <section className="py-24 bg-[#05080E] text-white px-6 md:px-12 border-b border-white/10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Column: Heading & Copy (5 Cols) */}
+          <div className="lg:col-span-5 space-y-6">
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#C5A059]">The Iconic Edit</span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-[0.1em] uppercase text-white font-serif leading-tight">
+              THE SIGNATURE COLLECTION
+            </h2>
+            <p className="text-xs text-white/70 uppercase tracking-widest font-medium leading-relaxed">
+              Where heritage techniques meet contemporary elegance. Hand-stitched full-grain calfskin tailored with signature 24k gold monogram locks.
+            </p>
+            <div className="pt-4">
+              <Link 
+                href="/collections" 
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#C5A059] text-black text-xs font-bold uppercase tracking-[0.2em] rounded-full hover:bg-[#d5b069] transition-all shadow-xl"
+              >
+                DISCOVER COLLECTION <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Center/Right Showcase Stage & Vertical Tabs (7 Cols) */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-6 items-center">
+            
+            {/* Center Showcase Bag */}
+            <div className="sm:col-span-2 relative aspect-[4/3] rounded-3xl overflow-hidden bg-black/60 border border-[#C5A059]/30 shadow-2xl group">
+              <img 
+                src="https://images.unsplash.com/photo-1583391733956-6c78276477e2" 
+                alt="Signature Collection Bag" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+              />
+              <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 text-[10px] font-bold uppercase text-[#C5A059]">
+                THE ART OF CRAFTSMANSHIP
+              </div>
+            </div>
+
+            {/* Vertical Collection Tabs matching screenshot */}
+            <div className="space-y-4">
+              <Link href="/collections?name=aurelia" className="block p-4 rounded-2xl bg-[#0B1220] border border-[#C5A059]/40 hover:border-[#C5A059] transition-all group">
+                <h4 className="font-bold text-xs uppercase text-[#C5A059] font-serif group-hover:underline">Aurelia Collection</h4>
+                <p className="text-[10px] text-white/50 uppercase tracking-widest mt-0.5">Timeless elegance</p>
+              </Link>
+
+              <Link href="/collections?name=monogram" className="block p-4 rounded-2xl bg-[#0B1220] border border-white/10 hover:border-[#C5A059] transition-all group">
+                <h4 className="font-bold text-xs uppercase text-white font-serif group-hover:underline">Monogram Collection</h4>
+                <p className="text-[10px] text-white/50 uppercase tracking-widest mt-0.5">Heritage reimagined</p>
+              </Link>
+
+              <Link href="/collections?name=prestige" className="block p-4 rounded-2xl bg-[#0B1220] border border-white/10 hover:border-[#C5A059] transition-all group">
+                <h4 className="font-bold text-xs uppercase text-white font-serif group-hover:underline">Prestige Edition</h4>
+                <p className="text-[10px] text-white/50 uppercase tracking-widest mt-0.5">Exclusively curated</p>
+              </Link>
+
+              <Link href="/collections?name=limited" className="block p-4 rounded-2xl bg-[#0B1220] border border-white/10 hover:border-[#C5A059] transition-all group">
+                <h4 className="font-bold text-xs uppercase text-white font-serif group-hover:underline">Limited Edition</h4>
+                <p className="text-[10px] text-white/50 uppercase tracking-widest mt-0.5">Only a few exist</p>
+              </Link>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* SECTION 5: INTERACTIVE BAG ANATOMY & CRAFTSMANSHIP ("THE DETAILS MATTER") */}
       <BagAnatomySection />
 
-      {/* SECTION 5: CINEMATIC PRODUCT SPOTLIGHT ("PRODUCT OF THE SEASON" matching Reference Images 4 & 5) */}
+      {/* SECTION 6: CINEMATIC PRODUCT SPOTLIGHT ("PRODUCT OF THE SEASON" matching Reference Screenshots) */}
       <ProductSpotlightSection />
 
-      {/* SECTION 6: SHOP BY CATEGORY (Warm Beige #FAF8F5) */}
-      <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto space-y-12">
-        <div className="text-center space-y-3">
-          <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#C5A059]">Curated Categories</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-[0.15em] uppercase text-black font-serif">
-            SHOP BY CATEGORY
-          </h2>
-        </div>
-
-        {/* 5 Category Grid Cards matching reference image */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-          <Link href="/shop?category=tote-bags" className="group bg-white p-4 rounded-2xl border border-black/10 text-center shadow-sm hover:shadow-xl transition-all">
-            <div className="aspect-square rounded-xl overflow-hidden mb-4 bg-gray-100">
-              <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2" alt="Totes" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+      {/* SECTION 7: BRAND HERITAGE & CRAFTSMANSHIP ("Rooted in Heritage. Driven by Passion.") */}
+      <section className="py-24 bg-[#0A121E] text-white px-6 md:px-12 border-y border-white/10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div className="lg:col-span-7 grid grid-cols-2 gap-4">
+            <div className="aspect-square rounded-3xl overflow-hidden border border-white/10 bg-black">
+              <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2" alt="Artisan Craftsmanship" className="w-full h-full object-cover" />
             </div>
-            <h3 className="font-bold text-xs uppercase tracking-widest text-black font-serif">TOTES</h3>
-            <span className="text-[10px] text-gray-500 font-bold uppercase">12 Items</span>
-          </Link>
-
-          <Link href="/shop?category=shoulder-bags" className="group bg-white p-4 rounded-2xl border border-black/10 text-center shadow-sm hover:shadow-xl transition-all">
-            <div className="aspect-square rounded-xl overflow-hidden mb-4 bg-gray-100">
-              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f" alt="Shoulder Bags" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div className="aspect-square rounded-3xl overflow-hidden border border-white/10 bg-black mt-8">
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f" alt="Florentine Leatherwork" className="w-full h-full object-cover" />
             </div>
-            <h3 className="font-bold text-xs uppercase tracking-widest text-black font-serif">SHOULDER BAGS</h3>
-            <span className="text-[10px] text-gray-500 font-bold uppercase">18 Items</span>
-          </Link>
+          </div>
 
-          <Link href="/shop?category=crossbody-bags" className="group bg-white p-4 rounded-2xl border border-black/10 text-center shadow-sm hover:shadow-xl transition-all">
-            <div className="aspect-square rounded-xl overflow-hidden mb-4 bg-gray-100">
-              <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b" alt="Crossbody Bags" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-            </div>
-            <h3 className="font-bold text-xs uppercase tracking-widest text-black font-serif">CROSSBODY BAGS</h3>
-            <span className="text-[10px] text-gray-500 font-bold uppercase">24 Items</span>
-          </Link>
-
-          <Link href="/shop?category=top-handle-bags" className="group bg-white p-4 rounded-2xl border border-black/10 text-center shadow-sm hover:shadow-xl transition-all">
-            <div className="aspect-square rounded-xl overflow-hidden mb-4 bg-gray-100">
-              <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f" alt="Top Handle Bags" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-            </div>
-            <h3 className="font-bold text-xs uppercase tracking-widest text-black font-serif">TOP HANDLE BAGS</h3>
-            <span className="text-[10px] text-gray-500 font-bold uppercase">15 Items</span>
-          </Link>
-
-          <Link href="/shop?category=evening-clutches" className="group bg-white p-4 rounded-2xl border border-black/10 text-center shadow-sm hover:shadow-xl transition-all">
-            <div className="aspect-square rounded-xl overflow-hidden mb-4 bg-gray-100">
-              <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3" alt="Clutches" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-            </div>
-            <h3 className="font-bold text-xs uppercase tracking-widest text-black font-serif">CLUTCHES</h3>
-            <span className="text-[10px] text-gray-500 font-bold uppercase">10 Items</span>
-          </Link>
-        </div>
-      </section>
-
-      {/* SECTION 7: ICONIC COLLECTIONS (Dark Editorial #0A192F) */}
-      <section className="py-24 bg-[#0A192F] text-white px-6 md:px-12">
-        <div className="max-w-7xl mx-auto space-y-12 text-center">
-          <div className="space-y-3">
-            <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#C5A059]">Bespoke Editions</span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-[0.15em] uppercase text-white font-serif">
-              ICONIC COLLECTIONS
+          <div className="lg:col-span-5 space-y-6">
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#C5A059]">Our Legacy</span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-[0.1em] uppercase text-white font-serif leading-tight">
+              Rooted in heritage.<br />Driven by passion.
             </h2>
+            <p className="text-xs text-white/70 leading-relaxed font-normal">
+              Denoura was born from a belief that true luxury lies in the details. Each piece is a tribute to master artisans, traditions, and shapes that shape us.
+            </p>
+
+            {/* Statistics Counter matching screenshot */}
+            <div className="grid grid-cols-4 gap-4 pt-4 border-t border-white/10">
+              <div>
+                <span className="text-2xl font-bold text-[#C5A059] font-serif block">2018</span>
+                <span className="text-[9px] font-bold text-white/50 uppercase tracking-wider">Established</span>
+              </div>
+              <div>
+                <span className="text-2xl font-bold text-[#C5A059] font-serif block">50+</span>
+                <span className="text-[9px] font-bold text-white/50 uppercase tracking-wider">Artisans</span>
+              </div>
+              <div>
+                <span className="text-2xl font-bold text-[#C5A059] font-serif block">23</span>
+                <span className="text-[9px] font-bold text-white/50 uppercase tracking-wider">Countries</span>
+              </div>
+              <div>
+                <span className="text-2xl font-bold text-[#C5A059] font-serif block">100K+</span>
+                <span className="text-[9px] font-bold text-white/50 uppercase tracking-wider">Clients</span>
+              </div>
+            </div>
+
+            <div className="pt-2">
+              <Link href="/about" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#C5A059] hover:underline">
+                READ OUR STORY <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
 
-          {/* 4 Large Editorial Cards matching reference layout */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
-            <Link href="/collections" className="group relative aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 shadow-2xl block">
-              <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2" alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-6 flex flex-col justify-end">
-                <h3 className="font-bold text-lg uppercase tracking-wider text-[#C5A059] font-serif">AURELIA COLLECTION</h3>
-                <p className="text-xs text-white/70 uppercase tracking-widest mt-1">Timeless Sophistication</p>
-              </div>
-            </Link>
-
-            <Link href="/collections" className="group relative aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 shadow-2xl block">
-              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f" alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-6 flex flex-col justify-end">
-                <h3 className="font-bold text-lg uppercase tracking-wider text-[#C5A059] font-serif">MONOGRAM COLLECTION</h3>
-                <p className="text-xs text-white/70 uppercase tracking-widest mt-1">Signature. Elevated.</p>
-              </div>
-            </Link>
-
-            <Link href="/collections" className="group relative aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 shadow-2xl block">
-              <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b" alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-6 flex flex-col justify-end">
-                <h3 className="font-bold text-lg uppercase tracking-wider text-[#C5A059] font-serif">PRESTIGE EDITION</h3>
-                <p className="text-xs text-white/70 uppercase tracking-widest mt-1">Luxury Redefined</p>
-              </div>
-            </Link>
-
-            <Link href="/collections" className="group relative aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 shadow-2xl block">
-              <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d" alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-6 flex flex-col justify-end">
-                <h3 className="font-bold text-lg uppercase tracking-wider text-[#C5A059] font-serif">LIMITED EDITION</h3>
-                <p className="text-xs text-white/70 uppercase tracking-widest mt-1">Exclusively Yours</p>
-              </div>
-            </Link>
-          </div>
-
-          <div className="pt-6">
-            <Link href="/collections" className="inline-block px-8 py-4 border border-[#C5A059] text-[#C5A059] text-xs font-bold uppercase tracking-[0.2em] rounded-full hover:bg-[#C5A059] hover:text-black transition-all">
-              VIEW ALL COLLECTIONS
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* SECTION 8: INTERACTIVE EDITORIAL LOOKBOOK & SHOP THE LOOK (matching Reference Images 1 & 3) */}
+      {/* SECTION 8: INTERACTIVE EDITORIAL LOOKBOOK & SHOP THE LOOK */}
       <InteractiveLookbookSection />
 
-      {/* SECTION 9: TRUST & SECURITY BAR (Light Background) */}
-      <section className="py-12 bg-white border-y border-black/10 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div className="flex flex-col items-center space-y-2">
-            <Lock className="w-6 h-6 text-[#C5A059]" />
-            <h4 className="text-xs font-bold uppercase tracking-widest text-black">SECURE PAYMENTS</h4>
-            <p className="text-xs text-gray-500 font-medium">100% encrypted bank checkout</p>
-          </div>
-          <div className="flex flex-col items-center space-y-2">
-            <Star className="w-6 h-6 text-[#C5A059]" />
-            <h4 className="text-xs font-bold uppercase tracking-widest text-black">5 STAR CUSTOMER CARE</h4>
-            <p className="text-xs text-gray-500 font-medium">Concierge available for you</p>
-          </div>
-          <div className="flex flex-col items-center space-y-2">
-            <ShieldCheck className="w-6 h-6 text-[#C5A059]" />
-            <h4 className="text-xs font-bold uppercase tracking-widest text-black">QUALITY GUARANTEED</h4>
-            <p className="text-xs text-gray-500 font-medium">Premium luxury promise</p>
-          </div>
-          <div className="flex flex-col items-center space-y-2">
-            <Leaf className="w-6 h-6 text-[#C5A059]" />
-            <h4 className="text-xs font-bold uppercase tracking-widest text-black">SUSTAINABLE LUXURY</h4>
-            <p className="text-xs text-gray-500 font-medium">Ethical &amp; responsible sourcing</p>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 10: AS SEEN IN PRESS LOGOS BAR matching reference image */}
-      <section className="py-10 bg-[#FAF8F5] border-b border-black/10 px-6">
-        <div className="max-w-7xl mx-auto text-center space-y-4">
-          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400">AS SEEN IN</span>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-60 text-lg md:text-xl font-bold font-serif uppercase tracking-[0.25em] text-black">
+      {/* SECTION 9: PRESS LOGOS BAR ("AS SEEN IN") matching Reference Screenshots */}
+      <section className="py-10 bg-[#05080E] border-y border-white/10 px-6">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40">AS SEEN IN</span>
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14 opacity-70 text-lg md:text-xl font-bold font-serif uppercase tracking-[0.25em] text-white">
             <span>VOGUE</span>
             <span>ELLE</span>
             <span>BAZAAR</span>
@@ -391,29 +431,32 @@ export default function Home() {
             <span>InStyle</span>
             <span>HARPER&apos;S BAZAAR</span>
           </div>
+          <Link href="/about" className="text-xs font-bold uppercase tracking-widest text-[#C5A059] hover:underline">
+            OUR STORY →
+          </Link>
         </div>
       </section>
 
-      {/* SECTION 11: BEST SELLERS (Warm Light Background) */}
+      {/* SECTION 10: BEST SELLERS (Dark #060B12 Background matching screenshots) */}
       <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto space-y-12">
-        <div className="flex justify-between items-end border-b border-black/10 pb-6">
+        <div className="flex justify-between items-end border-b border-white/10 pb-6">
           <div>
             <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#C5A059] block mb-2">Most Coveted Pieces</span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-[0.15em] uppercase text-black font-serif">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-[0.15em] uppercase text-white font-serif">
               BEST SELLERS
             </h2>
           </div>
-          <Link href="/shop?filter=best-sellers" className="text-xs font-bold uppercase tracking-widest text-black hover:text-[#C5A059] flex items-center gap-2">
+          <Link href="/shop?filter=best-sellers" className="text-xs font-bold uppercase tracking-widest text-white hover:text-[#C5A059] flex items-center gap-2">
             VIEW ALL <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
-        {/* 5 Best Seller Product Cards with Rating Stars */}
+        {/* 5 Best Seller Cards with Rating Stars */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {bestSellers.map(product => (
-            <div key={product.id} className="bg-white p-4 rounded-2xl border border-black/10 shadow-sm flex flex-col justify-between group hover:shadow-xl transition-all duration-300">
+            <div key={product.id} className="bg-[#0B1220] p-4 rounded-2xl border border-white/10 flex flex-col justify-between group hover:border-[#C5A059]/50 transition-all duration-300 shadow-xl">
               <div>
-                <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-gray-50 mb-4 border">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-black/40 mb-4 border border-white/5">
                   <img 
                     src={product.img} 
                     alt={product.name} 
@@ -421,29 +464,29 @@ export default function Home() {
                   />
                   <button 
                     onClick={() => toggleWishlist(product.id)}
-                    className="absolute top-3 right-3 p-2 bg-white/80 rounded-full backdrop-blur-md hover:bg-[#C5A059] text-black transition-colors shadow-sm"
+                    className="absolute top-3 right-3 p-2 bg-black/60 rounded-full backdrop-blur-md hover:bg-[#C5A059] hover:text-black transition-colors"
                   >
-                    <Heart className={`w-4 h-4 ${wishlist.includes(product.id) ? "fill-[#C5A059] text-[#C5A059]" : "text-black"}`} />
+                    <Heart className={`w-4 h-4 ${wishlist.includes(product.id) ? "fill-[#C5A059] text-[#C5A059]" : "text-white"}`} />
                   </button>
                 </div>
 
-                <h3 className="font-bold text-xs uppercase tracking-wider text-black font-serif mb-1 line-clamp-1">{product.name}</h3>
-                <p className="text-sm font-bold text-[#0A192F] mb-2">${product.price}</p>
+                <h3 className="font-bold text-xs uppercase tracking-wider text-white font-serif mb-1 line-clamp-1">{product.name}</h3>
+                <p className="text-sm font-bold text-[#C5A059] mb-2">${product.price}</p>
                 
                 <div className="flex items-center gap-1 text-[11px] font-bold text-[#C5A059]">
                   <Star className="w-3.5 h-3.5 fill-current" />
-                  <span className="text-gray-900">{product.rating}</span>
-                  <span className="text-gray-400 font-normal">({product.reviewsCount})</span>
+                  <span className="text-white">{product.rating}</span>
+                  <span className="text-white/40 font-normal">({product.reviewsCount})</span>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-black/10 mt-4 flex items-center justify-between">
-                <Link href={`/shop/${product.slug}`} className="text-[10px] uppercase font-bold text-black/70 hover:text-black">
-                  View Piece →
+              <div className="pt-4 border-t border-white/10 mt-4 flex items-center justify-between">
+                <Link href={`/shop/${product.slug}`} className="text-[10px] uppercase font-bold text-white/70 hover:text-white">
+                  Inspect Piece →
                 </Link>
                 <button 
                   onClick={() => handleAddToCart(product)}
-                  className="px-3 py-1.5 bg-[#0A192F] text-white text-[10px] font-bold uppercase rounded hover:bg-black transition-colors"
+                  className="px-3 py-1.5 bg-[#C5A059] text-black text-[10px] font-bold uppercase rounded hover:bg-[#d5b069]"
                 >
                   + Add
                 </button>
@@ -453,13 +496,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 12: VERIFIED CUSTOMER REVIEWS */}
+      {/* SECTION 11: VERIFIED CUSTOMER REVIEWS */}
       <section className="max-w-7xl mx-auto px-6 md:px-12 my-12">
         <CustomerReviewsSection />
       </section>
 
-      {/* SECTION 13: NEWSLETTER & FOOTER (Dark #06152D Background matching reference image) */}
-      <footer className="bg-[#06152D] text-white pt-20 pb-12 px-6 md:px-12 border-t border-[#C5A059]/20">
+      {/* SECTION 12: NEWSLETTER & MULTI-COLUMN FOOTER matching Reference Screenshots */}
+      <footer className="bg-[#03060A] text-white pt-20 pb-12 px-6 md:px-12 border-t border-[#C5A059]/20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
           
           {/* Newsletter Box (5 Cols) */}
@@ -545,6 +588,32 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* CAMPAIGN VIDEO MODAL */}
+      {campaignModalOpen && (
+        <div className="fixed inset-0 z-[300] bg-black/90 backdrop-blur-2xl flex items-center justify-center p-6">
+          <div className="relative w-full max-w-4xl bg-black rounded-3xl overflow-hidden border border-[#C5A059]/40 shadow-2xl p-6 text-center space-y-4">
+            <button 
+              onClick={() => setCampaignModalOpen(false)}
+              className="absolute top-4 right-4 p-2 text-white/60 hover:text-white bg-white/10 rounded-full"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#C5A059] block">DE'NOURA ATELIER FILM</span>
+            <h3 className="text-2xl font-bold uppercase text-white font-serif">CRAFTED FOR A LEGACY</h3>
+            
+            <div className="aspect-video rounded-2xl overflow-hidden bg-black/80 border border-white/10 flex items-center justify-center">
+              <iframe 
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" 
+                title="DE'NOURA Campaign" 
+                className="w-full h-full"
+                allow="autoplay; encrypted-media"
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   )

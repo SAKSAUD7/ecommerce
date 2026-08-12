@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
-import { Environment, Float, PresentationControls, Sparkles, Html, MeshTransmissionMaterial } from "@react-three/drei"
+import { Environment, Float, PresentationControls, Sparkles, Html } from "@react-three/drei"
 import * as THREE from "three"
 
 function LuxuryBagStage({ position, scale = 1, rotationSpeed = 0.2, tagText = "Italian Calfskin Leather", isMain = false, slug = "denoura-master-tote" }: { position: [number, number, number]; scale?: number; rotationSpeed?: number; tagText?: string; isMain?: boolean; slug?: string }) {
@@ -12,40 +12,40 @@ function LuxuryBagStage({ position, scale = 1, rotationSpeed = 0.2, tagText = "I
   useFrame((state, delta) => {
     if (groupRef.current) {
       time.current += delta * rotationSpeed
-      groupRef.current.rotation.y = Math.sin(time.current) * 0.25
-      groupRef.current.rotation.x = Math.cos(time.current * 0.4) * 0.06
+      groupRef.current.rotation.y = Math.sin(time.current) * 0.28
+      groupRef.current.rotation.x = Math.cos(time.current * 0.45) * 0.07
     }
   })
 
   return (
     <group ref={groupRef} position={position}>
-      <Float speed={2} rotationIntensity={0.3} floatIntensity={0.9}>
+      <Float speed={2.2} rotationIntensity={0.35} floatIntensity={0.95}>
         {/* Main Sculpted Leather Tote Body */}
         <mesh position={[0, -0.1, 0]} scale={scale}>
-          <boxGeometry args={[2.4, 1.9, 1.0]} />
+          <boxGeometry args={[2.5, 2.0, 1.05]} />
           <meshStandardMaterial 
-            color={isMain ? "#121212" : "#222222"} 
-            roughness={0.15} 
-            metalness={0.2}
+            color={isMain ? "#121212" : "#1F1F1F"} 
+            roughness={0.12} 
+            metalness={0.25}
           />
         </mesh>
         
         {/* Gold Clasp & Monogram Lock Details matching reference */}
-        <mesh position={[0, 0.45, 0.52]} scale={scale * 0.85}>
-          <boxGeometry args={[0.5, 0.3, 0.12]} />
-          <meshStandardMaterial color="#C5A059" roughness={0.1} metalness={0.95} />
+        <mesh position={[0, 0.48, 0.54]} scale={scale * 0.88}>
+          <boxGeometry args={[0.52, 0.32, 0.12]} />
+          <meshStandardMaterial color="#C5A059" roughness={0.08} metalness={0.96} />
         </mesh>
 
         {/* Gold Cylinder Lock Accent */}
-        <mesh position={[0, 0.45, 0.6]} rotation={[0, 0, Math.PI / 2]} scale={scale * 0.7}>
-          <cylinderGeometry args={[0.08, 0.08, 0.3, 32]} />
+        <mesh position={[0, 0.48, 0.62]} rotation={[0, 0, Math.PI / 2]} scale={scale * 0.75}>
+          <cylinderGeometry args={[0.08, 0.08, 0.32, 32]} />
           <meshStandardMaterial color="#D5B069" roughness={0.05} metalness={0.98} />
         </mesh>
 
         {/* Leather Handles */}
-        <mesh position={[0, 1.2, 0]} scale={scale * 0.95}>
-          <torusGeometry args={[0.75, 0.07, 16, 32, Math.PI]} />
-          <meshStandardMaterial color="#0A0A0A" roughness={0.25} />
+        <mesh position={[0, 1.25, 0]} scale={scale * 0.98}>
+          <torusGeometry args={[0.78, 0.075, 16, 32, Math.PI]} />
+          <meshStandardMaterial color="#0A0A0A" roughness={0.22} />
         </mesh>
 
         {/* Interactive Spatial Tag */}
@@ -71,23 +71,38 @@ function StudioSculptures() {
   return (
     <group>
       {/* Stone Pedestal for centerpiece matching Reference Image 4 */}
-      <mesh position={[0, -2.1, 0]} scale={[2.6, 0.6, 1.8]}>
-        <cylinderGeometry args={[1.5, 1.6, 1, 32]} />
-        <meshStandardMaterial color="#1E293B" roughness={0.4} metalness={0.1} />
+      <mesh position={[0, -2.2, 0]} scale={[2.7, 0.65, 1.9]}>
+        <cylinderGeometry args={[1.5, 1.65, 1, 32]} />
+        <meshStandardMaterial color="#172234" roughness={0.35} metalness={0.15} />
       </mesh>
+
+      {/* Floating Metallic Spheres matching Reference Images 1 & 4 */}
+      <Float speed={1.8} floatIntensity={0.6}>
+        <mesh position={[-3.2, -1.2, 0.5]} scale={0.28}>
+          <sphereGeometry args={[1, 32, 32]} />
+          <meshStandardMaterial color="#C5A059" roughness={0.05} metalness={0.98} />
+        </mesh>
+      </Float>
+
+      <Float speed={2.0} floatIntensity={0.7}>
+        <mesh position={[3.2, 1.5, -0.5]} scale={0.22}>
+          <sphereGeometry args={[1, 32, 32]} />
+          <meshStandardMaterial color="#D5B069" roughness={0.05} metalness={0.98} />
+        </mesh>
+      </Float>
 
       {/* Outer Floating Gold Accent Rings */}
       <Float speed={1.5} rotationIntensity={0.8} floatIntensity={0.5}>
         <mesh position={[0, 0.2, -1]} rotation={[Math.PI / 3, Math.PI / 6, 0]}>
-          <torusGeometry args={[3.2, 0.03, 16, 100]} />
-          <meshStandardMaterial color="#C5A059" roughness={0.1} metalness={0.9} />
+          <torusGeometry args={[3.3, 0.035, 16, 100]} />
+          <meshStandardMaterial color="#C5A059" roughness={0.08} metalness={0.92} />
         </mesh>
       </Float>
 
       <Float speed={1.2} rotationIntensity={0.6} floatIntensity={0.4}>
         <mesh position={[0, -0.4, -0.5]} rotation={[-Math.PI / 4, -Math.PI / 4, 0]}>
-          <torusGeometry args={[2.5, 0.02, 16, 100]} />
-          <meshStandardMaterial color="#D5B069" roughness={0.1} metalness={0.9} />
+          <torusGeometry args={[2.6, 0.025, 16, 100]} />
+          <meshStandardMaterial color="#D5B069" roughness={0.08} metalness={0.92} />
         </mesh>
       </Float>
     </group>
@@ -102,10 +117,10 @@ export default function HeroScene() {
         gl={{ antialias: true, alpha: true }}
         dpr={[1, 2]}
       >
-        <ambientLight intensity={1.5} />
-        <directionalLight position={[8, 12, 10]} intensity={3.0} color="#ffffff" />
-        <directionalLight position={[-10, -8, -5]} intensity={1.5} color="#C5A059" />
-        <pointLight position={[0, 2, 4]} intensity={2.0} color="#D5B069" />
+        <ambientLight intensity={1.6} />
+        <directionalLight position={[8, 12, 10]} intensity={3.2} color="#ffffff" />
+        <directionalLight position={[-10, -8, -5]} intensity={1.6} color="#C5A059" />
+        <pointLight position={[0, 2, 4]} intensity={2.2} color="#D5B069" />
 
         <PresentationControls
           global
@@ -121,9 +136,9 @@ export default function HeroScene() {
             position={[0, -0.1, 0]} 
             scale={1.25} 
             rotationSpeed={0.25} 
-            tagText="DE'NOURA Master Tote ($450)" 
+            tagText="DE'NOURA Master Tote ($580)" 
             isMain={true}
-            slug="denoura-master-tote" 
+            slug="aurelia-structured-tote" 
           />
 
           {/* Upper Left Floating Bag */}
@@ -132,7 +147,7 @@ export default function HeroScene() {
             scale={0.75} 
             rotationSpeed={0.18} 
             tagText="Royal Velvet Clutch ($299)" 
-            slug="royal-velvet-clutch"
+            slug="elise-evening-velvet-clutch"
           />
 
           {/* Lower Right Floating Bag */}
@@ -141,7 +156,7 @@ export default function HeroScene() {
             scale={0.8} 
             rotationSpeed={0.22} 
             tagText="Italian Silk Crossbody ($320)" 
-            slug="italian-silk-crossbody"
+            slug="maison-leather-crossbody"
           />
 
           {/* Background Left Mini Bag */}
@@ -150,12 +165,21 @@ export default function HeroScene() {
             scale={0.65} 
             rotationSpeed={0.15} 
             tagText="Aurelia Quilted Mini ($310)" 
-            slug="aurelia-quilted-shoulder"
+            slug="camille-quilted-mini"
+          />
+
+          {/* Background Right Top Handle Bag */}
+          <LuxuryBagStage 
+            position={[1.8, 1.3, -2.0]} 
+            scale={0.7} 
+            rotationSpeed={0.2} 
+            tagText="Noelle Top Handle Bag ($620)" 
+            slug="elan-mini-top-handle"
           />
         </PresentationControls>
 
         {/* Ambient Floating Gold Particles */}
-        <Sparkles count={150} scale={11} size={2.0} speed={0.6} opacity={0.4} color="#C5A059" />
+        <Sparkles count={160} scale={11} size={2.2} speed={0.65} opacity={0.42} color="#C5A059" />
         <Environment preset="city" />
       </Canvas>
     </div>
